@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إضاءة | منصتك للتسويق</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0b0b0b;
+      color: white;
+    }
+
+    header {
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+      color: #d4af37;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      margin-right: 25px;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      background:
+        radial-gradient(circle at center, #29230d 0%, #0b0b0b 55%);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero h1 {
+      font-size: 65px;
+      margin-bottom: 20px;
+    }
+
+    .gold {
+      color: #d4af37;
+    }
+
+    .hero p {
+      font-size: 21px;
+      color: #bbb;
+      line-height: 1.8;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .primary {
+      background: #d4af37;
+      color: #111;
+    }
+
+    .primary:hover {
+      background: #f0cf58;
+      transform: translateY(-3px);
+    }
+
+    .secondary {
+      border: 1px solid #d4af37;
+      color: #d4af37;
+    }
+
+    .secondary:hover {
+      background: #d4af37;
+      color: #111;
+    }
+
+    .section {
+      padding: 80px 8%;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 38px;
+      margin-bottom: 45px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: #151515;
+      padding: 35px 25px;
+      border-radius: 18px;
+      border: 1px solid #292929;
+    }
+
+    .card h3 {
+      color: #d4af37;
+      margin-bottom: 15px;
+      font-size: 23px;
+    }
+
+    .card p {
+      color: #aaa;
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid #222;
+      color: #777;
+    }
+
+    @media (max-width: 800px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 45px;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">إضاءة</div>
+
+    <nav>
+      <a href="#">الرئيسية</a>
+      <a href="#about">عن إضاءة</a>
+      <a href="#features">المميزات</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+
+      <h1>
+        اصنع فرصتك مع
+        <span class="gold">إضاءة</span>
+      </h1>
+
+      <p>
+        منصة تربط المسوقين بالفرص التسويقية والمنصات والعلامات التجارية،
+        وتساعدك على تحويل جهودك التسويقية إلى نتائج حقيقية.
+      </p>
+
+      <div class="buttons">
+        <a href="#" class="btn primary">انضم كمسوق</a>
+        <a href="#" class="btn secondary">أنا شركة</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="features">
+
+    <h2>لماذا <span class="gold">إضاءة؟</span></h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>فرص تسويقية</h3>
+        <p>
+          اكتشف فرصًا تسويقية متنوعة واعمل مع منصات وعلامات تجارية مختلفة.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>عمولات وحوافز</h3>
+        <p>
+          احصل على عمولات مقابل المبيعات التي تحققها من خلال كودك التسويقي.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>تابع أداءك</h3>
+        <p>
+          تابع مبيعاتك ونتائجك وعمولاتك من خلال لوحة تحكم مخصصة للمسوق.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section" id="about">
+
+    <h2>كيف تعمل <span class="gold">إضاءة؟</span></h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>1 — سجل</h3>
+        <p>أنشئ حسابك وانضم إلى فريق مسوقي إضاءة.</p>
+      </div>
+
+      <div class="card">
+        <h3>2 — سوّق</h3>
+        <p>استخدم كودك ورابطك التسويقي للوصول إلى العملاء.</p>
+      </div>
+
+      <div class="card">
+        <h3>3 — حقق المبيعات</h3>
+        <p>كل عملية تتم من خلالك يتم تسجيلها في النظام.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 إضاءة — جميع الحقوق محفوظة
+  </footer>
+
+</body>
+</html>
