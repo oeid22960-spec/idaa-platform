@@ -1550,16 +1550,40 @@
   ========================= -->
 
   <script>
+  const companyForm = document.getElementById("companyForm");
+  const successMessage = document.getElementById("successMessage");
 
-    const companyForm = document.getElementById("companyForm");
-    const successMessage = document.getElementById("successMessage");
+  const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbwPPDymDZFUtdnbVwXGDWl_5ZH-w28MckkhmZnqjQvuXaSPfLebHaaVC2jk9vVRlmY/exec";
 
-    companyForm.addEventListener("submit", function(event) {
+  companyForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
 
-      event.preventDefault();
+    const formData = {
+      companyName: document.getElementById("companyName").value,
+      managerName: document.getElementById("managerName").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      field: document.getElementById("field").value,
+      description: document.getElementById("description").value,
+      cooperation: document.getElementById("cooperation").value
+    };
+
+    const submitButton = companyForm.querySelector(".form-submit");
+
+    submitButton.disabled = true;
+    submitButton.textContent = "جاري إرسال الطلب...";
+
+    try {
+      await fetch(GOOGLE_SHEETS_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(formData)
+      });
 
       companyForm.style.display = "none";
-
       successMessage.style.display = "block";
 
       successMessage.scrollIntoView({
@@ -1567,9 +1591,14 @@
         block: "center"
       });
 
-    });
+    } catch (error) {
+      submitButton.disabled = false;
+      submitButton.textContent = "إرسال طلب الانضمام";
 
-  </script>
+      alert("حدث خطأ أثناء إرسال الطلب، حاول مرة أخرى.");
+    }
+  });
+</script>
 
 </body>
 </html>
