@@ -30,6 +30,13 @@
       color: inherit;
     }
 
+    button,
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+    }
+
     .container {
       width: 90%;
       max-width: 1200px;
@@ -54,12 +61,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 25px;
     }
 
-    /* شعار الموقع */
     .logo {
-      font-size: 27px;
+      font-size: 28px;
       font-weight: bold;
       color: #d6a84f;
       white-space: nowrap;
@@ -67,57 +73,22 @@
 
     .nav-links {
       display: flex;
-      gap: 28px;
-      list-style: none;
       align-items: center;
+      justify-content: center;
+      gap: 25px;
+      list-style: none;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
       color: #ddd;
-      transition: 0.3s;
       font-size: 15px;
-    }
-
-    .nav-links a:hover {
-      color: #d6a84f;
-    }
-
-    /* أزرار الهيدر */
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .nav-button {
-      padding: 9px 16px;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 14px;
       transition: 0.3s;
       white-space: nowrap;
     }
 
-    .marketer-btn {
-      background: #d6a84f;
-      color: #111;
-    }
-
-    .marketer-btn:hover {
-      background: #e2b85e;
-      transform: translateY(-2px);
-    }
-
-    .company-btn {
-      border: 1px solid #d6a84f;
+    .nav-links a:hover {
       color: #d6a84f;
-      background: transparent;
-    }
-
-    .company-btn:hover {
-      background: #d6a84f;
-      color: #111;
-      transform: translateY(-2px);
     }
 
     /* =========================
@@ -131,6 +102,7 @@
       text-align: center;
       position: relative;
       overflow: hidden;
+
       background:
         radial-gradient(circle at center, #302510 0%, #11100e 30%, #0b0b0d 70%);
     }
@@ -164,13 +136,8 @@
       color: #bbb;
       font-size: 20px;
       max-width: 700px;
-      margin: 0 auto 35px;
+      margin: 0 auto;
     }
-
-    /*
-      تم حذف زر "انضم كمسوق" من الواجهة الرئيسية
-      حسب طلبك.
-    */
 
     /* =========================
        الأقسام
@@ -193,6 +160,8 @@
     .section-title p {
       color: #999;
       font-size: 17px;
+      max-width: 700px;
+      margin: auto;
     }
 
     /* =========================
@@ -270,11 +239,52 @@
     }
 
     /* =========================
+       الفرص
+    ========================= */
+
+    .opportunities {
+      background: #101012;
+    }
+
+    .opportunity-card {
+      background: #121214;
+      border: 1px solid #25252a;
+      border-radius: 18px;
+      padding: 30px;
+      transition: 0.3s;
+    }
+
+    .opportunity-card:hover {
+      transform: translateY(-5px);
+      border-color: #80652e;
+    }
+
+    .opportunity-card h3 {
+      color: #fff;
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .opportunity-card p {
+      color: #999;
+      margin-bottom: 18px;
+    }
+
+    .opportunity-tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid #6f5725;
+      color: #d6a84f;
+      font-size: 13px;
+    }
+
+    /* =========================
        طريقة العمل
     ========================= */
 
     .steps {
-      background: #101012;
+      background: #0b0b0d;
     }
 
     .step-number {
@@ -285,56 +295,14 @@
     }
 
     /* =========================
-       قسم الشركات
+       قسم انضم كمسوق
     ========================= */
 
-    .companies {
-      background: #0b0b0d;
+    .join-marketer {
+      background: #101012;
     }
 
-    .company-box {
-      background: linear-gradient(135deg, #201a0d, #15130e);
-      border: 1px solid #55441f;
-      border-radius: 25px;
-      padding: 55px 30px;
-      text-align: center;
-    }
-
-    .company-box h2 {
-      font-size: 36px;
-      margin-bottom: 15px;
-    }
-
-    .company-box p {
-      color: #aaa;
-      max-width: 700px;
-      margin: 0 auto 25px;
-    }
-
-    .company-btn-large {
-      display: inline-block;
-      background: #d6a84f;
-      color: #111;
-      padding: 13px 28px;
-      border-radius: 12px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .company-btn-large:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(214,168,79,0.2);
-    }
-
-    /* =========================
-       الدعوة
-    ========================= */
-
-    .cta {
-      padding: 100px 20px;
-    }
-
-    .cta-box {
+    .join-box {
       background: linear-gradient(135deg, #201a0d, #15130e);
       border: 1px solid #55441f;
       border-radius: 25px;
@@ -342,14 +310,15 @@
       text-align: center;
     }
 
-    .cta-box h2 {
+    .join-box h2 {
       font-size: 40px;
       margin-bottom: 15px;
     }
 
-    .cta-box p {
+    .join-box p {
       color: #aaa;
-      margin-bottom: 30px;
+      max-width: 700px;
+      margin: 0 auto 30px;
     }
 
     .primary-btn {
@@ -366,6 +335,174 @@
     .primary-btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 30px rgba(214,168,79,0.2);
+    }
+
+    /* =========================
+       قسم الشركات
+    ========================= */
+
+    .companies {
+      background: #0b0b0d;
+    }
+
+    .company-wrapper {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .company-box {
+      background: #121214;
+      border: 1px solid #25252a;
+      border-radius: 25px;
+      padding: 45px;
+    }
+
+    .company-box h2 {
+      text-align: center;
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .company-description {
+      text-align: center;
+      color: #999;
+      margin-bottom: 35px;
+    }
+
+    /* النموذج */
+
+    .company-form {
+      display: grid;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      color: #ddd;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: #0b0b0d;
+      border: 1px solid #303036;
+      color: #fff;
+      border-radius: 10px;
+      padding: 13px 15px;
+      outline: none;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: #d6a84f;
+      box-shadow: 0 0 0 2px rgba(214,168,79,0.08);
+    }
+
+    .form-group textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      border: none;
+      cursor: pointer;
+      background: #d6a84f;
+      color: #111;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: bold;
+      transition: 0.3s;
+      margin-top: 5px;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(214,168,79,0.18);
+    }
+
+    /* رسالة النجاح */
+
+    .success-message {
+      display: none;
+      text-align: center;
+      background: rgba(214,168,79,0.08);
+      border: 1px solid #6f5725;
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 25px;
+    }
+
+    .success-message .success-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .success-message h3 {
+      color: #d6a84f;
+      margin-bottom: 8px;
+    }
+
+    .success-message p {
+      color: #aaa;
+    }
+
+    /* =========================
+       التواصل
+    ========================= */
+
+    .contact {
+      background: #101012;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .contact-card {
+      background: #121214;
+      border: 1px solid #25252a;
+      border-radius: 18px;
+      padding: 30px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      border-color: #80652e;
+    }
+
+    .contact-icon {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      color: #999;
+      margin-bottom: 15px;
+    }
+
+    .contact-link {
+      color: #d6a84f;
+      font-weight: bold;
     }
 
     /* =========================
@@ -438,36 +575,45 @@
 
     @media (max-width: 1000px) {
 
+      .navbar {
+        flex-wrap: wrap;
+        padding: 15px 0;
+      }
+
       .nav-links {
+        order: 3;
+        width: 100%;
         gap: 15px;
+        justify-content: center;
       }
 
-      .nav-links a {
-        font-size: 14px;
-      }
-
-      .nav-button {
-        padding: 8px 12px;
-        font-size: 13px;
+      .cards,
+      .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 700px) {
 
       .navbar {
-        min-height: 70px;
+        justify-content: center;
+      }
+
+      .logo {
+        width: 100%;
+        text-align: center;
       }
 
       .nav-links {
-        display: none;
+        gap: 12px;
       }
 
-      .nav-actions {
-        margin-right: auto;
+      .nav-links a {
+        font-size: 13px;
       }
 
       .hero {
-        min-height: 580px;
+        min-height: 560px;
       }
 
       .hero h1 {
@@ -479,7 +625,8 @@
       }
 
       .stats-grid,
-      .cards {
+      .cards,
+      .contact-grid {
         grid-template-columns: 1fr;
       }
 
@@ -487,9 +634,13 @@
         font-size: 30px;
       }
 
-      .cta-box h2,
+      .join-box h2,
       .company-box h2 {
         font-size: 30px;
+      }
+
+      .company-box {
+        padding: 30px 20px;
       }
 
       .footer-content {
@@ -501,18 +652,13 @@
       }
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 450px) {
 
-      .logo {
-        font-size: 23px;
+      .nav-links {
+        gap: 9px;
       }
 
-      .nav-actions {
-        gap: 6px;
-      }
-
-      .nav-button {
-        padding: 7px 9px;
+      .nav-links a {
         font-size: 12px;
       }
 
@@ -532,35 +678,47 @@
   <header>
     <div class="container navbar">
 
-      <div class="logo">إضاءة</div>
-
-      <ul class="nav-links">
-        <li><a href="#home">الرئيسية</a></li>
-        <li><a href="#about">عن إضاءة</a></li>
-        <li><a href="#benefits">المميزات</a></li>
-        <li><a href="#steps">كيف تعمل؟</a></li>
-      </ul>
-
-      <div class="nav-actions">
-
-        <!-- انضم كمسوق -->
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLScMd_Qe3EjPV0NAj2fVD0UUbFgP5Ly0KRiSiwZf5Nhv0Nl_Bg/viewform?usp=header"
-          class="nav-button marketer-btn"
-          target="_blank"
-        >
-          انضم كمسوق
-        </a>
-
-        <!-- انضم كشركة -->
-        <a
-          href="#companies"
-          class="nav-button company-btn"
-        >
-          انضم كشركة
-        </a>
-
+      <!-- الشعار -->
+      <div class="logo">
+        إضاءة
       </div>
+
+      <!-- القائمة -->
+      <ul class="nav-links">
+
+        <li>
+          <a href="#home">الرئيسية</a>
+        </li>
+
+        <li>
+          <a href="#about">عن إضاءة</a>
+        </li>
+
+        <li>
+          <a href="#benefits">المميزات</a>
+        </li>
+
+        <li>
+          <a href="#opportunities">الفرص</a>
+        </li>
+
+        <li>
+          <a href="#steps">كيف تعمل؟</a>
+        </li>
+
+        <li>
+          <a href="#join">انضم كمسوق</a>
+        </li>
+
+        <li>
+          <a href="#companies">انضم كشركة</a>
+        </li>
+
+        <li>
+          <a href="#contact">تواصل معنا</a>
+        </li>
+
+      </ul>
 
     </div>
   </header>
@@ -585,7 +743,7 @@
 
       <p>
         منصة إضاءة تربط المسوقين بالمنصات والعلامات التجارية،
-        وتوفر لك فرصًا حقيقية لتحقيق دخل من خلال التسويق وصناعة المحتوى.
+        وتوفر فرصًا حقيقية في التسويق وصناعة المحتوى.
       </p>
 
     </div>
@@ -635,7 +793,8 @@
 
         <p>
           منصة تساعد المسوقين على الوصول إلى فرص تسويقية متنوعة
-          بطريقة واضحة ومنظمة.
+          بطريقة واضحة ومنظمة، وتساعد الشركات والمنصات على الوصول
+          إلى مسوقين مناسبين لمنتجاتهم وخدماتهم.
         </p>
 
       </div>
@@ -644,7 +803,9 @@
 
         <div class="card">
           <div class="icon">🎯</div>
+
           <h3>فرص تسويقية</h3>
+
           <p>
             نوفر للمسوقين فرصًا للتعاون مع منصات وعلامات تجارية مختلفة.
           </p>
@@ -652,7 +813,9 @@
 
         <div class="card">
           <div class="icon">💰</div>
+
           <h3>عمولات</h3>
+
           <p>
             احصل على عمولة مقابل المبيعات التي تتم عن طريق كودك التسويقي.
           </p>
@@ -660,7 +823,9 @@
 
         <div class="card">
           <div class="icon">📈</div>
+
           <h3>تطوير خبرتك</h3>
+
           <p>
             طور مهاراتك في التسويق وصناعة المحتوى وبناء العلاقات مع العملاء.
           </p>
@@ -677,7 +842,7 @@
        المميزات
   ========================= -->
 
-  <section id="benefits" class="steps">
+  <section id="benefits" class="opportunities">
 
     <div class="container">
 
@@ -695,7 +860,9 @@
 
         <div class="card">
           <div class="icon">💵</div>
+
           <h3>مقابل مادي</h3>
+
           <p>
             فرص للحصول على عمولات ومكافآت حسب نتائجك التسويقية.
           </p>
@@ -703,7 +870,9 @@
 
         <div class="card">
           <div class="icon">🏆</div>
+
           <h3>خبرة موثقة</h3>
+
           <p>
             اكتسب خبرة عملية في مجال التسويق والعمل مع المنصات.
           </p>
@@ -711,7 +880,9 @@
 
         <div class="card">
           <div class="icon">🤝</div>
+
           <h3>تعاون مع منصات</h3>
+
           <p>
             فرص للتعاون مع جهات ومنصات مختلفة من خلال إضاءة.
           </p>
@@ -719,15 +890,19 @@
 
         <div class="card">
           <div class="icon">📱</div>
+
           <h3>تسويق رقمي</h3>
+
           <p>
-            استخدم TikTok ووسائل التواصل الاجتماعي للوصول للعملاء.
+            استخدم وسائل التواصل الاجتماعي للوصول إلى العملاء.
           </p>
         </div>
 
         <div class="card">
           <div class="icon">📊</div>
+
           <h3>متابعة الأداء</h3>
+
           <p>
             تابع نتائجك ومبيعاتك وطور أداءك التسويقي باستمرار.
           </p>
@@ -735,7 +910,9 @@
 
         <div class="card">
           <div class="icon">⚡</div>
+
           <h3>بداية سهلة</h3>
+
           <p>
             خطوات بسيطة تبدأ فيها وتدخل عالم التسويق الرقمي.
           </p>
@@ -749,19 +926,91 @@
 
 
   <!-- =========================
-       طريقة العمل
+       الفرص
   ========================= -->
 
-  <section id="steps">
+  <section id="opportunities">
 
     <div class="container">
 
       <div class="section-title">
 
-        <h2>كيف تبدأ؟</h2>
+        <h2>الفرص المتاحة</h2>
 
         <p>
-          ثلاث خطوات وتبدأ رحلتك مع إضاءة
+          تعرّف على أنواع الفرص التي يمكن أن تتوفر عبر إضاءة.
+        </p>
+
+      </div>
+
+      <div class="cards">
+
+        <div class="opportunity-card">
+
+          <h3>📣 التسويق بالعمولة</h3>
+
+          <p>
+            سوّق للمنتجات والخدمات باستخدام كودك أو رابطك التسويقي
+            واحصل على عمولة حسب النتائج.
+          </p>
+
+          <span class="opportunity-tag">
+            للمسوقين
+          </span>
+
+        </div>
+
+        <div class="opportunity-card">
+
+          <h3>🎬 صناعة المحتوى</h3>
+
+          <p>
+            فرص لصناعة محتوى تسويقي للمنصات والعلامات التجارية
+            ونشره عبر وسائل التواصل الاجتماعي.
+          </p>
+
+          <span class="opportunity-tag">
+            للمسوقين وصناع المحتوى
+          </span>
+
+        </div>
+
+        <div class="opportunity-card">
+
+          <h3>🤝 شراكات تسويقية</h3>
+
+          <p>
+            ربط الشركات والمنصات بالمسوقين المناسبين
+            لبناء حملات وشراكات تسويقية.
+          </p>
+
+          <span class="opportunity-tag">
+            للشركات والمنصات
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       كيف تعمل؟
+  ========================= -->
+
+  <section id="steps" class="steps">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>كيف تبدأ كمسوق؟</h2>
+
+        <p>
+          ثلاث خطوات وتبدأ رحلتك مع إضاءة.
         </p>
 
       </div>
@@ -769,33 +1018,51 @@
       <div class="cards">
 
         <div class="card">
-          <div class="step-number">01</div>
 
-          <h3>سجّل معنا</h3>
+          <div class="step-number">
+            01
+          </div>
+
+          <h3>
+            سجّل معنا
+          </h3>
 
           <p>
             عبّئ نموذج التسجيل وأرسل بياناتك للانضمام إلى فريق المسوقين.
           </p>
+
         </div>
 
         <div class="card">
-          <div class="step-number">02</div>
 
-          <h3>سوّق</h3>
+          <div class="step-number">
+            02
+          </div>
+
+          <h3>
+            سوّق
+          </h3>
 
           <p>
             استخدم كودك التسويقي وابدأ بالتسويق للمنتجات والخدمات.
           </p>
+
         </div>
 
         <div class="card">
-          <div class="step-number">03</div>
 
-          <h3>حقق النتائج</h3>
+          <div class="step-number">
+            03
+          </div>
+
+          <h3>
+            حقق النتائج
+          </h3>
 
           <p>
-            كلما حققت مبيعات أكثر، زادت فرصك في الحصول على العمولات والمكافآت.
+            كلما حققت نتائج أفضل، زادت فرصك في الحصول على العمولات والمكافآت.
           </p>
+
         </div>
 
       </div>
@@ -806,61 +1073,395 @@
 
 
   <!-- =========================
-       قسم الشركات
+       انضم كمسوق
   ========================= -->
 
-  <section class="companies" id="companies">
+  <section class="join-marketer" id="join">
 
     <div class="container">
 
-      <div class="company-box">
+      <div class="join-box">
 
         <h2>
-          أنت شركة أو منصة؟
+          انضم كمسوق
         </h2>
 
         <p>
-          انضم إلى إضاءة وابدأ بالوصول إلى مسوقين يساعدونك
-          في الترويج لخدماتك ومنتجاتك وتحقيق نتائج أفضل.
-        </p>
-
-        <!-- سيتم وضع رابط نموذج الشركات هنا لاحقًا -->
-        <a href="#" class="company-btn-large">
-          انضم كشركة
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       CTA المسوقين
-  ========================= -->
-
-  <section class="cta" id="join">
-
-    <div class="container">
-
-      <div class="cta-box">
-
-        <h2>
-          جاهز تبدأ؟
-        </h2>
-
-        <p>
-          انضم إلى فريق مسوقي إضاءة وابدأ رحلتك في التسويق الرقمي.
+          انضم إلى فريق مسوقي إضاءة وابدأ رحلتك في التسويق الرقمي
+          واستفد من الفرص المتاحة.
         </p>
 
         <a
           href="https://docs.google.com/forms/d/e/1FAIpQLScMd_Qe3EjPV0NAj2fVD0UUbFgP5Ly0KRiSiwZf5Nhv0Nl_Bg/viewform?usp=header"
           class="primary-btn"
           target="_blank"
+          rel="noopener"
         >
           التسجيل كمسوق
         </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       انضم كشركة
+  ========================= -->
+
+  <section class="companies" id="companies">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          انضم كشركة
+        </h2>
+
+        <p>
+          لديك شركة أو منصة وتبحث عن مسوقين؟
+          سجّل بياناتك وسيتواصل معك فريق إضاءة.
+        </p>
+
+      </div>
+
+      <div class="company-wrapper">
+
+        <div class="company-box">
+
+          <form
+            class="company-form"
+            id="companyForm"
+          >
+
+            <!-- اسم الشركة -->
+
+            <div class="form-group">
+
+              <label for="companyName">
+                اسم الشركة
+              </label>
+
+              <input
+                type="text"
+                id="companyName"
+                name="companyName"
+                placeholder="اكتب اسم الشركة"
+                required
+              >
+
+            </div>
+
+
+            <!-- اسم المسؤول -->
+
+            <div class="form-group">
+
+              <label for="managerName">
+                اسم المسؤول
+              </label>
+
+              <input
+                type="text"
+                id="managerName"
+                name="managerName"
+                placeholder="اكتب اسم المسؤول"
+                required
+              >
+
+            </div>
+
+
+            <!-- البريد الإلكتروني -->
+
+            <div class="form-group">
+
+              <label for="email">
+                البريد الإلكتروني
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="example@company.com"
+                required
+              >
+
+            </div>
+
+
+            <!-- رقم التواصل -->
+
+            <div class="form-group">
+
+              <label for="phone">
+                رقم التواصل
+              </label>
+
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="05xxxxxxxx"
+                required
+              >
+
+            </div>
+
+
+            <!-- مجال الشركة -->
+
+            <div class="form-group">
+
+              <label for="field">
+                مجال الشركة
+              </label>
+
+              <select
+                id="field"
+                name="field"
+                required
+              >
+
+                <option value="">
+                  اختر مجال الشركة
+                </option>
+
+                <option value="التعليم">
+                  التعليم والتدريب
+                </option>
+
+                <option value="التجارة الإلكترونية">
+                  التجارة الإلكترونية
+                </option>
+
+                <option value="التقنية">
+                  التقنية
+                </option>
+
+                <option value="الخدمات">
+                  الخدمات
+                </option>
+
+                <option value="التسويق">
+                  التسويق
+                </option>
+
+                <option value="أخرى">
+                  أخرى
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- نبذة -->
+
+            <div class="form-group">
+
+              <label for="description">
+                نبذة عن الشركة
+              </label>
+
+              <textarea
+                id="description"
+                name="description"
+                placeholder="اكتب نبذة مختصرة عن الشركة أو المنصة..."
+                required
+              ></textarea>
+
+            </div>
+
+
+            <!-- نوع التعاون -->
+
+            <div class="form-group">
+
+              <label for="cooperation">
+                نوع التعاون المطلوب
+              </label>
+
+              <select
+                id="cooperation"
+                name="cooperation"
+                required
+              >
+
+                <option value="">
+                  اختر نوع التعاون
+                </option>
+
+                <option value="تسويق بالعمولة">
+                  تسويق بالعمولة
+                </option>
+
+                <option value="صناعة محتوى">
+                  صناعة محتوى
+                </option>
+
+                <option value="حملات تسويقية">
+                  حملات تسويقية
+                </option>
+
+                <option value="توظيف مسوقين">
+                  توظيف / استقطاب مسوقين
+                </option>
+
+                <option value="شراكة">
+                  شراكة تسويقية
+                </option>
+
+                <option value="أخرى">
+                  أخرى
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- زر الإرسال -->
+
+            <button
+              type="submit"
+              class="form-submit"
+            >
+              إرسال طلب الانضمام
+            </button>
+
+          </form>
+
+
+          <!-- رسالة النجاح -->
+
+          <div
+            class="success-message"
+            id="successMessage"
+          >
+
+            <div class="success-icon">
+              ✅
+            </div>
+
+            <h3>
+              تم إرسال طلبك بنجاح!
+            </h3>
+
+            <p>
+              شكرًا لاهتمامك بالانضمام إلى إضاءة.
+              سيقوم فريقنا بمراجعة بياناتك والتواصل معك قريبًا.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       تواصل معنا
+  ========================= -->
+
+  <section class="contact" id="contact">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          تواصل معنا
+        </h2>
+
+        <p>
+          إذا عندك استفسار أو حاب تتعاون مع إضاءة، تواصل معنا.
+        </p>
+
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+
+          <div class="contact-icon">
+            💬
+          </div>
+
+          <h3>
+            واتساب
+          </h3>
+
+          <p>
+            تواصل معنا مباشرة
+          </p>
+
+          <a
+            href="https://wa.me/966507743653"
+            class="contact-link"
+            target="_blank"
+            rel="noopener"
+          >
+            فتح واتساب
+          </a>
+
+        </div>
+
+
+        <div class="contact-card">
+
+          <div class="contact-icon">
+            📱
+          </div>
+
+          <h3>
+            تيك توك
+          </h3>
+
+          <p>
+            تابع إضاءة على تيك توك
+          </p>
+
+          <a
+            href="#"
+            class="contact-link"
+          >
+            حساب إضاءة
+          </a>
+
+        </div>
+
+
+        <div class="contact-card">
+
+          <div class="contact-icon">
+            ✉️
+          </div>
+
+          <h3>
+            تواصل
+          </h3>
+
+          <p>
+            للاستفسارات والشراكات
+          </p>
+
+          <a
+            href="#"
+            class="contact-link"
+          >
+            تواصل معنا
+          </a>
+
+        </div>
 
       </div>
 
@@ -891,17 +1492,37 @@
 
         </div>
 
+
         <div class="footer-links">
 
-          <a href="#home">الرئيسية</a>
-          <a href="#about">عن إضاءة</a>
-          <a href="#benefits">المميزات</a>
-          <a href="#steps">كيف تعمل؟</a>
-          <a href="#companies">للشركات</a>
+          <a href="#home">
+            الرئيسية
+          </a>
+
+          <a href="#about">
+            عن إضاءة
+          </a>
+
+          <a href="#benefits">
+            المميزات
+          </a>
+
+          <a href="#opportunities">
+            الفرص
+          </a>
+
+          <a href="#companies">
+            للشركات
+          </a>
+
+          <a href="#contact">
+            تواصل معنا
+          </a>
 
         </div>
 
       </div>
+
 
       <div class="copyright">
 
@@ -911,6 +1532,7 @@
           href="https://wa.me/966507743653"
           class="whatsapp-icon"
           target="_blank"
+          rel="noopener"
           aria-label="واتساب"
         >
           💬
@@ -921,6 +1543,33 @@
     </div>
 
   </footer>
+
+
+  <!-- =========================
+       JavaScript
+  ========================= -->
+
+  <script>
+
+    const companyForm = document.getElementById("companyForm");
+    const successMessage = document.getElementById("successMessage");
+
+    companyForm.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      companyForm.style.display = "none";
+
+      successMessage.style.display = "block";
+
+      successMessage.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+    });
+
+  </script>
 
 </body>
 </html>
