@@ -118,8 +118,17 @@
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(circle at 50% 42%, rgba(214,168,79,.18) 0%, rgba(214,168,79,.07) 18%, transparent 45%),
-        radial-gradient(circle at 20% 20%, rgba(214,168,79,.07), transparent 30%),
+        radial-gradient(
+          circle at 50% 42%,
+          rgba(214,168,79,.18) 0%,
+          rgba(214,168,79,.07) 18%,
+          transparent 45%
+        ),
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(214,168,79,.07),
+          transparent 30%
+        ),
         #08090b;
     }
 
@@ -179,36 +188,6 @@
       font-size: 19px;
       max-width: 700px;
       margin: 0 auto 35px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .hero-btn {
-      display: inline-block;
-      padding: 14px 27px;
-      border-radius: 12px;
-      font-weight: bold;
-      transition: .3s;
-    }
-
-    .hero-btn.primary {
-      background: #d6a84f;
-      color: #101010;
-    }
-
-    .hero-btn.secondary {
-      border: 1px solid #35353a;
-      color: #ddd;
-      background: rgba(255,255,255,.025);
-    }
-
-    .hero-btn:hover {
-      transform: translateY(-4px);
     }
 
     /* =========================
@@ -277,13 +256,6 @@
       font-size: 16px;
       max-width: 700px;
       margin: auto;
-    }
-
-    .section-label {
-      color: #d6a84f;
-      font-size: 13px;
-      margin-bottom: 8px;
-      font-weight: bold;
     }
 
     /* =========================
@@ -430,7 +402,11 @@
 
     .join-box {
       background:
-        radial-gradient(circle at 50% 0%, rgba(214,168,79,.15), transparent 55%),
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(214,168,79,.15),
+          transparent 55%
+        ),
         linear-gradient(135deg, #17140d, #101114);
       border: 1px solid rgba(214,168,79,.28);
       border-radius: 28px;
@@ -789,14 +765,6 @@
       .hero h1 {
         font-size: 36px;
       }
-
-      .hero-buttons {
-        flex-direction: column;
-      }
-
-      .hero-btn {
-        width: 100%;
-      }
     }
   </style>
 </head>
@@ -850,18 +818,6 @@
         وتفتح لك فرصًا حقيقية في التسويق وصناعة المحتوى.
       </p>
 
-      <div class="hero-buttons">
-
-        <a href="#join" class="hero-btn primary">
-          ابدأ كمسوق
-        </a>
-
-        <a href="#companies" class="hero-btn secondary">
-          أنا شركة
-        </a>
-
-      </div>
-
     </div>
 
   </section>
@@ -900,8 +856,6 @@
     <div class="container">
 
       <div class="section-title">
-
-        <div class="section-label">ABOUT IDAA</div>
 
         <h2>وش هي إضاءة؟</h2>
 
@@ -953,8 +907,6 @@
     <div class="container">
 
       <div class="section-title">
-
-        <div class="section-label">WHY IDAA</div>
 
         <h2>مميزات إضاءة</h2>
 
@@ -1029,8 +981,6 @@
 
       <div class="section-title">
 
-        <div class="section-label">OPPORTUNITIES</div>
-
         <h2>الفرص المتاحة</h2>
 
         <p>
@@ -1101,8 +1051,6 @@
 
       <div class="section-title">
 
-        <div class="section-label">HOW IT WORKS</div>
-
         <h2>كيف تبدأ كمسوق؟</h2>
 
         <p>
@@ -1116,7 +1064,7 @@
         <div class="card">
 
           <div class="step-number">
-            01
+            1
           </div>
 
           <h3>
@@ -1132,7 +1080,7 @@
         <div class="card">
 
           <div class="step-number">
-            02
+            2
           </div>
 
           <h3>
@@ -1148,7 +1096,7 @@
         <div class="card">
 
           <div class="step-number">
-            03
+            3
           </div>
 
           <h3>
@@ -1175,10 +1123,6 @@
     <div class="container">
 
       <div class="join-box">
-
-        <div class="section-label">
-          JOIN IDAA
-        </div>
 
         <h2>
           انضم كمسوق
@@ -1212,8 +1156,6 @@
     <div class="container">
 
       <div class="section-title">
-
-        <div class="section-label">FOR COMPANIES</div>
 
         <h2>
           انضم كشركة
@@ -1447,8 +1389,6 @@
     <div class="container">
 
       <div class="section-title">
-
-        <div class="section-label">CONTACT</div>
 
         <h2>
           تواصل معنا
