@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -20,9 +19,10 @@
 
     body {
       font-family: Arial, Tahoma, sans-serif;
-      background: #0b0b0d;
+      background: #08090b;
       color: #fff;
       line-height: 1.8;
+      overflow-x: hidden;
     }
 
     a {
@@ -39,7 +39,7 @@
 
     .container {
       width: 90%;
-      max-width: 1200px;
+      max-width: 1180px;
       margin: auto;
     }
 
@@ -51,24 +51,39 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(11, 11, 13, 0.96);
-      border-bottom: 1px solid #25252a;
-      backdrop-filter: blur(10px);
+      background: rgba(8, 9, 11, 0.88);
+      border-bottom: 1px solid rgba(214, 168, 79, 0.12);
+      backdrop-filter: blur(18px);
     }
 
     .navbar {
-      min-height: 75px;
+      min-height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 25px;
+      gap: 30px;
     }
 
     .logo {
-      font-size: 28px;
-      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       color: #d6a84f;
+      font-size: 29px;
+      font-weight: 800;
       white-space: nowrap;
+    }
+
+    .logo-mark {
+      width: 39px;
+      height: 39px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #d6a84f;
+      border-radius: 12px;
+      font-size: 20px;
+      box-shadow: 0 0 25px rgba(214,168,79,0.12);
     }
 
     .nav-links {
@@ -81,9 +96,9 @@
     }
 
     .nav-links a {
-      color: #ddd;
-      font-size: 15px;
-      transition: 0.3s;
+      color: #c8c8c8;
+      font-size: 14px;
+      transition: .3s;
       white-space: nowrap;
     }
 
@@ -96,72 +111,104 @@
     ========================= */
 
     .hero {
-      min-height: 650px;
+      min-height: 680px;
       display: flex;
       align-items: center;
       text-align: center;
       position: relative;
       overflow: hidden;
-
       background:
-        radial-gradient(circle at center, #302510 0%, #11100e 30%, #0b0b0d 70%);
+        radial-gradient(circle at 50% 42%, rgba(214,168,79,.18) 0%, rgba(214,168,79,.07) 18%, transparent 45%),
+        radial-gradient(circle at 20% 20%, rgba(214,168,79,.07), transparent 30%),
+        #08090b;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border: 1px solid rgba(214,168,79,.08);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow:
+        0 0 0 70px rgba(214,168,79,.018),
+        0 0 0 140px rgba(214,168,79,.012);
     }
 
     .hero-content {
       max-width: 850px;
       margin: auto;
+      position: relative;
+      z-index: 2;
     }
 
     .badge {
-      display: inline-block;
-      border: 1px solid #6f5725;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(214,168,79,.35);
       color: #d6a84f;
-      padding: 7px 18px;
+      padding: 8px 18px;
       border-radius: 30px;
-      margin-bottom: 25px;
-      background: rgba(214,168,79,0.06);
+      margin-bottom: 27px;
+      background: rgba(214,168,79,.07);
+      font-size: 14px;
+    }
+
+    .badge::before {
+      content: "✦";
     }
 
     .hero h1 {
-      font-size: 58px;
-      line-height: 1.2;
+      font-size: 65px;
+      line-height: 1.15;
       margin-bottom: 25px;
+      letter-spacing: -1px;
     }
 
     .hero h1 span {
       color: #d6a84f;
+      text-shadow: 0 0 35px rgba(214,168,79,.18);
     }
 
     .hero p {
-      color: #bbb;
-      font-size: 20px;
+      color: #a7a7a7;
+      font-size: 19px;
       max-width: 700px;
-      margin: 0 auto;
+      margin: 0 auto 35px;
     }
 
-    /* =========================
-       الأقسام
-    ========================= */
-
-    section {
-      padding: 90px 0;
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 50px;
+    .hero-btn {
+      display: inline-block;
+      padding: 14px 27px;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: .3s;
     }
 
-    .section-title h2 {
-      font-size: 38px;
-      margin-bottom: 12px;
+    .hero-btn.primary {
+      background: #d6a84f;
+      color: #101010;
     }
 
-    .section-title p {
-      color: #999;
-      font-size: 17px;
-      max-width: 700px;
-      margin: auto;
+    .hero-btn.secondary {
+      border: 1px solid #35353a;
+      color: #ddd;
+      background: rgba(255,255,255,.025);
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-4px);
     }
 
     /* =========================
@@ -169,9 +216,9 @@
     ========================= */
 
     .stats {
-      background: #101012;
-      border-top: 1px solid #222;
-      border-bottom: 1px solid #222;
+      background: #0e0f12;
+      border-top: 1px solid #1d1e22;
+      border-bottom: 1px solid #1d1e22;
     }
 
     .stats-grid {
@@ -182,16 +229,61 @@
     }
 
     .stat {
-      padding: 25px;
+      padding: 30px 20px;
+      position: relative;
+    }
+
+    .stat:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 25%;
+      height: 50%;
+      width: 1px;
+      background: #25262b;
     }
 
     .stat h3 {
       color: #d6a84f;
       font-size: 38px;
+      margin-bottom: 2px;
     }
 
     .stat p {
-      color: #aaa;
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* =========================
+       الأقسام
+    ========================= */
+
+    section {
+      padding: 95px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .section-title h2 {
+      font-size: 39px;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: #8e8e8e;
+      font-size: 16px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .section-label {
+      color: #d6a84f;
+      font-size: 13px;
+      margin-bottom: 8px;
+      font-weight: bold;
     }
 
     /* =========================
@@ -201,82 +293,115 @@
     .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
+      gap: 22px;
     }
 
     .card {
-      background: #121214;
-      border: 1px solid #25252a;
-      border-radius: 18px;
+      background: linear-gradient(145deg, #111216, #0d0e11);
+      border: 1px solid #23242a;
+      border-radius: 20px;
       padding: 30px;
-      transition: 0.3s;
+      transition: .35s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: rgba(214,168,79,.06);
+      filter: blur(35px);
+      top: -50px;
+      right: -50px;
+      border-radius: 50%;
     }
 
     .card:hover {
       transform: translateY(-7px);
-      border-color: #80652e;
+      border-color: rgba(214,168,79,.45);
+      box-shadow: 0 18px 45px rgba(0,0,0,.22);
     }
 
     .icon {
       width: 55px;
       height: 55px;
-      border-radius: 15px;
-      background: rgba(214,168,79,0.12);
+      border-radius: 16px;
+      background: rgba(214,168,79,.10);
+      border: 1px solid rgba(214,168,79,.14);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 26px;
+      font-size: 25px;
       margin-bottom: 20px;
     }
 
     .card h3 {
       margin-bottom: 10px;
-      font-size: 21px;
+      font-size: 20px;
     }
 
     .card p {
-      color: #999;
+      color: #888;
+      font-size: 15px;
+    }
+
+    /* =========================
+       عن إضاءة
+    ========================= */
+
+    #about {
+      background: #08090b;
+    }
+
+    /* =========================
+       المميزات
+    ========================= */
+
+    .opportunities {
+      background: #0d0e11;
+      border-top: 1px solid #18191d;
+      border-bottom: 1px solid #18191d;
     }
 
     /* =========================
        الفرص
     ========================= */
 
-    .opportunities {
-      background: #101012;
-    }
-
     .opportunity-card {
-      background: #121214;
-      border: 1px solid #25252a;
-      border-radius: 18px;
+      background: linear-gradient(145deg, #111216, #0d0e11);
+      border: 1px solid #23242a;
+      border-radius: 20px;
       padding: 30px;
-      transition: 0.3s;
+      transition: .35s;
     }
 
     .opportunity-card:hover {
-      transform: translateY(-5px);
-      border-color: #80652e;
+      transform: translateY(-6px);
+      border-color: rgba(214,168,79,.4);
     }
 
     .opportunity-card h3 {
       color: #fff;
-      font-size: 22px;
+      font-size: 21px;
       margin-bottom: 12px;
     }
 
     .opportunity-card p {
-      color: #999;
-      margin-bottom: 18px;
+      color: #888;
+      margin-bottom: 20px;
+      font-size: 15px;
     }
 
     .opportunity-tag {
       display: inline-block;
-      padding: 5px 12px;
+      padding: 6px 13px;
       border-radius: 20px;
-      border: 1px solid #6f5725;
+      border: 1px solid rgba(214,168,79,.3);
       color: #d6a84f;
-      font-size: 13px;
+      background: rgba(214,168,79,.05);
+      font-size: 12px;
     }
 
     /* =========================
@@ -284,39 +409,43 @@
     ========================= */
 
     .steps {
-      background: #0b0b0d;
+      background: #08090b;
     }
 
     .step-number {
       color: #d6a84f;
-      font-size: 40px;
-      font-weight: bold;
+      font-size: 38px;
+      font-weight: 800;
       margin-bottom: 10px;
     }
 
     /* =========================
-       قسم انضم كمسوق
+       انضم كمسوق
     ========================= */
 
     .join-marketer {
-      background: #101012;
+      background: #0d0e11;
+      border-top: 1px solid #18191d;
     }
 
     .join-box {
-      background: linear-gradient(135deg, #201a0d, #15130e);
-      border: 1px solid #55441f;
-      border-radius: 25px;
-      padding: 65px 30px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(214,168,79,.15), transparent 55%),
+        linear-gradient(135deg, #17140d, #101114);
+      border: 1px solid rgba(214,168,79,.28);
+      border-radius: 28px;
+      padding: 70px 30px;
       text-align: center;
+      box-shadow: 0 25px 70px rgba(0,0,0,.2);
     }
 
     .join-box h2 {
-      font-size: 40px;
+      font-size: 42px;
       margin-bottom: 15px;
     }
 
     .join-box p {
-      color: #aaa;
+      color: #999;
       max-width: 700px;
       margin: 0 auto 30px;
     }
@@ -325,24 +454,25 @@
       display: inline-block;
       background: #d6a84f;
       color: #111;
-      padding: 14px 28px;
+      padding: 14px 30px;
       border-radius: 12px;
-      font-size: 17px;
+      font-size: 16px;
       font-weight: bold;
-      transition: 0.3s;
+      transition: .3s;
+      box-shadow: 0 8px 30px rgba(214,168,79,.12);
     }
 
     .primary-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(214,168,79,0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(214,168,79,.18);
     }
 
     /* =========================
-       قسم الشركات
+       الشركات
     ========================= */
 
     .companies {
-      background: #0b0b0d;
+      background: #08090b;
     }
 
     .company-wrapper {
@@ -351,25 +481,12 @@
     }
 
     .company-box {
-      background: #121214;
-      border: 1px solid #25252a;
+      background: linear-gradient(145deg, #111216, #0c0d10);
+      border: 1px solid #25262b;
       border-radius: 25px;
       padding: 45px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.15);
     }
-
-    .company-box h2 {
-      text-align: center;
-      font-size: 38px;
-      margin-bottom: 10px;
-    }
-
-    .company-description {
-      text-align: center;
-      color: #999;
-      margin-bottom: 35px;
-    }
-
-    /* النموذج */
 
     .company-form {
       display: grid;
@@ -385,32 +502,32 @@
     .form-group label {
       color: #ddd;
       font-weight: bold;
-      font-size: 15px;
+      font-size: 14px;
     }
 
     .form-group input,
     .form-group textarea,
     .form-group select {
       width: 100%;
-      background: #0b0b0d;
-      border: 1px solid #303036;
+      background: #090a0c;
+      border: 1px solid #292a30;
       color: #fff;
-      border-radius: 10px;
-      padding: 13px 15px;
+      border-radius: 11px;
+      padding: 14px 15px;
       outline: none;
-      font-size: 15px;
-      transition: 0.3s;
+      font-size: 14px;
+      transition: .3s;
     }
 
     .form-group input:focus,
     .form-group textarea:focus,
     .form-group select:focus {
       border-color: #d6a84f;
-      box-shadow: 0 0 0 2px rgba(214,168,79,0.08);
+      box-shadow: 0 0 0 3px rgba(214,168,79,.07);
     }
 
     .form-group textarea {
-      min-height: 130px;
+      min-height: 135px;
       resize: vertical;
     }
 
@@ -419,29 +536,26 @@
       cursor: pointer;
       background: #d6a84f;
       color: #111;
-      padding: 14px;
+      padding: 15px;
       border-radius: 12px;
-      font-size: 17px;
+      font-size: 16px;
       font-weight: bold;
-      transition: 0.3s;
+      transition: .3s;
       margin-top: 5px;
     }
 
     .form-submit:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(214,168,79,0.18);
+      box-shadow: 0 12px 30px rgba(214,168,79,.15);
     }
-
-    /* رسالة النجاح */
 
     .success-message {
       display: none;
       text-align: center;
-      background: rgba(214,168,79,0.08);
-      border: 1px solid #6f5725;
+      background: rgba(214,168,79,.07);
+      border: 1px solid rgba(214,168,79,.3);
       border-radius: 15px;
-      padding: 25px;
-      margin-top: 25px;
+      padding: 30px;
     }
 
     .success-message .success-icon {
@@ -455,7 +569,7 @@
     }
 
     .success-message p {
-      color: #aaa;
+      color: #999;
     }
 
     /* =========================
@@ -463,46 +577,49 @@
     ========================= */
 
     .contact {
-      background: #101012;
+      background: #0d0e11;
+      border-top: 1px solid #18191d;
     }
 
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
+      gap: 22px;
     }
 
     .contact-card {
-      background: #121214;
-      border: 1px solid #25252a;
-      border-radius: 18px;
+      background: #111216;
+      border: 1px solid #23242a;
+      border-radius: 20px;
       padding: 30px;
       text-align: center;
-      transition: 0.3s;
+      transition: .35s;
     }
 
     .contact-card:hover {
-      transform: translateY(-5px);
-      border-color: #80652e;
+      transform: translateY(-6px);
+      border-color: rgba(214,168,79,.4);
     }
 
     .contact-icon {
-      font-size: 35px;
+      font-size: 34px;
       margin-bottom: 12px;
     }
 
     .contact-card h3 {
-      margin-bottom: 8px;
+      margin-bottom: 7px;
     }
 
     .contact-card p {
-      color: #999;
+      color: #888;
       margin-bottom: 15px;
+      font-size: 14px;
     }
 
     .contact-link {
       color: #d6a84f;
       font-weight: bold;
+      font-size: 14px;
     }
 
     /* =========================
@@ -510,8 +627,8 @@
     ========================= */
 
     footer {
-      background: #080809;
-      border-top: 1px solid #222;
+      background: #060708;
+      border-top: 1px solid #1a1b1f;
       padding: 45px 0 25px;
     }
 
@@ -526,11 +643,12 @@
       color: #d6a84f;
       font-size: 25px;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     footer p {
-      color: #777;
+      color: #666;
+      font-size: 14px;
     }
 
     .footer-links {
@@ -540,7 +658,9 @@
     }
 
     .footer-links a {
-      color: #999;
+      color: #777;
+      font-size: 14px;
+      transition: .3s;
     }
 
     .footer-links a:hover {
@@ -549,20 +669,21 @@
 
     .copyright {
       text-align: center;
-      border-top: 1px solid #1d1d20;
+      border-top: 1px solid #18191c;
       margin-top: 30px;
       padding-top: 20px;
-      color: #666;
+      color: #555;
+      font-size: 13px;
     }
 
     .whatsapp-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-right: 10px;
-      font-size: 22px;
+      margin-right: 8px;
+      font-size: 20px;
       color: #25D366;
-      transition: 0.3s;
+      transition: .3s;
     }
 
     .whatsapp-icon:hover {
@@ -583,7 +704,7 @@
       .nav-links {
         order: 3;
         width: 100%;
-        gap: 15px;
+        gap: 14px;
         justify-content: center;
       }
 
@@ -601,27 +722,27 @@
 
       .logo {
         width: 100%;
-        text-align: center;
+        justify-content: center;
       }
 
       .nav-links {
-        gap: 12px;
+        gap: 10px;
       }
 
       .nav-links a {
-        font-size: 13px;
+        font-size: 12px;
       }
 
       .hero {
-        min-height: 560px;
+        min-height: 600px;
       }
 
       .hero h1 {
-        font-size: 40px;
+        font-size: 43px;
       }
 
       .hero p {
-        font-size: 17px;
+        font-size: 16px;
       }
 
       .stats-grid,
@@ -630,40 +751,51 @@
         grid-template-columns: 1fr;
       }
 
-      .section-title h2 {
-        font-size: 30px;
+      .stat:not(:last-child)::after {
+        display: none;
       }
 
-      .join-box h2,
-      .company-box h2 {
-        font-size: 30px;
+      .section-title h2 {
+        font-size: 31px;
+      }
+
+      .join-box h2 {
+        font-size: 31px;
       }
 
       .company-box {
-        padding: 30px 20px;
+        padding: 28px 20px;
       }
 
       .footer-content {
         flex-direction: column;
       }
-
-      .footer-links {
-        gap: 15px;
-      }
     }
 
     @media (max-width: 450px) {
 
+      .container {
+        width: 92%;
+      }
+
       .nav-links {
-        gap: 9px;
+        gap: 8px;
       }
 
       .nav-links a {
-        font-size: 12px;
+        font-size: 11px;
       }
 
       .hero h1 {
-        font-size: 34px;
+        font-size: 36px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-btn {
+        width: 100%;
       }
     }
   </style>
@@ -671,52 +803,26 @@
 
 <body>
 
-  <!-- =========================
-       الهيدر
-  ========================= -->
+  <!-- الهيدر -->
 
   <header>
     <div class="container navbar">
 
-      <!-- الشعار -->
       <div class="logo">
+        <div class="logo-mark">إ</div>
         إضاءة
       </div>
 
-      <!-- القائمة -->
       <ul class="nav-links">
 
-        <li>
-          <a href="#home">الرئيسية</a>
-        </li>
-
-        <li>
-          <a href="#about">عن إضاءة</a>
-        </li>
-
-        <li>
-          <a href="#benefits">المميزات</a>
-        </li>
-
-        <li>
-          <a href="#opportunities">الفرص</a>
-        </li>
-
-        <li>
-          <a href="#steps">كيف تعمل؟</a>
-        </li>
-
-        <li>
-          <a href="#join">انضم كمسوق</a>
-        </li>
-
-        <li>
-          <a href="#companies">انضم كشركة</a>
-        </li>
-
-        <li>
-          <a href="#contact">تواصل معنا</a>
-        </li>
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#about">عن إضاءة</a></li>
+        <li><a href="#benefits">المميزات</a></li>
+        <li><a href="#opportunities">الفرص</a></li>
+        <li><a href="#steps">كيف تعمل؟</a></li>
+        <li><a href="#join">انضم كمسوق</a></li>
+        <li><a href="#companies">انضم كشركة</a></li>
+        <li><a href="#contact">تواصل معنا</a></li>
 
       </ul>
 
@@ -724,16 +830,14 @@
   </header>
 
 
-  <!-- =========================
-       الرئيسية
-  ========================= -->
+  <!-- الرئيسية -->
 
   <section class="hero" id="home">
 
     <div class="container hero-content">
 
       <div class="badge">
-        منصة إضاءة للتسويق
+        منصة إضاءة للتسويق والفرص
       </div>
 
       <h1>
@@ -743,17 +847,27 @@
 
       <p>
         منصة إضاءة تربط المسوقين بالمنصات والعلامات التجارية،
-        وتوفر فرصًا حقيقية في التسويق وصناعة المحتوى.
+        وتفتح لك فرصًا حقيقية في التسويق وصناعة المحتوى.
       </p>
+
+      <div class="hero-buttons">
+
+        <a href="#join" class="hero-btn primary">
+          ابدأ كمسوق
+        </a>
+
+        <a href="#companies" class="hero-btn secondary">
+          أنا شركة
+        </a>
+
+      </div>
 
     </div>
 
   </section>
 
 
-  <!-- =========================
-       الإحصائيات
-  ========================= -->
+  <!-- الإحصائيات -->
 
   <section class="stats">
 
@@ -766,12 +880,12 @@
 
       <div class="stat">
         <h3>💰</h3>
-        <p>عمولات على المبيعات</p>
+        <p>عمولات ومكافآت</p>
       </div>
 
       <div class="stat">
         <h3>🚀</h3>
-        <p>تطور وخبرة تسويقية</p>
+        <p>خبرة وتطور مستمر</p>
       </div>
 
     </div>
@@ -779,15 +893,15 @@
   </section>
 
 
-  <!-- =========================
-       عن إضاءة
-  ========================= -->
+  <!-- عن إضاءة -->
 
   <section id="about">
 
     <div class="container">
 
       <div class="section-title">
+
+        <div class="section-label">ABOUT IDAA</div>
 
         <h2>وش هي إضاءة؟</h2>
 
@@ -803,9 +917,7 @@
 
         <div class="card">
           <div class="icon">🎯</div>
-
           <h3>فرص تسويقية</h3>
-
           <p>
             نوفر للمسوقين فرصًا للتعاون مع منصات وعلامات تجارية مختلفة.
           </p>
@@ -813,9 +925,7 @@
 
         <div class="card">
           <div class="icon">💰</div>
-
           <h3>عمولات</h3>
-
           <p>
             احصل على عمولة مقابل المبيعات التي تتم عن طريق كودك التسويقي.
           </p>
@@ -823,9 +933,7 @@
 
         <div class="card">
           <div class="icon">📈</div>
-
           <h3>تطوير خبرتك</h3>
-
           <p>
             طور مهاراتك في التسويق وصناعة المحتوى وبناء العلاقات مع العملاء.
           </p>
@@ -838,15 +946,15 @@
   </section>
 
 
-  <!-- =========================
-       المميزات
-  ========================= -->
+  <!-- المميزات -->
 
   <section id="benefits" class="opportunities">
 
     <div class="container">
 
       <div class="section-title">
+
+        <div class="section-label">WHY IDAA</div>
 
         <h2>مميزات إضاءة</h2>
 
@@ -860,9 +968,7 @@
 
         <div class="card">
           <div class="icon">💵</div>
-
           <h3>مقابل مادي</h3>
-
           <p>
             فرص للحصول على عمولات ومكافآت حسب نتائجك التسويقية.
           </p>
@@ -870,9 +976,7 @@
 
         <div class="card">
           <div class="icon">🏆</div>
-
           <h3>خبرة موثقة</h3>
-
           <p>
             اكتسب خبرة عملية في مجال التسويق والعمل مع المنصات.
           </p>
@@ -880,9 +984,7 @@
 
         <div class="card">
           <div class="icon">🤝</div>
-
           <h3>تعاون مع منصات</h3>
-
           <p>
             فرص للتعاون مع جهات ومنصات مختلفة من خلال إضاءة.
           </p>
@@ -890,9 +992,7 @@
 
         <div class="card">
           <div class="icon">📱</div>
-
           <h3>تسويق رقمي</h3>
-
           <p>
             استخدم وسائل التواصل الاجتماعي للوصول إلى العملاء.
           </p>
@@ -900,9 +1000,7 @@
 
         <div class="card">
           <div class="icon">📊</div>
-
           <h3>متابعة الأداء</h3>
-
           <p>
             تابع نتائجك ومبيعاتك وطور أداءك التسويقي باستمرار.
           </p>
@@ -910,9 +1008,7 @@
 
         <div class="card">
           <div class="icon">⚡</div>
-
           <h3>بداية سهلة</h3>
-
           <p>
             خطوات بسيطة تبدأ فيها وتدخل عالم التسويق الرقمي.
           </p>
@@ -925,15 +1021,15 @@
   </section>
 
 
-  <!-- =========================
-       الفرص
-  ========================= -->
+  <!-- الفرص -->
 
   <section id="opportunities">
 
     <div class="container">
 
       <div class="section-title">
+
+        <div class="section-label">OPPORTUNITIES</div>
 
         <h2>الفرص المتاحة</h2>
 
@@ -997,15 +1093,15 @@
   </section>
 
 
-  <!-- =========================
-       كيف تعمل؟
-  ========================= -->
+  <!-- كيف تعمل -->
 
   <section id="steps" class="steps">
 
     <div class="container">
 
       <div class="section-title">
+
+        <div class="section-label">HOW IT WORKS</div>
 
         <h2>كيف تبدأ كمسوق؟</h2>
 
@@ -1072,15 +1168,17 @@
   </section>
 
 
-  <!-- =========================
-       انضم كمسوق
-  ========================= -->
+  <!-- انضم كمسوق -->
 
   <section class="join-marketer" id="join">
 
     <div class="container">
 
       <div class="join-box">
+
+        <div class="section-label">
+          JOIN IDAA
+        </div>
 
         <h2>
           انضم كمسوق
@@ -1107,15 +1205,15 @@
   </section>
 
 
-  <!-- =========================
-       انضم كشركة
-  ========================= -->
+  <!-- انضم كشركة -->
 
   <section class="companies" id="companies">
 
     <div class="container">
 
       <div class="section-title">
+
+        <div class="section-label">FOR COMPANIES</div>
 
         <h2>
           انضم كشركة
@@ -1137,8 +1235,6 @@
             id="companyForm"
           >
 
-            <!-- اسم الشركة -->
-
             <div class="form-group">
 
               <label for="companyName">
@@ -1154,9 +1250,6 @@
               >
 
             </div>
-
-
-            <!-- اسم المسؤول -->
 
             <div class="form-group">
 
@@ -1174,9 +1267,6 @@
 
             </div>
 
-
-            <!-- البريد الإلكتروني -->
-
             <div class="form-group">
 
               <label for="email">
@@ -1193,9 +1283,6 @@
 
             </div>
 
-
-            <!-- رقم التواصل -->
-
             <div class="form-group">
 
               <label for="phone">
@@ -1211,9 +1298,6 @@
               >
 
             </div>
-
-
-            <!-- مجال الشركة -->
 
             <div class="form-group">
 
@@ -1259,9 +1343,6 @@
 
             </div>
 
-
-            <!-- نبذة -->
-
             <div class="form-group">
 
               <label for="description">
@@ -1276,9 +1357,6 @@
               ></textarea>
 
             </div>
-
-
-            <!-- نوع التعاون -->
 
             <div class="form-group">
 
@@ -1324,9 +1402,6 @@
 
             </div>
 
-
-            <!-- زر الإرسال -->
-
             <button
               type="submit"
               class="form-submit"
@@ -1335,9 +1410,6 @@
             </button>
 
           </form>
-
-
-          <!-- رسالة النجاح -->
 
           <div
             class="success-message"
@@ -1368,15 +1440,15 @@
   </section>
 
 
-  <!-- =========================
-       تواصل معنا
-  ========================= -->
+  <!-- التواصل -->
 
   <section class="contact" id="contact">
 
     <div class="container">
 
       <div class="section-title">
+
+        <div class="section-label">CONTACT</div>
 
         <h2>
           تواصل معنا
@@ -1415,7 +1487,6 @@
 
         </div>
 
-
         <div class="contact-card">
 
           <div class="contact-icon">
@@ -1439,7 +1510,6 @@
 
         </div>
 
-
         <div class="contact-card">
 
           <div class="contact-icon">
@@ -1455,7 +1525,7 @@
           </p>
 
           <a
-            href="#"
+            href="#companies"
             class="contact-link"
           >
             تواصل معنا
@@ -1470,9 +1540,7 @@
   </section>
 
 
-  <!-- =========================
-       الفوتر
-  ========================= -->
+  <!-- الفوتر -->
 
   <footer>
 
@@ -1491,7 +1559,6 @@
           </p>
 
         </div>
-
 
         <div class="footer-links">
 
@@ -1523,7 +1590,6 @@
 
       </div>
 
-
       <div class="copyright">
 
         © 2026 إضاءة - جميع الحقوق محفوظة
@@ -1545,61 +1611,89 @@
   </footer>
 
 
-  <!-- =========================
-       JavaScript
-  ========================= -->
+  <!-- JavaScript -->
 
   <script>
-  const companyForm = document.getElementById("companyForm");
-  const successMessage = document.getElementById("successMessage");
 
-  const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbwPPDymDZFUtdnbVwXGDWl_5ZH-w28MckkhmZnqjQvuXaSPfLebHaaVC2jk9vVRlmY/exec";
+    const companyForm = document.getElementById("companyForm");
+    const successMessage = document.getElementById("successMessage");
 
-  companyForm.addEventListener("submit", async function(event) {
-    event.preventDefault();
+    const GOOGLE_SHEETS_URL =
+      "https://script.google.com/macros/s/AKfycbwPPDymDZFUtdnbVwXGDWl_5ZH-w28MckkhmZnqjQvuXaSPfLebHaaVC2jk9vVRlmY/exec";
 
-    const formData = {
-      companyName: document.getElementById("companyName").value,
-      managerName: document.getElementById("managerName").value,
-      email: document.getElementById("email").value,
-      phone: document.getElementById("phone").value,
-      field: document.getElementById("field").value,
-      description: document.getElementById("description").value,
-      cooperation: document.getElementById("cooperation").value
-    };
+    companyForm.addEventListener("submit", async function(event) {
 
-    const submitButton = companyForm.querySelector(".form-submit");
+      event.preventDefault();
 
-    submitButton.disabled = true;
-    submitButton.textContent = "جاري إرسال الطلب...";
+      const formData = {
 
-    try {
-      await fetch(GOOGLE_SHEETS_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "text/plain;charset=utf-8"
-        },
-        body: JSON.stringify(formData)
-      });
+        companyName:
+          document.getElementById("companyName").value,
 
-      companyForm.style.display = "none";
-      successMessage.style.display = "block";
+        managerName:
+          document.getElementById("managerName").value,
 
-      successMessage.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
+        email:
+          document.getElementById("email").value,
 
-    } catch (error) {
-      submitButton.disabled = false;
-      submitButton.textContent = "إرسال طلب الانضمام";
+        phone:
+          document.getElementById("phone").value,
 
-      alert("حدث خطأ أثناء إرسال الطلب، حاول مرة أخرى.");
-    }
-  });
-</script>
+        field:
+          document.getElementById("field").value,
+
+        description:
+          document.getElementById("description").value,
+
+        cooperation:
+          document.getElementById("cooperation").value
+
+      };
+
+      const submitButton =
+        companyForm.querySelector(".form-submit");
+
+      submitButton.disabled = true;
+      submitButton.textContent = "جاري إرسال الطلب...";
+
+      try {
+
+        await fetch(
+          GOOGLE_SHEETS_URL,
+          {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type":
+                "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(formData)
+          }
+        );
+
+        companyForm.style.display = "none";
+        successMessage.style.display = "block";
+
+        successMessage.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+
+      } catch (error) {
+
+        submitButton.disabled = false;
+        submitButton.textContent =
+          "إرسال طلب الانضمام";
+
+        alert(
+          "حدث خطأ أثناء إرسال الطلب، حاول مرة أخرى."
+        );
+
+      }
+
+    });
+
+  </script>
 
 </body>
 </html>
-```
