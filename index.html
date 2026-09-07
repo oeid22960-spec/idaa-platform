@@ -44,6 +44,20 @@
     }
 
     /* =========================
+       الشعار
+    ========================= */
+
+    .brand-logo {
+      width: 105px;
+      height: 64px;
+      background-image: url("data:image/webp;base64,UklGRhQ/AABXRUJQVlA4WAoAAAAQAAAA8gEASwEAQUxQSM8lAAAB/yckSPD/eGtEpO4TkNxGciQpImPMbtb+/8GVbdbdI/o/AfyL0yZ2hXK8wYh1h2x2Q5Jx6d4m7jW4mJ3w8l7p4j7x1tV6xQ5b8e4p2f9k7w8s7f8k7l6m7n8o9p0q1r2s3t4u5v6w7x8y9z0AA==");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      flex-shrink: 0;
+    }
+
+    /* =========================
        الهيدر
     ========================= */
 
@@ -67,23 +81,10 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
-      color: #d6a84f;
-      font-size: 29px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .logo-mark {
-      width: 39px;
-      height: 39px;
-      display: flex;
-      align-items: center;
       justify-content: center;
-      border: 1px solid #d6a84f;
-      border-radius: 12px;
-      font-size: 20px;
-      box-shadow: 0 0 25px rgba(214,168,79,0.12);
+      width: 120px;
+      height: 70px;
+      flex-shrink: 0;
     }
 
     .nav-links {
@@ -644,6 +645,11 @@
     }
 
     .copyright {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      flex-wrap: wrap;
       text-align: center;
       border-top: 1px solid #18191c;
       margin-top: 30px;
@@ -652,11 +658,21 @@
       font-size: 13px;
     }
 
+    .copyright-logo {
+      width: 52px;
+      height: 38px;
+      background-image: url("data:image/webp;base64,UklGRhQ/AABXRUJQVlA4WAoAAAAQAAAA8gEASwEAQUxQSM8lAAAB/yckSPD/eGtEpO4TkNxGciQpImPMbtb+/8GVbdbdI/o/AfyL0yZ2hXK8wYh1h2x2Q5Jx6d4m7jW4mJ3w8l7p4j7x1tV6xQ5b8e4p2f9k7w8s7f8k7l6m7n8o9p0q1r2s3t4u5v6w7x8y9z0AA==");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      display: inline-block;
+    }
+
     .whatsapp-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-right: 8px;
+      margin-right: 3px;
       font-size: 20px;
       color: #25D366;
       transition: .3s;
@@ -698,7 +714,12 @@
 
       .logo {
         width: 100%;
-        justify-content: center;
+        height: 70px;
+      }
+
+      .brand-logo {
+        width: 105px;
+        height: 62px;
       }
 
       .nav-links {
@@ -746,6 +767,11 @@
       .footer-content {
         flex-direction: column;
       }
+
+      .copyright-logo {
+        width: 48px;
+        height: 35px;
+      }
     }
 
     @media (max-width: 450px) {
@@ -776,9 +802,8 @@
   <header>
     <div class="container navbar">
 
-      <div class="logo">
-        <div class="logo-mark">إ</div>
-        إضاءة
+      <div class="logo" aria-label="إضاءة">
+        <div class="brand-logo"></div>
       </div>
 
       <ul class="nav-links">
@@ -871,35 +896,26 @@
 
         <div class="card">
           <div class="icon">🎯</div>
-
           <h3>فرص تسويقية</h3>
-
           <p>
             نوفر للمسوقين فرصًا للتعاون مع منصات وعلامات تجارية متنوعة.
           </p>
-
         </div>
 
         <div class="card">
           <div class="icon">💰</div>
-
           <h3>عمولات</h3>
-
           <p>
-            احصل على عمولة مقابل المبيعات التي تتم من خلال رمزك التسويقي.
+            احصل على عمولة مقابل المبيعات التي تتم من خلال كودك التسويقي.
           </p>
-
         </div>
 
         <div class="card">
           <div class="icon">📈</div>
-
           <h3>تطوير الخبرة</h3>
-
           <p>
             طوّر مهاراتك في التسويق وصناعة المحتوى وبناء العلاقات مع العملاء.
           </p>
-
         </div>
 
       </div>
@@ -920,7 +936,7 @@
         <h2>مميزات إضاءة</h2>
 
         <p>
-          كل ما تحتاج إليه لبدء رحلتك في مجال التسويق.
+          كل ما تحتاجه لبدء رحلتك في مجال التسويق.
         </p>
 
       </div>
@@ -929,68 +945,50 @@
 
         <div class="card">
           <div class="icon">💵</div>
-
           <h3>مقابل مادي</h3>
-
           <p>
-            فرص للحصول على عمولات ومكافآت وفقًا لنتائجك التسويقية.
+            فرص للحصول على عمولات ومكافآت بناءً على نتائجك التسويقية.
           </p>
-
         </div>
 
         <div class="card">
           <div class="icon">🏆</div>
-
           <h3>خبرة موثقة</h3>
-
           <p>
-            اكتسب خبرة عملية في مجال التسويق والعمل مع مختلف المنصات.
+            اكتسب خبرة عملية في مجال التسويق والعمل مع المنصات المختلفة.
           </p>
-
         </div>
 
         <div class="card">
           <div class="icon">🤝</div>
-
           <h3>التعاون مع المنصات</h3>
-
           <p>
-            فرص للتعاون مع جهات ومنصات متنوعة من خلال إضاءة.
+            استفد من فرص التعاون مع جهات ومنصات مختلفة من خلال إضاءة.
           </p>
-
         </div>
 
         <div class="card">
           <div class="icon">📱</div>
-
           <h3>التسويق الرقمي</h3>
-
           <p>
             استخدم وسائل التواصل الاجتماعي للوصول إلى العملاء والترويج للمنتجات والخدمات.
           </p>
-
         </div>
 
         <div class="card">
           <div class="icon">📊</div>
-
           <h3>متابعة الأداء</h3>
-
           <p>
-            تابع نتائجك ومبيعاتك، وطوّر أداءك التسويقي باستمرار.
+            تابع نتائجك ومبيعاتك وطوّر أداءك التسويقي باستمرار.
           </p>
-
         </div>
 
         <div class="card">
           <div class="icon">⚡</div>
-
           <h3>بداية سهلة</h3>
-
           <p>
-            ابدأ بخطوات بسيطة وواضحة للدخول إلى عالم التسويق الرقمي.
+            ابدأ بخطوات بسيطة وانطلق في عالم التسويق الرقمي.
           </p>
-
         </div>
 
       </div>
@@ -1011,7 +1009,7 @@
         <h2>الفرص المتاحة</h2>
 
         <p>
-          تعرّف على أنواع الفرص التي قد تتوفر من خلال إضاءة.
+          تعرّف على أنواع الفرص التي يمكن أن تتوفر عبر إضاءة.
         </p>
 
       </div>
@@ -1023,8 +1021,8 @@
           <h3>📣 التسويق بالعمولة</h3>
 
           <p>
-            سوّق للمنتجات والخدمات باستخدام رمزك أو رابطك التسويقي،
-            واحصل على عمولة وفقًا للنتائج.
+            سوّق للمنتجات والخدمات باستخدام كودك أو رابطك التسويقي،
+            واحصل على عمولة بناءً على النتائج.
           </p>
 
           <span class="opportunity-tag">
@@ -1081,7 +1079,7 @@
         <h2>كيف تبدأ كمسوق؟</h2>
 
         <p>
-          ثلاث خطوات بسيطة لتبدأ رحلتك مع إضاءة.
+          ثلاث خطوات بسيطة وتبدأ رحلتك مع إضاءة.
         </p>
 
       </div>
@@ -1115,7 +1113,7 @@
           </h3>
 
           <p>
-            استخدم رمزك التسويقي وابدأ بالترويج للمنتجات والخدمات المتاحة.
+            استخدم كودك التسويقي وابدأ بالترويج للمنتجات والخدمات.
           </p>
 
         </div>
@@ -1127,7 +1125,7 @@
           </div>
 
           <h3>
-            حقق النتائج
+            حقّق النتائج
           </h3>
 
           <p>
@@ -1157,7 +1155,7 @@
 
         <p>
           انضم إلى فريق مسوقي إضاءة وابدأ رحلتك في مجال التسويق الرقمي،
-          واستفد من الفرص المتاحة وطوّر خبرتك العملية.
+          واستفد من الفرص المتاحة.
         </p>
 
         <a
@@ -1189,8 +1187,8 @@
         </h2>
 
         <p>
-          لديك شركة أو منصة وتبحث عن مسوقين؟
-          أرسل بياناتك، وسيتواصل معك فريق إضاءة لمناقشة فرص التعاون.
+          هل لديك شركة أو منصة وتبحث عن مسوقين؟
+          سجّل بياناتك، وسيتواصل معك فريق إضاءة.
         </p>
 
       </div>
@@ -1352,11 +1350,11 @@
                 </option>
 
                 <option value="حملات تسويقية">
-                  الحملات التسويقية
+                  حملات تسويقية
                 </option>
 
                 <option value="توظيف مسوقين">
-                  استقطاب المسوقين
+                  توظيف واستقطاب المسوقين
                 </option>
 
                 <option value="شراكة">
@@ -1422,7 +1420,7 @@
         </h2>
 
         <p>
-          إذا كان لديك استفسار أو ترغب في التعاون مع إضاءة، يسعدنا تواصلك معنا.
+          إذا كان لديك استفسار أو ترغب في التعاون مع إضاءة، يسعدنا التواصل معك.
         </p>
 
       </div>
@@ -1559,7 +1557,11 @@
 
       <div class="copyright">
 
-        © 2026 إضاءة - جميع الحقوق محفوظة
+        <div class="copyright-logo" aria-label="شعار إضاءة"></div>
+
+        <span>
+          © 2026 إضاءة - جميع الحقوق محفوظة
+        </span>
 
         <a
           href="https://wa.me/966507743653"
