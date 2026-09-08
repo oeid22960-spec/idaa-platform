@@ -1,79 +1,32 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="إضاءة | منصة تجمع المسوقين مع الشركات والمنصات وتوفر فرصًا تسويقية حقيقية.">
+  <meta name="theme-color" content="#08090b">
   <title>إضاءة | منصة التسويق والفرص</title>
 
-  <meta
-    name="description"
-    content="إضاءة | منصة تجمع المسوقين مع الشركات والمنصات وتوفر فرصًا تسويقية حقيقية."
-  />
-
-  <meta name="theme-color" content="#08090b" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- الخط الأساسي للموقع -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
-
-  <!-- خط الواجهة الرئيسية -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap"
-    rel="stylesheet"
-  >
-
   <style>
-
-    /* =========================================================
-       الأساس
-    ========================================================= */
-
-    :root {
-      --bg: #08090b;
-      --bg-soft: #0d0f12;
-      --card: #111317;
-      --card-2: #15181d;
-
-      --text: #f5f5f5;
-      --muted: #9b9b9b;
-
-      --gold: #d6a84f;
-      --gold-light: #e5c477;
-      --gold-dark: #a77b2f;
-
-      --border: rgba(214, 168, 79, 0.16);
-
-      --shadow:
-        0 20px 60px rgba(0, 0, 0, 0.35);
-
-      --radius: 20px;
-    }
-
-    body.light {
-      --bg: #f7f7f5;
-      --bg-soft: #ffffff;
-      --card: #ffffff;
-      --card-2: #f2f2ef;
-
-      --text: #151515;
-      --muted: #686868;
-
-      --border: rgba(150, 110, 35, 0.18);
-
-      --shadow:
-        0 20px 50px rgba(0, 0, 0, 0.08);
-    }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    :root {
+      --gold: #d6a84f;
+      --gold-light: #e4bd6b;
+      --gold-dark: #a87b20;
+      --bg: #08090b;
+      --bg-soft: #0d0e11;
+      --card: #111216;
+      --card-2: #0d0e11;
+      --border: #23242a;
+      --text: #ffffff;
+      --muted: #888;
+      --muted-light: #aaa;
+      --shadow: rgba(0, 0, 0, .25);
     }
 
     html {
@@ -81,924 +34,1121 @@
     }
 
     body {
-      font-family: "Cairo", sans-serif;
+      font-family: Arial, Tahoma, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.8;
       overflow-x: hidden;
-      transition:
-        background 0.3s ease,
-        color 0.3s ease;
+      transition: background-color .45s ease, color .45s ease;
+    }
+
+    body::selection {
+      background: rgba(214,168,79,.35);
+      color: #fff;
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
     button,
     input,
-    select,
-    textarea {
+    textarea,
+    select {
       font-family: inherit;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
+    button {
+      -webkit-tap-highlight-color: transparent;
     }
 
     .container {
-      width: min(1180px, calc(100% - 40px));
+      width: 90%;
+      max-width: 1180px;
       margin: auto;
     }
 
+    /* شريط التقدم */
 
-    /* =========================================================
-       شريط التقدم
-    ========================================================= */
-
-    #scrollProgress {
+    .scroll-progress {
       position: fixed;
       top: 0;
       right: 0;
-      width: 0%;
-      height: 3px;
-      background: linear-gradient(
-        90deg,
-        var(--gold-dark),
-        var(--gold-light)
-      );
-      z-index: 9999;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+      z-index: 2000;
+      box-shadow: 0 0 12px rgba(214,168,79,.5);
     }
 
+    /* الوضع الفاتح */
 
-    /* =========================================================
-       الهيدر
-    ========================================================= */
+    body.light-mode {
+      --bg: #f7f7f5;
+      --bg-soft: #eeeeeb;
+      --card: #ffffff;
+      --card-2: #f2f2ef;
+      --border: #deddd6;
+      --text: #171717;
+      --muted: #707070;
+      --muted-light: #555;
+      --shadow: rgba(168,123,32,.08);
+
+      background: #f7f7f5;
+      color: #171717;
+    }
+
+    body.light-mode header {
+      background: rgba(247,247,245,.92);
+      border-bottom-color: rgba(168,123,32,.25);
+      box-shadow: 0 4px 25px rgba(168,123,32,.06);
+    }
+
+    body.light-mode .nav-links a {
+      color: #444;
+    }
+
+    body.light-mode .nav-links a:hover {
+      color: var(--gold-dark);
+    }
+
+    body.light-mode .hero {
+      background:
+        radial-gradient(circle at 50% 42%, rgba(214,168,79,.18) 0%, rgba(214,168,79,.08) 18%, transparent 45%),
+        radial-gradient(circle at 20% 20%, rgba(214,168,79,.08), transparent 30%),
+        #f7f7f5;
+    }
+
+    body.light-mode .hero h1 {
+      color: #181818;
+    }
+
+    body.light-mode .hero h1 span {
+      color: var(--gold-dark);
+    }
+
+    body.light-mode .hero p {
+      color: #666;
+    }
+
+    body.light-mode .section-title p {
+      color: #707070;
+    }
+
+    body.light-mode .card,
+    body.light-mode .opportunity-card,
+    body.light-mode .live-stat-card,
+    body.light-mode .contact-card {
+      background: linear-gradient(145deg, #ffffff, #f2f2ef);
+      border-color: rgba(168,123,32,.22);
+      box-shadow: 0 8px 30px rgba(168,123,32,.045);
+    }
+
+    body.light-mode .card:hover,
+    body.light-mode .opportunity-card:hover,
+    body.light-mode .live-stat-card:hover,
+    body.light-mode .contact-card:hover {
+      border-color: rgba(168,123,32,.65);
+      box-shadow:
+        0 15px 40px rgba(168,123,32,.10),
+        0 0 0 1px rgba(168,123,32,.12);
+    }
+
+    body.light-mode .card h3,
+    body.light-mode .opportunity-card h3,
+    body.light-mode .contact-card h3 {
+      color: #181818;
+    }
+
+    body.light-mode .card p,
+    body.light-mode .opportunity-card p,
+    body.light-mode .live-stat-card p,
+    body.light-mode .contact-card p {
+      color: #707070;
+    }
+
+    body.light-mode .opportunities,
+    body.light-mode .live-stats,
+    body.light-mode .join-marketer,
+    body.light-mode .contact {
+      background: #eeeeeb;
+      border-color: rgba(168,123,32,.18);
+    }
+
+    body.light-mode .companies,
+    body.light-mode #about {
+      background: #f7f7f5;
+    }
+
+    body.light-mode .join-box {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(214,168,79,.17), transparent 55%),
+        linear-gradient(135deg, #fffaf0, #f3f2ed);
+      border-color: rgba(168,123,32,.35);
+      box-shadow: 0 20px 55px rgba(168,123,32,.08);
+    }
+
+    body.light-mode .join-box > p {
+      color: #666;
+    }
+
+    body.light-mode .join-step {
+      background: rgba(255,255,255,.72);
+      border-color: rgba(168,123,32,.20);
+    }
+
+    body.light-mode .join-step:hover {
+      border-color: rgba(168,123,32,.6);
+      box-shadow: 0 10px 30px rgba(168,123,32,.08);
+    }
+
+    body.light-mode .join-step h3 {
+      color: #181818;
+    }
+
+    body.light-mode .join-step p {
+      color: #707070;
+    }
+
+    body.light-mode .company-box {
+      background: linear-gradient(145deg, #ffffff, #f2f2ef);
+      border-color: rgba(168,123,32,.48);
+      box-shadow: 0 15px 45px rgba(168,123,32,.06);
+    }
+
+    body.light-mode .form-group label {
+      color: #333;
+    }
+
+    body.light-mode .form-group input,
+    body.light-mode .form-group textarea,
+    body.light-mode .form-group select {
+      background: #fafaf8;
+      color: #222;
+      border-color: #d8d7d1;
+    }
+
+    body.light-mode .form-group input:focus,
+    body.light-mode .form-group textarea:focus,
+    body.light-mode .form-group select:focus {
+      border-color: #b98b2c;
+      box-shadow: 0 0 0 3px rgba(168,123,32,.10);
+    }
+
+    body.light-mode footer {
+      background: #e9e9e5;
+      border-top-color: rgba(168,123,32,.22);
+    }
+
+    body.light-mode .footer-description {
+      color: #777;
+    }
+
+    body.light-mode .footer-links a {
+      color: #666;
+    }
+
+    body.light-mode .footer-links a:hover {
+      color: var(--gold-dark);
+    }
+
+    body.light-mode .copyright {
+      color: #777;
+      border-top-color: rgba(168,123,32,.18);
+    }
+
+    /* الشعار */
+
+    .brand-logo {
+      width: 105px;
+      height: 64px;
+      background-image: url("logo.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      flex-shrink: 0;
+      transition:
+        filter .4s ease,
+        transform .3s ease;
+    }
+
+    body.light-mode .brand-logo {
+      filter:
+        drop-shadow(0 0 2px rgba(168,123,32,.75))
+        drop-shadow(0 0 4px rgba(168,123,32,.28));
+    }
+
+    body.light-mode .brand-logo:hover {
+      filter:
+        drop-shadow(0 0 3px rgba(168,123,32,.85))
+        drop-shadow(0 2px 7px rgba(168,123,32,.25));
+    }
+
+    /* الهيدر */
 
     header {
-      position: fixed;
+      position: sticky;
       top: 0;
-      right: 0;
-      left: 0;
       z-index: 1000;
-
-      background: rgba(8, 9, 11, 0.78);
+      background: rgba(8,9,11,.88);
+      border-bottom: 1px solid rgba(214,168,79,.12);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
-
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition:
+        background .45s ease,
+        border-color .45s ease,
+        box-shadow .45s ease;
     }
 
-    body.light header {
-      background: rgba(255,255,255,0.82);
-      border-bottom-color: rgba(0,0,0,0.06);
-    }
-
-    .nav {
+    .navbar {
       min-height: 78px;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 30px;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
-
+      justify-content: center;
+      width: 120px;
+      height: 70px;
       flex-shrink: 0;
+      transition: transform .3s ease;
     }
 
-    .logo img {
-      width: 44px;
-      height: 44px;
-      object-fit: contain;
-    }
-
-    .logo span {
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--text);
+    .logo:hover {
+      transform: translateY(-1px) scale(1.02);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 24px;
+      gap: 25px;
+      list-style: none;
       flex-wrap: wrap;
+    }
+
+    .nav-links li {
+      position: relative;
     }
 
     .nav-links a {
       position: relative;
-
-      color: var(--muted);
+      color: #c8c8c8;
       font-size: 14px;
-      font-weight: 600;
-
+      white-space: nowrap;
+      padding: 7px 2px;
       transition:
-        color 0.25s ease;
+        color .3s ease,
+        transform .3s ease;
     }
 
     .nav-links a::after {
       content: "";
-
       position: absolute;
       right: 0;
-      bottom: -7px;
-
+      bottom: 0;
       width: 0;
       height: 2px;
-
       background: var(--gold);
-
-      transition: width 0.25s ease;
+      border-radius: 10px;
+      transition: width .3s ease;
     }
 
     .nav-links a:hover {
-      color: var(--gold-light);
+      color: var(--gold);
+      transform: translateY(-2px);
     }
 
     .nav-links a:hover::after {
       width: 100%;
     }
 
-    .nav-actions {
+    /* زر الوضع */
+
+    .theme-toggle {
+      width: 52px;
+      height: 31px;
+      border-radius: 30px;
+      border: 1px solid rgba(214,168,79,.38);
+      background: linear-gradient(135deg, #202126, #101114);
+      color: #fff;
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: space-between;
+      padding: 3px 5px;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: .35s ease;
+      box-shadow:
+        inset 0 1px 3px rgba(255,255,255,.08),
+        0 3px 12px rgba(0,0,0,.12);
+      position: relative;
+      overflow: hidden;
     }
 
-    .theme-btn {
-      width: 40px;
-      height: 40px;
-
+    .theme-toggle::before {
+      content: "☀";
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-
-      border-radius: 50%;
-      border: 1px solid var(--border);
-
-      background: rgba(214,168,79,0.06);
-      color: var(--gold);
-
-      cursor: pointer;
-
-      transition:
-        transform 0.25s ease,
-        background 0.25s ease;
+      font-size: 13px;
+      background: var(--gold);
+      color: #16120a;
+      position: absolute;
+      right: 3px;
+      top: 3px;
+      transition: .35s ease;
+      box-shadow: 0 2px 7px rgba(0,0,0,.35);
     }
 
-    .theme-btn:hover {
-      transform: rotate(15deg);
-      background: rgba(214,168,79,0.12);
+    .theme-toggle::after {
+      content: "☾";
+      position: absolute;
+      left: 6px;
+      top: 4px;
+      font-size: 15px;
+      opacity: .7;
+      transition: .35s ease;
     }
 
+    body.light-mode .theme-toggle {
+      background: linear-gradient(135deg, #f4f4f1, #ffffff);
+      border-color: rgba(168,123,32,.42);
+      box-shadow: 0 4px 15px rgba(168,123,32,.10);
+    }
 
-    /* =========================================================
-       الواجهة الرئيسية - التصميم الجديد
-    ========================================================= */
+    body.light-mode .theme-toggle::before {
+      content: "☾";
+      right: auto;
+      left: 3px;
+      background: #e9e9e5;
+      color: #8b671c;
+    }
+
+    body.light-mode .theme-toggle::after {
+      content: "☀";
+      left: auto;
+      right: 6px;
+      opacity: .85;
+      color: #a87b20;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+      border-color: rgba(214,168,79,.7);
+    }
+
+    /* الرئيسية */
 
     .hero {
-      position: relative;
-      min-height: 100vh;
-
+      min-height: 680px;
       display: flex;
       align-items: center;
-
-      padding-top: 120px;
-      padding-bottom: 80px;
-
+      text-align: center;
+      position: relative;
       overflow: hidden;
-
       background:
-        radial-gradient(
-          circle at 50% 30%,
-          rgba(214,168,79,0.12),
-          transparent 35%
-        ),
-        var(--bg);
+        radial-gradient(circle at 50% 42%, rgba(214,168,79,.18) 0%, rgba(214,168,79,.07) 18%, transparent 45%),
+        radial-gradient(circle at 20% 20%, rgba(214,168,79,.07), transparent 30%),
+        #08090b;
+      transition: background .45s ease;
     }
 
     .hero::before {
       content: "";
-
       position: absolute;
-
-      width: 650px;
-      height: 650px;
-
-      top: -260px;
-      right: 50%;
-
-      transform: translateX(50%);
-
+      width: 600px;
+      height: 600px;
+      border: 1px solid rgba(214,168,79,.08);
       border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(214,168,79,0.09),
-          transparent 68%
-        );
-
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow:
+        0 0 0 70px rgba(214,168,79,.018),
+        0 0 0 140px rgba(214,168,79,.012);
       pointer-events: none;
+      animation: heroPulse 7s ease-in-out infinite;
     }
 
     .hero::after {
       content: "";
-
       position: absolute;
-
-      width: 1px;
-      height: 75%;
-
+      width: 420px;
+      height: 420px;
+      top: 50%;
       left: 50%;
-      top: 15%;
-
-      background:
-        linear-gradient(
-          to bottom,
-          transparent,
-          rgba(214,168,79,0.16),
-          transparent
-        );
-
-      opacity: 0.5;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(214,168,79,.06), transparent 65%);
       pointer-events: none;
+      animation: glowPulse 5s ease-in-out infinite;
+    }
+
+    @keyframes heroPulse {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: .65;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.04);
+        opacity: 1;
+      }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% {
+        opacity: .5;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        opacity: .85;
+        transform: translate(-50%, -50%) scale(1.12);
+      }
     }
 
     .hero-content {
+      max-width: 850px;
+      margin: auto;
       position: relative;
       z-index: 2;
-
-      width: 100%;
-      max-width: 920px;
-
-      margin: auto;
-
-      text-align: center;
+      animation: heroEnter .9s ease both;
     }
 
-    .hero-badge {
+    @keyframes heroEnter {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .badge {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-
-      padding: 8px 16px;
-
-      margin-bottom: 24px;
-
-      border-radius: 100px;
-
-      border: 1px solid rgba(214,168,79,0.25);
-
-      background:
-        rgba(214,168,79,0.07);
-
-      color: var(--gold-light);
-
-      font-size: 13px;
-      font-weight: 700;
-
-      box-shadow:
-        0 8px 30px rgba(0,0,0,0.15);
+      gap: 8px;
+      border: 1px solid rgba(214,168,79,.35);
+      color: var(--gold);
+      padding: 8px 18px;
+      border-radius: 30px;
+      margin-bottom: 27px;
+      background: rgba(214,168,79,.07);
+      font-size: 14px;
+      box-shadow: 0 0 25px rgba(214,168,79,.04);
+      animation: badgeFloat 4s ease-in-out infinite;
     }
 
-    .hero-badge::before {
-      content: "";
+    .badge::before {
+      content: "✦";
+      font-size: 12px;
+    }
 
-      width: 7px;
-      height: 7px;
-
-      border-radius: 50%;
-
-      background: var(--gold);
-
-      box-shadow:
-        0 0 15px rgba(214,168,79,0.75);
+    @keyframes badgeFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-3px);
+      }
     }
 
     .hero h1 {
-      /*
-        خط الواجهة مختلف عن بقية الموقع
-        ليكون أقرب لهوية الشعار
-      */
-      font-family: "Tajawal", "Cairo", sans-serif;
+      font-size: 65px;
+      line-height: 1.15;
+      margin-bottom: 25px;
+      letter-spacing: -1px;
+    }
 
-      font-size: clamp(48px, 8vw, 92px);
-      line-height: 1.08;
-
-      font-weight: 900;
-
-      letter-spacing: -2px;
-
-      margin-bottom: 24px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #ffffff 10%,
-          var(--gold-light) 52%,
-          var(--gold) 90%
-        );
-
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-
-      text-shadow:
-        0 12px 50px rgba(214,168,79,0.08);
+    .hero h1 span {
+      color: var(--gold);
+      text-shadow: 0 0 35px rgba(214,168,79,.18);
     }
 
     .hero p {
-      max-width: 720px;
-      margin: auto;
-
-      color: var(--muted);
-
-      font-size: clamp(16px, 2vw, 19px);
-      line-height: 2;
-
-      font-weight: 500;
+      color: #a7a7a7;
+      font-size: 19px;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
-    .hero-glow {
+    .hero-content::after {
+      content: "";
       position: absolute;
-
-      width: 300px;
-      height: 300px;
-
-      border-radius: 50%;
-
-      filter: blur(100px);
-
-      background:
-        rgba(214,168,79,0.07);
-
+      top: 0;
+      left: -40%;
+      width: 25%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
+      transform: skewX(-18deg);
+      animation: softShine 1.4s ease-out .2s 1 forwards;
       pointer-events: none;
     }
 
-    .hero-glow.one {
-      right: -120px;
-      bottom: 80px;
+    @keyframes softShine {
+      from {
+        left: -40%;
+      }
+      to {
+        left: 120%;
+      }
     }
 
-    .hero-glow.two {
-      left: -120px;
-      top: 180px;
-    }
-
-
-    /* =========================================================
-       الأقسام
-    ========================================================= */
+    /* الأقسام */
 
     section {
+      padding: 95px 0;
       position: relative;
-      padding: 100px 0;
+      transition:
+        background .45s ease,
+        border-color .45s ease;
     }
 
-    .section-head {
-      max-width: 700px;
-      margin: 0 auto 55px;
-
-      text-align: center;
-    }
-
-    .section-kicker {
-      display: inline-block;
-
-      margin-bottom: 10px;
-
-      color: var(--gold);
-
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(30px, 5vw, 46px);
-      line-height: 1.3;
-
-      margin-bottom: 15px;
-
-      font-weight: 800;
-    }
-
-    .section-head p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-
-    /* =========================================================
-       عن إضاءة
-    ========================================================= */
-
-    .about {
-      background: var(--bg-soft);
-    }
-
-    .about-grid {
-      display: grid;
-
-      grid-template-columns:
-        1.05fr
-        0.95fr;
-
-      gap: 60px;
-
-      align-items: center;
-    }
-
-    .about-text h3 {
-      font-size: 31px;
-      margin-bottom: 18px;
-      font-weight: 800;
-    }
-
-    .about-text p {
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 2.1;
-      margin-bottom: 18px;
-    }
-
-    .about-card {
-      position: relative;
-
-      min-height: 360px;
-
-      padding: 35px;
-
-      border: 1px solid var(--border);
-      border-radius: 28px;
-
-      background:
-        radial-gradient(
-          circle at 50% 40%,
-          rgba(214,168,79,0.13),
-          transparent 55%
-        ),
-        var(--card);
-
-      box-shadow: var(--shadow);
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      overflow: hidden;
-    }
-
-    .about-card::before {
+    section::before {
       content: "";
-
       position: absolute;
-
-      width: 230px;
-      height: 230px;
-
-      border-radius: 50%;
-
-      border: 1px solid rgba(214,168,79,0.14);
-
-      box-shadow:
-        0 0 80px rgba(214,168,79,0.08);
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1180px;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(214,168,79,.10),
+        transparent
+      );
+      pointer-events: none;
     }
 
-    .about-logo {
+    .section-title {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .section-title h2 {
+      font-size: 39px;
+      margin-bottom: 12px;
       position: relative;
-      z-index: 2;
-
-      width: 150px;
-      height: 150px;
-
-      object-fit: contain;
-
-      filter:
-        drop-shadow(
-          0 20px 35px rgba(0,0,0,0.35)
-        );
+      display: inline-block;
     }
 
-
-    /* =========================================================
-       المميزات
-    ========================================================= */
-
-    .features {
-      background: var(--bg);
+    .section-title h2::after {
+      content: "";
+      position: absolute;
+      width: 38px;
+      height: 2px;
+      background: var(--gold);
+      bottom: -8px;
+      right: 50%;
+      transform: translateX(50%);
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(214,168,79,.25);
     }
 
-    .features-grid {
+    .section-title p {
+      color: #8e8e8e;
+      font-size: 16px;
+      max-width: 700px;
+      margin: 15px auto 0;
+    }
+
+    /* الكروت */
+
+    .cards {
       display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
+      grid-template-columns: repeat(3, 1fr);
       gap: 22px;
     }
 
-    .feature-card {
+    .card {
+      background: linear-gradient(145deg, #111216, #0d0e11);
+      border: 1px solid #23242a;
+      border-radius: 20px;
       padding: 30px;
-
-      border-radius: var(--radius);
-
-      border: 1px solid var(--border);
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,0.025),
-          rgba(255,255,255,0.008)
-        ),
-        var(--card);
-
       transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease,
+        background .45s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .feature-card:hover {
-      transform: translateY(-7px);
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      background: rgba(214,168,79,.06);
+      filter: blur(38px);
+      top: -65px;
+      right: -65px;
+      border-radius: 50%;
+      transition: transform .4s ease, opacity .4s ease;
+    }
 
-      border-color:
-        rgba(214,168,79,0.34);
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      right: 30px;
+      bottom: 0;
+      background: var(--gold);
+      border-radius: 10px;
+      transition: width .4s ease;
+      box-shadow: 0 0 12px rgba(214,168,79,.25);
+    }
 
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(214,168,79,.45);
       box-shadow:
-        0 20px 50px rgba(0,0,0,0.22);
+        0 18px 45px rgba(0,0,0,.22),
+        0 0 25px rgba(214,168,79,.025);
     }
 
-    .feature-icon {
-      width: 56px;
-      height: 56px;
+    .card:hover::before {
+      transform: scale(1.5);
+      opacity: .9;
+    }
 
-      margin-bottom: 20px;
+    .card:hover::after {
+      width: calc(100% - 60px);
+    }
 
+    .icon {
+      width: 55px;
+      height: 55px;
+      border-radius: 16px;
+      background: rgba(214,168,79,.10);
+      border: 1px solid rgba(214,168,79,.14);
       display: flex;
       align-items: center;
       justify-content: center;
-
-      border-radius: 16px;
-
-      color: var(--gold);
-
-      background:
-        rgba(214,168,79,0.09);
-
-      border:
-        1px solid rgba(214,168,79,0.18);
-
-      font-size: 24px;
+      font-size: 23px;
+      margin-bottom: 20px;
+      transition:
+        transform .35s ease,
+        border-color .35s ease,
+        background .35s ease;
+      position: relative;
+      z-index: 2;
     }
 
-    .feature-card h3 {
-      font-size: 19px;
-      margin-bottom: 9px;
+    .card:hover .icon {
+      transform: translateY(-2px) scale(1.05);
+      border-color: rgba(214,168,79,.4);
+      background: rgba(214,168,79,.14);
     }
 
-    .feature-card p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.9;
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      position: relative;
+      z-index: 2;
     }
 
+    .card p {
+      color: #888;
+      font-size: 15px;
+      position: relative;
+      z-index: 2;
+    }
 
-    /* =========================================================
-       الفرص
-    ========================================================= */
+    #about {
+      background: #08090b;
+    }
 
     .opportunities {
-      background: var(--bg-soft);
+      background: #0d0e11;
+      border-top: 1px solid #18191d;
+      border-bottom: 1px solid #18191d;
     }
 
-    .opportunities-grid {
+    /* الفرص */
+
+    .opportunity-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
+      grid-template-columns: repeat(3, 1fr);
       gap: 22px;
     }
 
     .opportunity-card {
-      position: relative;
-
+      background: linear-gradient(145deg, #111216, #0d0e11);
+      border: 1px solid #23242a;
+      border-radius: 20px;
       padding: 30px;
-
-      min-height: 230px;
-
-      border-radius: var(--radius);
-
-      border: 1px solid var(--border);
-
-      background: var(--card);
-
-      overflow: hidden;
-
+      min-height: 235px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       transition:
-        transform 0.3s ease,
-        border-color 0.3s ease;
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease,
+        background .45s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .opportunity-card::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      left: -80px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(214,168,79,.045);
+      filter: blur(35px);
+      transition: transform .4s ease;
     }
 
     .opportunity-card:hover {
-      transform: translateY(-6px);
-
-      border-color:
-        rgba(214,168,79,0.34);
+      transform: translateY(-7px);
+      border-color: rgba(214,168,79,.4);
+      box-shadow:
+        0 18px 45px rgba(0,0,0,.18),
+        0 0 25px rgba(214,168,79,.025);
     }
 
-    .opportunity-number {
-      position: absolute;
-
-      top: 10px;
-      left: 18px;
-
-      font-size: 70px;
-      font-weight: 900;
-
-      color: rgba(214,168,79,0.055);
+    .opportunity-card:hover::before {
+      transform: scale(1.3);
     }
 
     .opportunity-card h3 {
-      position: relative;
-
-      font-size: 20px;
+      color: #fff;
+      font-size: 21px;
       margin-bottom: 12px;
+      position: relative;
+      z-index: 2;
     }
 
     .opportunity-card p {
+      color: #888;
+      margin-bottom: 20px;
+      font-size: 15px;
       position: relative;
-
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 2;
+      z-index: 2;
     }
 
-
-    /* =========================================================
-       مجتمعنا والإحصائيات
-    ========================================================= */
-
-    .community {
-      background: var(--bg);
+    .opportunity-tag {
+      display: inline-block;
+      align-self: flex-start;
+      padding: 6px 13px;
+      border-radius: 20px;
+      border: 1px solid rgba(214,168,79,.3);
+      color: var(--gold);
+      background: rgba(214,168,79,.05);
+      font-size: 12px;
+      position: relative;
+      z-index: 2;
+      transition: background .3s ease, border-color .3s ease;
     }
 
-    .stats {
+    .opportunity-card:hover .opportunity-tag {
+      background: rgba(214,168,79,.10);
+      border-color: rgba(214,168,79,.5);
+    }
+
+    /* المجتمع */
+
+    .live-stats {
+      background: #0d0e11;
+      border-top: 1px solid #18191d;
+      border-bottom: 1px solid #18191d;
+    }
+
+    .live-stats-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
+      grid-template-columns: repeat(2, 1fr);
       gap: 22px;
-
       max-width: 850px;
-
       margin: auto;
     }
 
-    .stat-card {
-      padding: 38px 25px;
-
+    .live-stat-card {
+      background: linear-gradient(145deg, #111216, #0d0e11);
+      border: 1px solid #23242a;
+      border-radius: 20px;
+      padding: 35px 25px;
       text-align: center;
-
-      border-radius: 22px;
-
-      border: 1px solid var(--border);
-
-      background: var(--card);
-
-      box-shadow:
-        0 15px 45px rgba(0,0,0,0.14);
-    }
-
-    .stat-number {
-      color: var(--gold-light);
-
-      font-size: 52px;
-      line-height: 1;
-
-      font-weight: 800;
-
-      margin-bottom: 12px;
-    }
-
-    .stat-label {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-
-    /* =========================================================
-       انضم كمسوق
-    ========================================================= */
-
-    .marketer {
-      background: var(--bg-soft);
-    }
-
-    .marketer-box {
+      transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease,
+        background .45s ease;
       position: relative;
-
-      padding: 55px;
-
-      border-radius: 30px;
-
-      border: 1px solid var(--border);
-
-      background:
-        radial-gradient(
-          circle at 80% 20%,
-          rgba(214,168,79,0.11),
-          transparent 35%
-        ),
-        var(--card);
-
       overflow: hidden;
     }
 
-    .marketer-box::after {
+    .live-stat-card::before {
       content: "";
-
       position: absolute;
-
-      width: 250px;
-      height: 250px;
-
-      left: -100px;
-      bottom: -120px;
-
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
-
-      background:
-        rgba(214,168,79,0.07);
-
-      filter: blur(40px);
+      background: rgba(214,168,79,.05);
+      filter: blur(45px);
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
-    .marketer-content {
+    .live-stat-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(214,168,79,.4);
+      box-shadow: 0 18px 45px rgba(0,0,0,.22);
+    }
+
+    .live-stat-number {
+      color: var(--gold);
+      font-size: 52px;
+      line-height: 1.1;
+      font-weight: 800;
+      margin-bottom: 8px;
+      text-shadow: 0 0 30px rgba(214,168,79,.12);
+      min-height: 57px;
       position: relative;
       z-index: 2;
-
-      max-width: 760px;
     }
 
-    .marketer-content h2 {
-      font-size: clamp(30px, 5vw, 44px);
-
-      margin-bottom: 16px;
+    .live-stat-card p {
+      color: #888;
+      font-size: 16px;
+      position: relative;
+      z-index: 2;
     }
 
-    .marketer-content p {
-      color: var(--muted);
-      margin-bottom: 28px;
-      font-size: 15px;
+    body.light-mode .live-stat-number {
+      color: var(--gold-dark);
+      text-shadow: 0 0 25px rgba(168,123,32,.12);
     }
+
+    /* انضم كمسوق */
+
+    .join-marketer {
+      background: #0d0e11;
+      border-top: 1px solid #18191d;
+    }
+
+    .join-box {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(214,168,79,.15), transparent 55%),
+        linear-gradient(135deg, #17140d, #101114);
+      border: 1px solid rgba(214,168,79,.28);
+      border-radius: 28px;
+      padding: 70px 30px;
+      text-align: center;
+      box-shadow:
+        0 25px 70px rgba(0,0,0,.2),
+        inset 0 1px 0 rgba(255,255,255,.025);
+      transition:
+        background .45s ease,
+        border-color .45s ease,
+        transform .4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .join-box::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      top: -180px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: rgba(214,168,79,.09);
+      filter: blur(50px);
+    }
+
+    .join-box h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .join-box > p {
+      color: #999;
+      max-width: 700px;
+      margin: 0 auto 35px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .join-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 950px;
+      margin: 0 auto 35px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .join-step {
+      background: rgba(8,9,11,.55);
+      border: 1px solid #292a2f;
+      border-radius: 18px;
+      padding: 25px 20px;
+      text-align: right;
+      transition:
+        transform .35s ease,
+        border-color .35s ease,
+        background .45s ease,
+        box-shadow .35s ease;
+    }
+
+    .join-step:hover {
+      transform: translateY(-5px);
+      border-color: rgba(214,168,79,.4);
+      box-shadow: 0 12px 30px rgba(0,0,0,.12);
+    }
+
+    .join-step-number {
+      color: var(--gold);
+      font-size: 30px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .join-step h3 {
+      font-size: 18px;
+      margin-bottom: 7px;
+    }
+
+    .join-step p {
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* الأزرار */
 
     .primary-btn {
       display: inline-flex;
-
       align-items: center;
       justify-content: center;
-
-      min-height: 48px;
-
-      padding: 0 25px;
-
-      border: none;
-      border-radius: 13px;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--gold-light),
-          var(--gold)
-        );
-
-      color: #17130b;
-
-      font-weight: 800;
-      font-size: 14px;
-
+      gap: 8px;
+      background: var(--gold);
+      color: #0a0a0a;
+      border: 1px solid var(--gold);
+      padding: 13px 25px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
       cursor: pointer;
-
-      box-shadow:
-        0 12px 30px rgba(214,168,79,0.15);
-
       transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+      position: relative;
+      z-index: 3;
+      overflow: hidden;
+    }
+
+    .primary-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -80%;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.32),
+        transparent
+      );
+      transform: skewX(-20deg);
+      transition: left .5s ease;
+    }
+
+    .primary-btn:hover::before {
+      left: 135%;
     }
 
     .primary-btn:hover {
-      transform: translateY(-2px);
-
-      box-shadow:
-        0 16px 38px rgba(214,168,79,0.23);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(214,168,79,.2);
+      background: var(--gold-light);
     }
 
     .primary-btn:disabled {
-      opacity: 0.65;
-      cursor: wait;
+      opacity: .65;
+      cursor: not-allowed;
       transform: none;
+      box-shadow: none;
     }
 
-
-    /* =========================================================
-       الشركات
-    ========================================================= */
+    /* الشركات */
 
     .companies {
-      background: var(--bg);
+      background: #08090b;
     }
 
-    .company-layout {
-      display: grid;
-
-      grid-template-columns:
-        0.8fr
-        1.2fr;
-
-      gap: 55px;
-
-      align-items: start;
-    }
-
-    .company-info h2 {
-      font-size: 36px;
-      margin-bottom: 16px;
-    }
-
-    .company-info p {
-      color: var(--muted);
-      line-height: 2;
-      font-size: 15px;
-      margin-bottom: 25px;
-    }
-
-    .company-points {
-      display: grid;
-      gap: 12px;
-    }
-
-    .company-point {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .company-point span {
-      width: 30px;
-      height: 30px;
-
-      flex-shrink: 0;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 9px;
-
-      color: var(--gold);
-
-      background:
-        rgba(214,168,79,0.09);
-
-      border:
-        1px solid rgba(214,168,79,0.15);
-    }
-
-    .company-form {
-      padding: 35px;
-
+    .company-box {
+      max-width: 850px;
+      margin: auto;
+      background: linear-gradient(145deg, #111216, #0d0e11);
+      border: 1.5px solid rgba(214,168,79,.45);
       border-radius: 25px;
+      padding: 45px 35px;
+      box-shadow:
+        0 15px 45px rgba(0,0,0,.12),
+        0 0 30px rgba(214,168,79,.015);
+      transition:
+        background .45s ease,
+        border-color .45s ease,
+        box-shadow .45s ease;
+      position: relative;
+    }
 
-      border: 1px solid var(--border);
+    .company-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 15%;
+      width: 70%;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(214,168,79,.4),
+        transparent
+      );
+    }
 
-      background: var(--card);
+    .company-box h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 34px;
+    }
 
-      box-shadow: var(--shadow);
+    .company-box > p {
+      text-align: center;
+      color: #888;
+      margin-bottom: 35px;
     }
 
     .form-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 17px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
     }
 
     .form-group {
@@ -1012,314 +1162,254 @@
     }
 
     .form-group label {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--text);
+      color: #bbb;
+      font-size: 14px;
     }
 
     .form-group input,
-    .form-group select,
-    .form-group textarea {
+    .form-group textarea,
+    .form-group select {
       width: 100%;
-
-      padding: 13px 15px;
-
-      border-radius: 12px;
-
-      border: 1px solid rgba(255,255,255,0.08);
-
-      background: var(--bg-soft);
-
-      color: var(--text);
-
+      background: #0a0b0d;
+      border: 1px solid #292a2f;
+      color: #fff;
+      border-radius: 10px;
+      padding: 12px 14px;
       outline: none;
-
       transition:
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+        border-color .3s ease,
+        box-shadow .3s ease,
+        background .3s ease,
+        transform .2s ease;
     }
 
-    body.light .form-group input,
-    body.light .form-group select,
-    body.light .form-group textarea {
-      border-color: rgba(0,0,0,0.09);
+    .form-group input:hover,
+    .form-group textarea:hover,
+    .form-group select:hover {
+      border-color: #3a3b40;
     }
 
     .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color:
-        rgba(214,168,79,0.5);
-
-      box-shadow:
-        0 0 0 3px rgba(214,168,79,0.07);
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: rgba(214,168,79,.6);
+      box-shadow: 0 0 0 3px rgba(214,168,79,.08);
+      transform: translateY(-1px);
     }
 
     .form-group textarea {
-      min-height: 130px;
+      min-height: 120px;
       resize: vertical;
     }
 
+    .form-group select {
+      cursor: pointer;
+    }
+
     .form-submit {
-      margin-top: 22px;
-    }
-
-    .form-submit .primary-btn {
-      width: 100%;
-    }
-
-
-    /* =========================================================
-       رسالة النموذج
-       تظهر داخل مربع النموذج
-    ========================================================= */
-
-    .form-message {
-      width: 100%;
-
-      margin-top: 18px;
-
-      padding: 18px 20px;
-
-      border-radius: 14px;
-
       text-align: center;
-
-      border:
-        1px solid rgba(214,168,79,0.35);
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(214,168,79,0.10),
-          rgba(214,168,79,0.035)
-        );
-
-      box-shadow:
-        0 10px 30px rgba(0,0,0,.15),
-        inset 0 1px 0 rgba(255,255,255,.025);
-
-      animation:
-        formMessageIn .4s ease both;
+      margin-top: 25px;
     }
 
-    .form-message[hidden] {
-      display: none;
-    }
-
-    .form-message.success {
-      border-color:
-        rgba(214,168,79,0.45);
-    }
-
-    .form-message.error {
-      border-color:
-        rgba(214,168,79,0.35);
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(214,168,79,0.07),
-          rgba(214,168,79,0.025)
-        );
-    }
-
-    .form-message-icon {
-      width: 42px;
-      height: 42px;
-
-      margin: 0 auto 10px;
-
-      border-radius: 50%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background:
-        rgba(214,168,79,0.15);
-
-      border:
-        1px solid rgba(214,168,79,0.35);
-
-      color: var(--gold);
-
-      font-size: 22px;
-      font-weight: 700;
-    }
-
-    .form-message-title {
-      font-size: 17px;
-      font-weight: 700;
-
-      margin-bottom: 5px;
-    }
-
-    .form-message-text {
-      color: #999;
-
-      font-size: 14px;
-
-      line-height: 1.8;
-    }
-
-    @keyframes formMessageIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-
-    /* =========================================================
-       تواصل معنا
-    ========================================================= */
+    /* التواصل */
 
     .contact {
-      background: var(--bg-soft);
+      background: #0d0e11;
+      border-top: 1px solid #18191d;
     }
 
     .contact-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
     .contact-card {
-      padding: 30px;
-
-      text-align: center;
-
-      border:
-        1px solid var(--border);
-
+      background: linear-gradient(145deg, #111216, #0d0e11);
+      border: 1px solid #23242a;
       border-radius: 20px;
-
-      background: var(--card);
-
+      padding: 28px;
+      text-align: center;
       transition:
-        transform 0.3s ease,
-        border-color 0.3s ease;
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease,
+        background .45s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      top: -90px;
+      right: 50%;
+      transform: translateX(50%);
+      border-radius: 50%;
+      background: rgba(214,168,79,.05);
+      filter: blur(35px);
+      transition: transform .4s ease;
     }
 
     .contact-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
+      border-color: rgba(214,168,79,.4);
+      box-shadow: 0 18px 45px rgba(0,0,0,.2);
+    }
 
-      border-color:
-        rgba(214,168,79,0.35);
+    .contact-card:hover::before {
+      transform: translateX(50%) scale(1.3);
     }
 
     .contact-icon {
-      width: 52px;
-      height: 52px;
-
+      width: 56px;
+      height: 56px;
       margin: 0 auto 15px;
-
       display: flex;
       align-items: center;
       justify-content: center;
+      border-radius: 16px;
+      background: rgba(214,168,79,.08);
+      border: 1px solid rgba(214,168,79,.14);
+      transition:
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease;
+      position: relative;
+      z-index: 2;
+    }
 
-      border-radius: 15px;
+    .contact-card:hover .contact-icon {
+      transform: translateY(-2px) scale(1.04);
+      border-color: rgba(214,168,79,.4);
+      background: rgba(214,168,79,.11);
+    }
 
-      color: var(--gold);
-
-      background:
-        rgba(214,168,79,0.08);
-
-      font-size: 22px;
+    .contact-icon svg {
+      width: 29px;
+      height: 29px;
     }
 
     .contact-card h3 {
-      font-size: 18px;
       margin-bottom: 7px;
+      position: relative;
+      z-index: 2;
     }
 
     .contact-card p {
-      color: var(--muted);
-      font-size: 13px;
-      direction: ltr;
+      color: #888;
+      font-size: 14px;
+      position: relative;
+      z-index: 2;
     }
 
+    .contact-link {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--gold);
+      font-size: 14px;
+      transition:
+        transform .3s ease,
+        color .3s ease;
+      position: relative;
+      z-index: 2;
+    }
 
-    /* =========================================================
-       الفوتر
-    ========================================================= */
+    .contact-link:hover {
+      transform: translateY(-2px);
+      color: #e5bd6a;
+    }
+
+    /* الفوتر */
 
     footer {
-      padding: 35px 0;
-
-      background: var(--bg);
-
-      border-top:
-        1px solid rgba(255,255,255,0.05);
+      background: #060709;
+      border-top: 1px solid #18191d;
+      padding: 55px 0 25px;
     }
 
-    body.light footer {
-      border-top-color:
-        rgba(0,0,0,0.06);
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 50px;
     }
 
-    .footer-content {
-      display: flex;
-
+    .footer-brand {
+      display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-
-      gap: 20px;
-
-      flex-wrap: wrap;
+      justify-content: flex-start;
+      width: fit-content;
+      transition: transform .3s ease;
     }
 
-    .copyright {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-
-      color: var(--muted);
-
-      font-size: 12px;
+    .footer-brand:hover {
+      transform: translateY(-2px);
     }
 
-    .copyright img {
-      width: 27px;
-      height: 27px;
-
-      object-fit: contain;
+    .footer-description {
+      color: #777;
+      max-width: 480px;
+      font-size: 14px;
+      margin-top: 10px;
     }
 
     .footer-links {
       display: flex;
-      gap: 18px;
+      flex-wrap: wrap;
+      gap: 14px 25px;
+      align-items: center;
+    }
 
-      color: var(--muted);
-
-      font-size: 12px;
+    .footer-links a {
+      color: #888;
+      font-size: 14px;
+      transition:
+        color .3s ease,
+        transform .3s ease;
     }
 
     .footer-links a:hover {
       color: var(--gold);
+      transform: translateY(-2px);
     }
 
+    .copyright {
+      border-top: 1px solid #18191d;
+      margin-top: 40px;
+      padding-top: 20px;
+      color: #666;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
 
-    /* =========================================================
-       ظهور العناصر
-    ========================================================= */
+    .copyright-logo {
+      display: inline-flex;
+      width: 34px;
+      height: 25px;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .copyright-logo .brand-logo {
+      width: 38px;
+      height: 28px;
+    }
+
+    /* ظهور الأقسام */
 
     .reveal {
       opacity: 0;
       transform: translateY(25px);
-
       transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
+        opacity .7s ease,
+        transform .7s ease;
     }
 
     .reveal.visible {
@@ -1327,299 +1417,339 @@
       transform: translateY(0);
     }
 
-
-    /* =========================================================
-       الجوال
-    ========================================================= */
+    /* الجوال */
 
     @media (max-width: 1000px) {
+      .navbar {
+        gap: 15px;
+      }
 
       .nav-links {
-        gap: 14px;
+        gap: 15px;
+      }
+
+      .nav-links a {
+        font-size: 13px;
+      }
+
+      .hero h1 {
+        font-size: 55px;
+      }
+
+      .cards,
+      .opportunity-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: 92%;
+      }
+
+      header {
+        position: sticky;
+      }
+
+      .navbar {
+        min-height: 70px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 8px 0;
+      }
+
+      .logo {
+        order: 1;
+        width: 105px;
+        height: 62px;
+      }
+
+      .brand-logo {
+        width: 92px;
+        height: 58px;
+      }
+
+      .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 9px 12px;
+        padding-bottom: 4px;
       }
 
       .nav-links a {
         font-size: 12px;
+        padding: 5px 1px;
       }
 
-      .about-grid,
-      .company-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .about-card {
-        min-height: 300px;
-      }
-
-      .features-grid,
-      .opportunities-grid {
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
-
-      .contact-grid {
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
-    }
-
-
-    @media (max-width: 760px) {
-
-      .container {
-        width: min(100% - 28px, 600px);
-      }
-
-      header {
-        position: absolute;
-      }
-
-      .nav {
-        min-height: auto;
-
-        padding: 14px 0;
-
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .logo span {
-        font-size: 18px;
-      }
-
-      .logo img {
-        width: 40px;
-        height: 40px;
+      .theme-toggle {
+        order: 2;
       }
 
       .hero {
-        min-height: 90vh;
+        min-height: 590px;
+      }
 
-        padding-top: 130px;
-        padding-bottom: 70px;
+      .hero::before {
+        width: 390px;
+        height: 390px;
       }
 
       .hero h1 {
-        font-size: clamp(45px, 15vw, 72px);
-        letter-spacing: -1px;
+        font-size: 39px;
+        letter-spacing: -.5px;
       }
 
       .hero p {
-        font-size: 15px;
+        font-size: 16px;
+        line-height: 1.9;
+      }
+
+      .badge {
+        font-size: 12px;
+        padding: 7px 15px;
+        margin-bottom: 22px;
       }
 
       section {
-        padding: 75px 0;
+        padding: 70px 0;
       }
 
-      .features-grid,
-      .opportunities-grid,
+      .section-title {
+        margin-bottom: 38px;
+      }
+
+      .section-title h2 {
+        font-size: 31px;
+      }
+
+      .section-title p {
+        font-size: 14px;
+        line-height: 1.9;
+      }
+
+      .cards,
+      .opportunity-grid,
+      .live-stats-grid,
+      .join-steps,
       .contact-grid,
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
-      .marketer-box {
-        padding: 35px 25px;
-      }
-
-      .company-form {
-        padding: 22px;
-      }
-
       .form-grid {
         grid-template-columns: 1fr;
+      }
+
+      .card,
+      .opportunity-card,
+      .contact-card {
+        padding: 25px;
+      }
+
+      .opportunity-card {
+        min-height: 215px;
       }
 
       .form-group.full {
         grid-column: auto;
       }
 
-      .footer-content {
-        justify-content: center;
+      .join-box {
+        padding: 50px 20px;
+        border-radius: 22px;
+      }
+
+      .join-box h2 {
+        font-size: 32px;
+      }
+
+      .join-box > p {
+        font-size: 14px;
+      }
+
+      .company-box {
+        padding: 30px 20px;
+        border-radius: 20px;
+      }
+
+      .company-box h2 {
+        font-size: 28px;
+      }
+
+      .footer-grid {
+        gap: 30px;
         text-align: center;
       }
 
-      .copyright {
+      .footer-brand {
         justify-content: center;
+        width: 100%;
+      }
+
+      .footer-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
+
+      .copyright {
+        text-align: center;
       }
     }
 
+    @media (max-width: 420px) {
+      .nav-links {
+        gap: 8px 9px;
+      }
+
+      .nav-links a {
+        font-size: 11px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .theme-toggle {
+        width: 48px;
+        height: 29px;
+      }
+
+      .live-stat-number {
+        font-size: 46px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- شريط التقدم -->
-  <div id="scrollProgress"></div>
-
-
-  <!-- =========================================================
-       الهيدر
-  ========================================================= -->
+  <div class="scroll-progress" id="scrollProgress"></div>
 
   <header>
+    <div class="container navbar">
 
-    <div class="container nav">
-
-      <a href="#home" class="logo">
-
-        <img
-          src="logo.png"
-          alt="شعار إضاءة"
-        />
-
-        <span>إضاءة</span>
-
+      <a href="#home" class="logo" aria-label="العودة إلى الرئيسية">
+        <div class="brand-logo"></div>
       </a>
 
+      <ul class="nav-links">
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#about">عن إضاءة</a></li>
+        <li><a href="#features">المميزات</a></li>
+        <li><a href="#opportunities">الفرص</a></li>
+        <li><a href="#stats">مجتمعنا</a></li>
+        <li><a href="#marketer">انضم كمسوق</a></li>
+        <li><a href="#companies">انضم كشركة</a></li>
+        <li><a href="#contact">تواصل معنا</a></li>
+      </ul>
 
-      <nav class="nav-links">
-
-        <a href="#home">الرئيسية</a>
-
-        <a href="#about">عن إضاءة</a>
-
-        <a href="#features">المميزات</a>
-
-        <a href="#opportunities">الفرص</a>
-
-        <a href="#community">مجتمعنا</a>
-
-        <a href="#marketer">انضم كمسوق</a>
-
-        <a href="#companies">انضم كشركة</a>
-
-        <a href="#contact">تواصل معنا</a>
-
-      </nav>
-
-
-      <div class="nav-actions">
-
-        <button
-          id="themeToggle"
-          class="theme-btn"
-          aria-label="تغيير المظهر"
-          type="button"
-        >
-          ☼
-        </button>
-
-      </div>
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        aria-label="تغيير الوضع"
+        type="button"
+      ></button>
 
     </div>
-
   </header>
-
-
-
-  <!-- =========================================================
-       الواجهة الرئيسية
-       تم حذف زري انضم كمسوق وتعاون معنا منها فقط
-  ========================================================= -->
 
   <main>
 
-    <section
-      id="home"
-      class="hero"
-    >
+    <section class="hero" id="home">
 
-      <div class="hero-glow one"></div>
-      <div class="hero-glow two"></div>
+      <div class="container hero-content">
 
-
-      <div class="container">
-
-        <div class="hero-content reveal">
-
-          <div class="hero-badge">
-            منصة تسويق وفرص
-          </div>
-
-
-          <h1>
-            خلّ تسويقك يضيء
-          </h1>
-
-
-          <p>
-            إضاءة منصة تجمع المسوقين مع الشركات والمنصات،
-            وتفتح فرصًا تسويقية حقيقية تساعدك على بناء
-            خبرتك وتحقيق دخل من مهاراتك.
-          </p>
-
+        <div class="badge">
+          منصة تسويق وفرص
         </div>
+
+        <h1>
+          خلّ تسويقك
+          <span>يضيء</span>
+        </h1>
+
+        <p>
+          إضاءة منصة تجمع المسوقين مع الشركات والمنصات،
+          وتفتح لك فرصًا حقيقية للتسويق وتحقيق الدخل وبناء الخبرة.
+        </p>
 
       </div>
 
     </section>
 
-
-
-    <!-- =======================================================
-         عن إضاءة
-    ======================================================= -->
-
-    <section
-      id="about"
-      class="about"
-    >
+    <section id="about">
 
       <div class="container">
 
-        <div class="section-head reveal">
-
-          <span class="section-kicker">
-            عن المنصة
-          </span>
-
-          <h2>
-            وش هي إضاءة؟
-          </h2>
+        <div class="section-title reveal">
+          <h2>عن إضاءة</h2>
 
           <p>
-            منصة تسويقية تربط بين المسوقين والجهات الباحثة
-            عن فرص تسويقية فعّالة.
+            منصة تسويقية تهدف إلى بناء حلقة وصل بين المسوقين
+            والشركات والمنصات بطريقة منظمة واحترافية.
           </p>
-
         </div>
 
+        <div class="cards">
 
-        <div class="about-grid">
+          <div class="card reveal">
+            <div class="icon">🎯</div>
 
-          <div class="about-text reveal">
-
-            <h3>
-              نربط المهارة بالفرصة
-            </h3>
+            <h3>فرص حقيقية</h3>
 
             <p>
-              إضاءة تهدف إلى بناء مساحة تجمع المسوقين
-              بالشركات والمنصات بطريقة بسيطة ومنظمة.
+              نوفر للمسوقين فرصًا تسويقية متنوعة
+              تساعدهم على تحقيق نتائج ملموسة.
             </p>
-
-            <p>
-              من خلال المنصة يقدر المسوق يحصل على فرص
-              تسويقية حقيقية، ويطور خبرته، ويستفيد من
-              مهاراته في التسويق وصناعة المحتوى والمبيعات.
-            </p>
-
           </div>
 
+          <div class="card reveal">
+            <div class="icon">🤝</div>
 
-          <div class="about-card reveal">
+            <h3>شراكات</h3>
 
-            <img
-              src="logo.png"
-              alt="إضاءة"
-              class="about-logo"
-            />
+            <p>
+              نعمل على ربط المسوقين بالجهات والمنصات
+              التي تحتاج إلى خدمات التسويق.
+            </p>
+          </div>
 
+          <div class="card reveal">
+            <div class="icon">🚀</div>
+
+            <h3>تطور مستمر</h3>
+
+            <p>
+              نساعدك على اكتساب الخبرة وتطوير مهاراتك
+              من خلال العمل الحقيقي والفرص المتنوعة.
+            </p>
           </div>
 
         </div>
@@ -1628,143 +1758,58 @@
 
     </section>
 
-
-
-    <!-- =======================================================
-         المميزات
-    ======================================================= -->
-
-    <section
-      id="features"
-      class="features"
-    >
+    <section class="opportunities" id="features">
 
       <div class="container">
 
-        <div class="section-head reveal">
+        <div class="section-title reveal">
 
-          <span class="section-kicker">
-            لماذا إضاءة؟
-          </span>
-
-          <h2>
-            كل اللي تحتاجه في مكان واحد
-          </h2>
+          <h2>لماذا إضاءة؟</h2>
 
           <p>
-            نركز على توفير تجربة واضحة وسهلة للمسوق
-            والشركة من أول خطوة إلى آخر خطوة.
+            لأننا نؤمن أن التسويق الناجح يبدأ بفرصة واضحة
+            وطريقة عمل منظمة.
           </p>
 
         </div>
 
+        <div class="cards">
 
-        <div class="features-grid">
+          <div class="card reveal">
 
+            <div class="icon">💰</div>
 
-          <div class="feature-card reveal">
-
-            <div class="feature-icon">
-              ✦
-            </div>
-
-            <h3>
-              فرص حقيقية
-            </h3>
+            <h3>عمولات ومكافآت</h3>
 
             <p>
-              الوصول إلى فرص تسويقية مع جهات ومنصات
-              تبحث عن مسوقين.
+              احصل على عمولات مقابل النتائج التي تحققها
+              من خلال التسويق.
             </p>
 
           </div>
 
+          <div class="card reveal">
 
-          <div class="feature-card reveal">
+            <div class="icon">📈</div>
 
-            <div class="feature-icon">
-              ◈
-            </div>
-
-            <h3>
-              دخل إضافي
-            </h3>
+            <h3>خبرة عملية</h3>
 
             <p>
-              الاستفادة من مهاراتك التسويقية وتحويلها
-              إلى فرص ودخل إضافي.
+              طوّر مهاراتك التسويقية من خلال التعامل
+              مع فرص وحملات فعلية.
             </p>
 
           </div>
 
+          <div class="card reveal">
 
-          <div class="feature-card reveal">
+            <div class="icon">🌟</div>
 
-            <div class="feature-icon">
-              ✓
-            </div>
-
-            <h3>
-              خبرة عملية
-            </h3>
+            <h3>مجتمع متنامي</h3>
 
             <p>
-              اكتساب خبرة عملية حقيقية تساعدك في تطوير
-              مهاراتك وبناء مسيرتك.
-            </p>
-
-          </div>
-
-
-          <div class="feature-card reveal">
-
-            <div class="feature-icon">
-              ⚡
-            </div>
-
-            <h3>
-              سهولة الاستخدام
-            </h3>
-
-            <p>
-              تجربة بسيطة وواضحة بدون تعقيد، من التسجيل
-              وحتى الحصول على الفرصة.
-            </p>
-
-          </div>
-
-
-          <div class="feature-card reveal">
-
-            <div class="feature-icon">
-              ◎
-            </div>
-
-            <h3>
-              مجتمع مسوقين
-            </h3>
-
-            <p>
-              مجتمع يجمع أشخاص مهتمين بالتسويق والفرص
-              الرقمية.
-            </p>
-
-          </div>
-
-
-          <div class="feature-card reveal">
-
-            <div class="feature-icon">
-              ◆
-            </div>
-
-            <h3>
-              شراكات
-            </h3>
-
-            <p>
-              نعمل على بناء علاقات وشراكات مع شركات
-              ومنصات مختلفة.
+              انضم إلى مجتمع من المسوقين والشركات
+              والمنصات التي تعمل معًا.
             </p>
 
           </div>
@@ -1775,263 +1820,71 @@
 
     </section>
 
-
-
-    <!-- =======================================================
-         الفرص
-    ======================================================= -->
-
-    <section
-      id="opportunities"
-      class="opportunities"
-    >
+    <section id="opportunities" class="companies">
 
       <div class="container">
 
-        <div class="section-head reveal">
+        <div class="section-title reveal">
 
-          <span class="section-kicker">
-            الفرص
-          </span>
-
-          <h2>
-            فرص تناسب مهاراتك
-          </h2>
+          <h2>الفرص</h2>
 
           <p>
-            مجالات مختلفة تقدر تستفيد منها وتطور مهاراتك
-            من خلالها.
+            فرص متنوعة تساعدك على اختيار المجال
+            الذي يناسب مهاراتك وطريقة تسويقك.
           </p>
 
         </div>
 
-
-        <div class="opportunities-grid">
-
+        <div class="opportunity-grid">
 
           <div class="opportunity-card reveal">
 
-            <div class="opportunity-number">
-              01
+            <div>
+              <h3>التسويق بالمبيعات</h3>
+
+              <p>
+                سوّق للمنتجات والخدمات واحصل على عمولتك
+                عند تحقيق المبيعات المطلوبة.
+              </p>
             </div>
 
-            <h3>
-              التسويق بالعمولة
-            </h3>
-
-            <p>
-              سوّق للمنتجات والخدمات واحصل على عمولة
-              مقابل النتائج التي تحققها.
-            </p>
-
-          </div>
-
-
-          <div class="opportunity-card reveal">
-
-            <div class="opportunity-number">
-              02
-            </div>
-
-            <h3>
-              المبيعات
-            </h3>
-
-            <p>
-              فرص مرتبطة بالمبيعات وتحقيق النتائج
-              من خلال مهارات التواصل والإقناع.
-            </p>
-
-          </div>
-
-
-          <div class="opportunity-card reveal">
-
-            <div class="opportunity-number">
-              03
-            </div>
-
-            <h3>
-              صناعة المحتوى
-            </h3>
-
-            <p>
-              فرص تسويقية تعتمد على صناعة المحتوى
-              ونشر المنتجات والخدمات.
-            </p>
-
-          </div>
-
-
-          <div class="opportunity-card reveal">
-
-            <div class="opportunity-number">
-              04
-            </div>
-
-            <h3>
-              التسويق الرقمي
-            </h3>
-
-            <p>
-              المساهمة في الحملات الرقمية والوصول إلى
-              الجمهور المستهدف.
-            </p>
-
-          </div>
-
-
-          <div class="opportunity-card reveal">
-
-            <div class="opportunity-number">
-              05
-            </div>
-
-            <h3>
-              الحملات التسويقية
-            </h3>
-
-            <p>
-              المشاركة في حملات تسويقية مع شركات
-              ومنصات مختلفة.
-            </p>
-
-          </div>
-
-
-          <div class="opportunity-card reveal">
-
-            <div class="opportunity-number">
-              06
-            </div>
-
-            <h3>
-              فرص مستقبلية
-            </h3>
-
-            <p>
-              نعمل باستمرار على إضافة فرص جديدة
-              وتوسيع شبكة شركاء إضاءة.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =======================================================
-         مجتمعنا
-    ======================================================= -->
-
-    <section
-      id="community"
-      class="community"
-    >
-
-      <div class="container">
-
-        <div class="section-head reveal">
-
-          <span class="section-kicker">
-            مجتمعنا
-          </span>
-
-          <h2>
-            مجتمع إضاءة يكبر
-          </h2>
-
-          <p>
-            نسعى لبناء مجتمع نشط من المسوقين والجهات
-            الباحثة عن الكفاءات التسويقية.
-          </p>
-
-        </div>
-
-
-        <div class="stats">
-
-
-          <div class="stat-card reveal">
-
-            <div
-              class="stat-number"
-              data-target="68"
-            >
-              0
-            </div>
-
-            <div class="stat-label">
-              مسوق في المجتمع
-            </div>
-
-          </div>
-
-
-          <div class="stat-card reveal">
-
-            <div
-              class="stat-number"
-              data-target="12"
-            >
-              0
-            </div>
-
-            <div class="stat-label">
-              فرصة وشراكة
-            </div>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =======================================================
-         انضم كمسوق
-    ======================================================= -->
-
-    <section
-      id="marketer"
-      class="marketer"
-    >
-
-      <div class="container">
-
-        <div class="marketer-box reveal">
-
-          <div class="marketer-content">
-
-            <span class="section-kicker">
-              للمسوقين
+            <span class="opportunity-tag">
+              عمولات
             </span>
 
-            <h2>
-              مستعد تخلي تسويقك يضيء؟
-            </h2>
+          </div>
 
-            <p>
-              انضم إلى مجتمع مسوقي إضاءة وابدأ في استكشاف
-              الفرص التسويقية المتاحة وتطوير خبرتك.
-            </p>
+          <div class="opportunity-card reveal">
 
-            <a
-              class="primary-btn"
-              href="https://docs.google.com/forms/d/e/1FAIpQLScMd_Qe3EjPV0NAj2fVD0UUbFgP5Ly0KRiSiwZf5Nhv0Nl_Bg/viewform?usp=header"
-              target="_blank"
-              rel="noopener"
-            >
-              التسجيل كمسوق
-            </a>
+            <div>
+              <h3>صناعة المحتوى</h3>
+
+              <p>
+                شارك في صناعة محتوى تسويقي يساعد الشركات
+                والمنصات على الوصول إلى جمهور أكبر.
+              </p>
+            </div>
+
+            <span class="opportunity-tag">
+              محتوى
+            </span>
+
+          </div>
+
+          <div class="opportunity-card reveal">
+
+            <div>
+              <h3>التسويق الرقمي</h3>
+
+              <p>
+                ساهم في الحملات الرقمية والترويج للعلامات
+                التجارية والمنصات المختلفة.
+              </p>
+            </div>
+
+            <span class="opportunity-tag">
+              تسويق رقمي
+            </span>
 
           </div>
 
@@ -2041,130 +1894,178 @@
 
     </section>
 
-
-
-    <!-- =======================================================
-         انضم كشركة
-    ======================================================= -->
-
-    <section
-      id="companies"
-      class="companies"
-    >
+    <section class="live-stats" id="stats">
 
       <div class="container">
 
-        <div class="section-head reveal">
+        <div class="section-title reveal">
 
-          <span class="section-kicker">
-            للشركات والمنصات
-          </span>
-
-          <h2>
-            خلنا نضيء تسويقك
-          </h2>
+          <h2>مجتمع إضاءة</h2>
 
           <p>
-            إذا كنت تبحث عن مسوقين أو ترغب في تنفيذ
-            حملة تسويقية، تواصل معنا.
+            مجتمع يتوسع باستمرار من المسوقين والشركات والمنصات.
           </p>
 
         </div>
 
+        <div class="live-stats-grid">
 
-        <div class="company-layout">
+          <div class="live-stat-card reveal">
 
-
-          <div class="company-info reveal">
-
-            <h2>
-              تعاون مع إضاءة
-            </h2>
+            <div
+              class="live-stat-number"
+              data-target="68"
+            >
+              0+
+            </div>
 
             <p>
-              نساعد الشركات والمنصات على الوصول إلى
-              مسوقين مناسبين لتنفيذ الفرص والحملات
-              التسويقية.
+              مسوق يعمل معنا
             </p>
 
+          </div>
 
-            <div class="company-points">
+          <div class="live-stat-card reveal">
 
+            <div
+              class="live-stat-number"
+              data-target="12"
+            >
+              0+
+            </div>
 
-              <div class="company-point">
+            <p>
+              تعاون وشراكة
+            </p>
 
-                <span>✓</span>
+          </div>
 
-                <div>
-                  الوصول إلى مسوقين
-                </div>
+        </div>
 
+      </div>
+
+    </section>
+
+    <section class="join-marketer" id="marketer">
+
+      <div class="container">
+
+        <div class="join-box reveal">
+
+          <h2>انضم كمسوق</h2>
+
+          <p>
+            ابدأ رحلتك مع إضاءة وكن جزءًا من مجتمع
+            المسوقين الذين يعملون على فرص حقيقية.
+          </p>
+
+          <div class="join-steps">
+
+            <div class="join-step">
+
+              <div class="join-step-number">
+                01
               </div>
 
+              <h3>سجّل معنا</h3>
 
-              <div class="company-point">
+              <p>
+                عبّئ نموذج التسجيل وأرسل بياناتك
+                للانضمام إلى مجتمع مسوقي إضاءة.
+              </p>
 
-                <span>✓</span>
+            </div>
 
-                <div>
-                  تنفيذ حملات تسويقية
-                </div>
+            <div class="join-step">
 
+              <div class="join-step-number">
+                02
               </div>
 
+              <h3>ابدأ التسويق</h3>
 
-              <div class="company-point">
+              <p>
+                بعد قبولك ستتعرف على الفرص والحملات
+                وتبدأ العمل بالطريقة المناسبة لك.
+              </p>
 
-                <span>✓</span>
+            </div>
 
-                <div>
-                  التسويق بالعمولة والمبيعات
-                </div>
+            <div class="join-step">
 
+              <div class="join-step-number">
+                03
               </div>
 
+              <h3>حقّق النتائج</h3>
 
-              <div class="company-point">
-
-                <span>✓</span>
-
-                <div>
-                  صناعة المحتوى والتسويق الرقمي
-                </div>
-
-              </div>
-
+              <p>
+                سوّق، حقق المبيعات والنتائج،
+                واحصل على عمولاتك ومكافآتك.
+              </p>
 
             </div>
 
           </div>
 
-
-
-          <form
-            id="companyForm"
-            class="company-form reveal"
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLScMd_Qe3EjPV0NAj2fVD0UUbFgP5Ly0KRiSiwZf5Nhv0Nl_Bg/viewform?usp=header"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="primary-btn"
           >
+            التسجيل كمسوق
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="companies" id="companies">
+
+      <div class="container">
+
+        <div class="section-title reveal">
+
+          <h2>انضم كشركة</h2>
+
+          <p>
+            هل لديك منصة أو خدمة وتبحث عن مسوقين؟
+            تواصل معنا وابدأ التعاون مع إضاءة.
+          </p>
+
+        </div>
+
+        <div class="company-box reveal">
+
+          <h2>ابدأ شراكتك مع إضاءة</h2>
+
+          <p>
+            أرسل بيانات شركتك وسنتواصل معك لمناقشة
+            تفاصيل التعاون.
+          </p>
+
+          <form id="companyForm">
 
             <div class="form-grid">
-
 
               <div class="form-group">
 
                 <label for="companyName">
-                  اسم الشركة
+                  اسم الشركة أو المنصة
                 </label>
 
                 <input
+                  type="text"
                   id="companyName"
                   name="companyName"
-                  type="text"
                   placeholder="اكتب اسم الشركة"
                   required
-                />
+                >
 
               </div>
-
 
               <div class="form-group">
 
@@ -2173,15 +2074,14 @@
                 </label>
 
                 <input
+                  type="text"
                   id="contactName"
                   name="contactName"
-                  type="text"
                   placeholder="اسم المسؤول"
                   required
-                />
+                >
 
               </div>
-
 
               <div class="form-group">
 
@@ -2190,16 +2090,14 @@
                 </label>
 
                 <input
+                  type="tel"
                   id="phone"
                   name="phone"
-                  type="tel"
-                  inputmode="tel"
                   placeholder="05xxxxxxxx"
                   required
-                />
+                >
 
               </div>
-
 
               <div class="form-group">
 
@@ -2208,15 +2106,13 @@
                 </label>
 
                 <input
+                  type="email"
                   id="email"
                   name="email"
-                  type="email"
                   placeholder="example@email.com"
-                  required
-                />
+                >
 
               </div>
-
 
               <div class="form-group">
 
@@ -2262,11 +2158,10 @@
 
               </div>
 
-
               <div class="form-group">
 
                 <label for="companyType">
-                  مجال الشركة
+                  نوع النشاط
                 </label>
 
                 <select
@@ -2276,7 +2171,7 @@
                 >
 
                   <option value="">
-                    اختر مجال الشركة
+                    اختر نوع النشاط
                   </option>
 
                   <option value="education">
@@ -2284,15 +2179,15 @@
                   </option>
 
                   <option value="ecommerce">
-                    التجارة الإلكترونية
+                    متجر إلكتروني
                   </option>
 
                   <option value="services">
-                    الخدمات
+                    خدمات
                   </option>
 
                   <option value="technology">
-                    التقنية
+                    تقنية
                   </option>
 
                   <option value="other">
@@ -2303,25 +2198,22 @@
 
               </div>
 
-
               <div class="form-group full">
 
                 <label for="message">
-                  نبذة عن الشركة وطلب التعاون
+                  نبذة عن التعاون
                 </label>
 
                 <textarea
                   id="message"
                   name="message"
-                  placeholder="اكتب لنا نبذة مختصرة عن الشركة ونوع التعاون المطلوب..."
+                  placeholder="اكتب لنا نبذة عن شركتك ونوع التعاون المطلوب..."
                   required
                 ></textarea>
 
               </div>
 
-
             </div>
-
 
             <div class="form-submit">
 
@@ -2332,16 +2224,7 @@
                 إرسال الطلب
               </button>
 
-
-              <div
-                id="companyFormMessage"
-                class="form-message"
-                aria-live="polite"
-                hidden
-              ></div>
-
             </div>
-
 
           </form>
 
@@ -2351,101 +2234,160 @@
 
     </section>
 
-
-
-    <!-- =======================================================
-         تواصل معنا
-    ======================================================= -->
-
-    <section
-      id="contact"
-      class="contact"
-    >
+    <section class="contact" id="contact">
 
       <div class="container">
 
-        <div class="section-head reveal">
+        <div class="section-title reveal">
 
-          <span class="section-kicker">
-            تواصل معنا
-          </span>
-
-          <h2>
-            إضاءة أقرب لك
-          </h2>
+          <h2>تواصل معنا</h2>
 
           <p>
-            إذا عندك استفسار أو اقتراح أو ترغب بالتعاون،
-            تواصل معنا.
+            إذا كان لديك استفسار أو اقتراح أو ترغب
+            في التعاون معنا، يسعدنا تواصلك.
           </p>
 
         </div>
 
-
         <div class="contact-grid">
 
-
-          <a
-            href="https://wa.me/966507743653"
-            target="_blank"
-            rel="noopener"
-            class="contact-card reveal"
-          >
+          <div class="contact-card reveal">
 
             <div class="contact-icon">
-              ◉
+
+              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+
+                <circle
+                  cx="16"
+                  cy="16"
+                  r="15"
+                  fill="#25D366"
+                />
+
+                <path
+                  d="M10.4 22.3l1.1-3.1a8.2 8.2 0 1 1 3.1 2.7l-4.2.4z"
+                  fill="#fff"
+                />
+
+                <path
+                  d="M13.3 11.6c-.2-.4-.4-.4-.7-.4h-.6c-.2 0-.5.1-.7.4-.2.3-.8.8-.8 2s.8 2.3.9 2.5c.1.3 1.6 2.6 3.9 3.5 1.9.8 2.3.6 2.7.6.4 0 1.3-.5 1.5-1 .2-.5.2-.9.1-1-.1-.1-.3-.2-.6-.3l-1.4-.7c-.2-.1-.4-.1-.6.1l-.6.8c-.2.2-.3.2-.6.1-.3-.1-1.1-.4-1.8-1.1-.7-.6-1.1-1.4-1.2-1.7-.1-.3 0-.4.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.6-1.4z"
+                  fill="#25D366"
+                />
+
+              </svg>
+
             </div>
 
-            <h3>
-              واتساب
-            </h3>
+            <h3>واتساب</h3>
 
-            <p>
-              تواصل معنا مباشرة
-            </p>
+            <p>تواصل معنا مباشرة</p>
 
-          </a>
+            <a
+              class="contact-link"
+              href="https://wa.me/966507743653"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              فتح المحادثة
+            </a>
 
+          </div>
 
-          <a
-            href="mailto:oeid22960@gmail.com"
-            class="contact-card reveal"
-          >
+          <div class="contact-card reveal">
 
             <div class="contact-icon">
-              @
+
+              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+
+                <circle
+                  cx="16"
+                  cy="16"
+                  r="15"
+                  fill="#050505"
+                />
+
+                <path
+                  d="M18.2 8.2v9.5a3.2 3.2 0 1 1-2.3-3.1"
+                  fill="none"
+                  stroke="#25F4EE"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                />
+
+                <path
+                  d="M19 8.2c.6 1.7 1.7 2.8 3.4 3.3"
+                  fill="none"
+                  stroke="#FE2C55"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                />
+
+                <path
+                  d="M18.2 8.2v9.5a3.2 3.2 0 1 1-2.3-3.1"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  opacity=".9"
+                />
+
+              </svg>
+
             </div>
 
-            <h3>
-              البريد الإلكتروني
-            </h3>
+            <h3>تيك توك</h3>
 
-            <p>
-              oeid22960@gmail.com
-            </p>
+            <p>تابع آخر أخبار إضاءة</p>
 
-          </a>
+            <a
+              class="contact-link"
+              href="#"
+            >
+              حساب إضاءة
+            </a>
 
+          </div>
 
-          <a
-            href="#"
-            class="contact-card reveal"
-          >
+          <div class="contact-card reveal">
 
             <div class="contact-icon">
-              ♪
+
+              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+
+                <rect
+                  x="4"
+                  y="7"
+                  width="24"
+                  height="18"
+                  rx="3"
+                  fill="#d6a84f"
+                />
+
+                <path
+                  d="M6 10l10 8 10-8"
+                  fill="none"
+                  stroke="#08090b"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+
+              </svg>
+
             </div>
 
-            <h3>
-              تيك توك
-            </h3>
+            <h3>البريد الإلكتروني</h3>
 
-            <p>
-              تابع إضاءة
-            </p>
+            <p>للاستفسارات والتعاون</p>
 
-          </a>
+            <a
+              class="contact-link"
+              href="mailto:oeid22960@gmail.com"
+            >
+              تواصل معنا
+            </a>
 
+          </div>
 
         </div>
 
@@ -2455,64 +2397,77 @@
 
   </main>
 
-
-
-  <!-- =========================================================
-       الفوتر
-  ========================================================= -->
-
   <footer>
 
-    <div class="container footer-content">
+    <div class="container">
 
+      <div class="footer-grid">
+
+        <div>
+
+          <a
+            href="#home"
+            class="footer-brand"
+            aria-label="العودة إلى الرئيسية"
+          >
+
+            <div class="brand-logo footer-brand-logo"></div>
+
+          </a>
+
+          <p class="footer-description">
+            إضاءة منصة تجمع المسوقين مع الشركات والمنصات
+            وتوفر فرصًا تسويقية تساعد على بناء الخبرة وتحقيق النتائج.
+          </p>
+
+        </div>
+
+        <div>
+
+          <div class="footer-links">
+
+            <a href="#home">الرئيسية</a>
+            <a href="#about">عن إضاءة</a>
+            <a href="#features">المميزات</a>
+            <a href="#opportunities">الفرص</a>
+            <a href="#stats">مجتمعنا</a>
+            <a href="#contact">تواصل معنا</a>
+
+          </div>
+
+        </div>
+
+      </div>
 
       <div class="copyright">
 
-        <img
-          src="logo.png"
-          alt="إضاءة"
-        />
+        <span>
+          جميع الحقوق محفوظة لمنصة
+        </span>
+
+        <a
+          href="#home"
+          class="copyright-logo"
+          aria-label="إضاءة"
+        >
+
+          <div class="brand-logo"></div>
+
+        </a>
 
         <span>
-          جميع الحقوق محفوظة لمنصة إضاءة
           © 2026
         </span>
 
       </div>
 
-
-      <div class="footer-links">
-
-        <a href="#home">
-          الرئيسية
-        </a>
-
-        <a href="#about">
-          عن إضاءة
-        </a>
-
-        <a href="#contact">
-          تواصل معنا
-        </a>
-
-      </div>
-
-
     </div>
 
   </footer>
 
-
-
-  <!-- =========================================================
-       JavaScript
-  ========================================================= -->
-
   <script>
 
-    /* =========================================================
-       الوضع الليلي / الفاتح
-    ========================================================= */
+    /* الوضع الليلي / الفاتح */
 
     const themeToggle =
       document.getElementById("themeToggle");
@@ -2521,88 +2476,75 @@
       localStorage.getItem("idaaTheme");
 
     if (savedTheme === "light") {
-      document.body.classList.add("light");
-      themeToggle.textContent = "☾";
-    } else {
-      themeToggle.textContent = "☼";
+      document.body.classList.add("light-mode");
     }
 
     themeToggle.addEventListener(
       "click",
-      function () {
+      function() {
 
-        document.body.classList.toggle("light");
+        document.body.classList.toggle("light-mode");
 
         const isLight =
-          document.body.classList.contains("light");
+          document.body.classList.contains("light-mode");
 
         localStorage.setItem(
           "idaaTheme",
           isLight ? "light" : "dark"
         );
 
-        themeToggle.textContent =
-          isLight ? "☾" : "☼";
-
       }
     );
 
 
-
-    /* =========================================================
-       شريط تقدم الصفحة
-    ========================================================= */
+    /* شريط تقدم التصفح */
 
     const scrollProgress =
       document.getElementById("scrollProgress");
 
+    function updateScrollProgress() {
+
+      const scrollTop =
+        window.scrollY;
+
+      const documentHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+      const progress =
+        documentHeight > 0
+          ? (scrollTop / documentHeight) * 100
+          : 0;
+
+      scrollProgress.style.width =
+        progress + "%";
+
+    }
+
     window.addEventListener(
       "scroll",
-      function () {
-
-        const scrollTop =
-          window.scrollY;
-
-        const documentHeight =
-          document.documentElement.scrollHeight -
-          window.innerHeight;
-
-        const percentage =
-          documentHeight > 0
-            ? (scrollTop / documentHeight) * 100
-            : 0;
-
-        scrollProgress.style.width =
-          percentage + "%";
-
-      }
+      updateScrollProgress,
+      { passive: true }
     );
 
+    updateScrollProgress();
 
 
-    /* =========================================================
-       ظهور العناصر
-    ========================================================= */
+    /* ظهور الأقسام أثناء النزول */
 
     const revealElements =
       document.querySelectorAll(".reveal");
 
     const revealObserver =
       new IntersectionObserver(
-        function (entries, observer) {
+        function(entries) {
 
           entries.forEach(
-            function (entry) {
+            entry => {
 
               if (entry.isIntersecting) {
 
-                entry.target.classList.add(
-                  "visible"
-                );
-
-                observer.unobserve(
-                  entry.target
-                );
+                entry.target.classList.add("visible");
 
               }
 
@@ -2615,273 +2557,246 @@
         }
       );
 
-
     revealElements.forEach(
-      function (element) {
-
+      element => {
         revealObserver.observe(element);
-
       }
     );
 
 
+    /* عدادات مجتمع إضاءة */
 
-    /* =========================================================
-       الإحصائيات
-    ========================================================= */
+    const statsSection =
+      document.getElementById("stats");
 
     const counters =
-      document.querySelectorAll(
-        ".stat-number"
+      document.querySelectorAll(".live-stat-number");
+
+    let statsAnimating = false;
+
+
+    function resetCounters() {
+
+      counters.forEach(counter => {
+        counter.textContent = "0+";
+      });
+
+    }
+
+
+    function animateCounter(counter) {
+
+      const target =
+        Number(counter.dataset.target);
+
+      const duration =
+        3000;
+
+      const startTime =
+        performance.now();
+
+
+      function update(currentTime) {
+
+        const elapsed =
+          currentTime - startTime;
+
+        const progress =
+          Math.min(elapsed / duration, 1);
+
+        const eased =
+          1 - Math.pow(1 - progress, 3);
+
+        const currentValue =
+          Math.floor(target * eased);
+
+        counter.textContent =
+          currentValue + "+";
+
+
+        if (progress < 1) {
+
+          requestAnimationFrame(update);
+
+        } else {
+
+          counter.textContent =
+            target + "+";
+
+        }
+
+      }
+
+      requestAnimationFrame(update);
+
+    }
+
+
+    function startCounters() {
+
+      if (statsAnimating) return;
+
+      statsAnimating = true;
+
+      resetCounters();
+
+      counters.forEach(
+        (counter, index) => {
+
+          setTimeout(
+            () => {
+              animateCounter(counter);
+            },
+            index * 150
+          );
+
+        }
       );
 
-    const counterObserver =
+      setTimeout(
+        () => {
+          statsAnimating = false;
+        },
+        3300
+      );
+
+    }
+
+
+    const statsObserver =
       new IntersectionObserver(
-        function (entries, observer) {
+        function(entries) {
 
           entries.forEach(
-            function (entry) {
+            entry => {
 
-              if (!entry.isIntersecting) {
-                return;
-              }
+              if (entry.isIntersecting) {
 
-              const counter =
-                entry.target;
+                startCounters();
 
-              const target =
-                Number(
-                  counter.dataset.target
-                );
+              } else {
 
-              const duration =
-                3000;
+                resetCounters();
 
-              const startTime =
-                performance.now();
-
-
-              function updateCounter(
-                currentTime
-              ) {
-
-                const elapsed =
-                  currentTime - startTime;
-
-                const progress =
-                  Math.min(
-                    elapsed / duration,
-                    1
-                  );
-
-                const eased =
-                  1 -
-                  Math.pow(
-                    1 - progress,
-                    3
-                  );
-
-                const current =
-                  Math.floor(
-                    target * eased
-                  );
-
-                counter.textContent =
-                  current;
-
-                if (progress < 1) {
-
-                  requestAnimationFrame(
-                    updateCounter
-                  );
-
-                } else {
-
-                  counter.textContent =
-                    target;
-
-                }
+                statsAnimating = false;
 
               }
-
-
-              requestAnimationFrame(
-                updateCounter
-              );
-
-              observer.unobserve(counter);
 
             }
           );
 
         },
         {
-          threshold: 0.5
+          threshold: 0.35
         }
       );
 
 
-    counters.forEach(
-      function (counter) {
-
-        counterObserver.observe(counter);
-
-      }
-    );
+    statsObserver.observe(statsSection);
 
 
+    /* عند الضغط على مجتمعنا */
 
-    /* =========================================================
-       نموذج الشركات
-    ========================================================= */
+    const communityLink =
+      document.querySelector('a[href="#stats"]');
 
-    const companyForm =
-      document.getElementById(
-        "companyForm"
+
+    if (communityLink) {
+
+      communityLink.addEventListener(
+        "click",
+        function() {
+
+          setTimeout(
+            () => {
+
+              resetCounters();
+
+              statsAnimating = false;
+
+              startCounters();
+
+            },
+            500
+          );
+
+        }
       );
-
-
-    const companyFormMessage =
-      document.getElementById(
-        "companyFormMessage"
-      );
-
-
-    function showCompanyMessage(
-      type,
-      title,
-      text,
-      icon
-    ) {
-
-      companyFormMessage.className =
-        "form-message " + type;
-
-
-      companyFormMessage.innerHTML = `
-        <div class="form-message-icon">
-          ${icon}
-        </div>
-
-        <div class="form-message-title">
-          ${title}
-        </div>
-
-        <div class="form-message-text">
-          ${text}
-        </div>
-      `;
-
-
-      companyFormMessage.hidden =
-        false;
 
     }
 
 
+    /* نموذج الشركات */
+
+    const companyForm =
+      document.getElementById("companyForm");
+
 
     companyForm.addEventListener(
       "submit",
-      function (event) {
+      function(event) {
 
         event.preventDefault();
-
 
         const submitButton =
           companyForm.querySelector(
             "button[type='submit']"
           );
 
-
         const originalText =
           submitButton.textContent;
-
-
-        companyFormMessage.hidden =
-          true;
-
-        companyFormMessage.innerHTML =
-          "";
-
 
         submitButton.textContent =
           "جاري الإرسال...";
 
-
         submitButton.disabled =
           true;
-
 
         const formData =
           new FormData(companyForm);
 
-
         fetch(
-          "https://script.google.com/macros/s/AKfycbwPPDymDZFUtdnbvWXGDWl_5ZH-w28MckkhmZnqjQvuXaSPfLebHaaVC2jk9vVRlmY/exec",
+          "https://script.google.com/macros/s/AKfycbwPPDymDZFUtdnbVwXGDWl_5ZH-w28MckkhmZnqjQvuXaSPfLebHaaVC2jk9vVRlmY/exec",
           {
             method: "POST",
             body: formData
           }
         )
-
         .then(
-          function (response) {
-
-            if (!response.ok) {
-              throw new Error(
-                "تعذر إرسال الطلب"
-              );
-            }
-
-            return response.text();
-
-          }
+          response =>
+            response.text()
         )
-
         .then(
-          function () {
+          () => {
+
+            alert(
+              "تم إرسال طلبك بنجاح، وسنتواصل معك قريبًا."
+            );
 
             companyForm.reset();
 
-
             submitButton.textContent =
               originalText;
 
-
             submitButton.disabled =
               false;
-
-
-            showCompanyMessage(
-              "success",
-              "تم إرسال طلبك بنجاح",
-              "شكرًا لتواصلك مع إضاءة، وسنتواصل معك قريبًا.",
-              "✓"
-            );
 
           }
         )
-
         .catch(
-          function (error) {
+          error => {
 
             console.error(error);
 
+            alert(
+              "حدث خطأ أثناء الإرسال، حاول مرة أخرى."
+            );
 
             submitButton.textContent =
               originalText;
 
-
             submitButton.disabled =
               false;
-
-
-            showCompanyMessage(
-              "error",
-              "تعذر إرسال الطلب",
-              "حدث خطأ أثناء الإرسال، حاول مرة أخرى.",
-              "!"
-            );
 
           }
         );
