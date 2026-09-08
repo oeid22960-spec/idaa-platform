@@ -1192,7 +1192,10 @@
         </li>
 
         <li>
-          <a href="#stats" id="statsNav">
+          <a
+            href="#stats"
+            id="statsNav"
+          >
             مجتمعنا
           </a>
         </li>
@@ -1708,8 +1711,6 @@
         </p>
 
 
-        <!-- خطوات المسوق -->
-
         <div class="join-steps">
 
 
@@ -2081,8 +2082,6 @@
       <div class="contact-grid">
 
 
-        <!-- واتساب -->
-
         <div class="contact-card">
 
           <div class="contact-icon">
@@ -2127,8 +2126,6 @@
 
         </div>
 
-
-        <!-- تيك توك -->
 
         <div class="contact-card">
 
@@ -2175,8 +2172,6 @@
 
         </div>
 
-
-        <!-- البريد -->
 
         <div class="contact-card">
 
@@ -2511,8 +2506,6 @@
     function startCounters() {
 
 
-      /* إلغاء أي حركة قديمة */
-
       if (counterAnimationFrame) {
 
         cancelAnimationFrame(
@@ -2525,7 +2518,9 @@
       resetCounters();
 
 
-      const duration = 900;
+      /* مدة العداد = 3 ثوانٍ */
+
+      const duration = 3000;
 
       const startTime =
         performance.now();
@@ -2620,20 +2615,10 @@
 
           if (entry.isIntersecting) {
 
-            /*
-              عند دخول القسم:
-              يبدأ العداد من 0
-            */
-
             startCounters();
 
           } else {
 
-            /*
-              عند الخروج من القسم:
-              يرجع العداد إلى 0
-              استعدادًا للمرة القادمة
-            */
 
             if (counterAnimationFrame) {
 
@@ -2680,12 +2665,6 @@
         "click",
         function() {
 
-
-          /*
-            ننتظر قليلًا حتى يبدأ
-            النزول إلى القسم، ثم نعيد
-            تشغيل العداد من البداية.
-          */
 
           setTimeout(
             function() {
