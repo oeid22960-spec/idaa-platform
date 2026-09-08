@@ -612,7 +612,6 @@
     .footer-content {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       gap: 30px;
       flex-wrap: wrap;
     }
@@ -658,7 +657,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 9px;
       flex-wrap: wrap;
       text-align: center;
       border-top: 1px solid #18191c;
@@ -676,7 +675,6 @@
       background-position: center;
       background-size: contain;
       display: inline-block;
-      flex-shrink: 0;
     }
 
     .whatsapp-icon {
@@ -777,16 +775,6 @@
 
       .footer-content {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .footer-brand {
-        flex-direction: column;
-      }
-
-      .footer-links {
-        justify-content: center;
       }
 
       .copyright-logo {
@@ -823,9 +811,9 @@
   <header>
     <div class="container navbar">
 
-      <div class="logo" aria-label="إضاءة">
+      <a href="#home" class="logo" aria-label="العودة للرئيسية">
         <div class="brand-logo"></div>
-      </div>
+      </a>
 
       <ul class="nav-links">
 
@@ -1534,18 +1522,15 @@
 
       <div class="footer-content">
 
-        <div class="footer-brand">
+        <a href="#home" class="footer-brand" aria-label="العودة للرئيسية">
 
-          <div
-            class="footer-brand-logo"
-            aria-label="شعار إضاءة"
-          ></div>
+          <div class="footer-brand-logo"></div>
 
           <p class="footer-description">
             منصتك للتسويق والفرص الرقمية.
           </p>
 
-        </div>
+        </a>
 
         <div class="footer-links">
 
@@ -1579,10 +1564,11 @@
 
       <div class="copyright">
 
-        <div
+        <a
+          href="#home"
           class="copyright-logo"
-          aria-label="شعار إضاءة"
-        ></div>
+          aria-label="العودة للرئيسية"
+        ></a>
 
         <span>
           © 2026 إضاءة - جميع الحقوق محفوظة
@@ -1691,4 +1677,3 @@
 
 </body>
 </html>
-```
