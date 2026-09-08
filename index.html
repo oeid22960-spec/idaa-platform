@@ -6,6 +6,7 @@
   <meta name="description" content="إضاءة | منصة تجمع المسوقين مع الشركات والمنصات وتوفر فرصًا تسويقية حقيقية.">
   <meta name="theme-color" content="#08090b">
   <title>إضاءة | منصة التسويق والفرص</title>
+  <link rel="icon" type="image/png" href="logo.png">
 
   <style>
     * {
@@ -497,6 +498,7 @@
         transform: translate(-50%, -50%) scale(1);
         opacity: .65;
       }
+
       50% {
         transform: translate(-50%, -50%) scale(1.04);
         opacity: 1;
@@ -508,6 +510,7 @@
         opacity: .5;
         transform: translate(-50%, -50%) scale(1);
       }
+
       50% {
         opacity: .85;
         transform: translate(-50%, -50%) scale(1.12);
@@ -527,6 +530,7 @@
         opacity: 0;
         transform: translateY(22px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -557,6 +561,7 @@
       0%, 100% {
         transform: translateY(0);
       }
+
       50% {
         transform: translateY(-3px);
       }
@@ -598,6 +603,7 @@
       from {
         left: -40%;
       }
+
       to {
         left: 120%;
       }
@@ -1209,6 +1215,84 @@
     .form-submit {
       text-align: center;
       margin-top: 25px;
+    }
+
+    /* رسالة نموذج الشركات */
+
+    .form-message {
+      width: 100%;
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-radius: 14px;
+      text-align: center;
+      border: 1px solid rgba(214,168,79,.35);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(214,168,79,.10),
+          rgba(214,168,79,.035)
+        );
+      box-shadow:
+        0 10px 30px rgba(0,0,0,.15),
+        inset 0 1px 0 rgba(255,255,255,.025);
+      animation: formMessageIn .4s ease both;
+    }
+
+    .form-message[hidden] {
+      display: none;
+    }
+
+    .form-message.success {
+      border-color: rgba(214,168,79,.45);
+    }
+
+    .form-message.error {
+      border-color: rgba(214,168,79,.35);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(214,168,79,.07),
+          rgba(214,168,79,.025)
+        );
+    }
+
+    .form-message-icon {
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(214,168,79,.15);
+      border: 1px solid rgba(214,168,79,.35);
+      color: var(--gold);
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .form-message-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .form-message-text {
+      color: #999;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    @keyframes formMessageIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* التواصل */
@@ -2224,6 +2308,13 @@
                 إرسال الطلب
               </button>
 
+              <div
+                id="companyFormMessage"
+                class="form-message"
+                aria-live="polite"
+                hidden
+              ></div>
+
             </div>
 
           </form>
@@ -2731,6 +2822,38 @@
     const companyForm =
       document.getElementById("companyForm");
 
+    const companyFormMessage =
+      document.getElementById("companyFormMessage");
+
+
+    function showCompanyMessage(
+      type,
+      title,
+      text,
+      icon
+    ) {
+
+      companyFormMessage.className =
+        "form-message " + type;
+
+      companyFormMessage.innerHTML = `
+        <div class="form-message-icon">
+          ${icon}
+        </div>
+
+        <div class="form-message-title">
+          ${title}
+        </div>
+
+        <div class="form-message-text">
+          ${text}
+        </div>
+      `;
+
+      companyFormMessage.hidden = false;
+
+    }
+
 
     companyForm.addEventListener(
       "submit",
@@ -2746,14 +2869,26 @@
         const originalText =
           submitButton.textContent;
 
+
+        /* إخفاء الرسالة السابقة */
+
+        companyFormMessage.hidden = true;
+
+        companyFormMessage.innerHTML = "";
+
+
+        /* تغيير حالة الزر */
+
         submitButton.textContent =
           "جاري الإرسال...";
 
         submitButton.disabled =
           true;
 
+
         const formData =
           new FormData(companyForm);
+
 
         fetch(
           "https://script.google.com/macros/s/AKfycbwPPDymDZFUtdnbVwXGDWl_5ZH-w28MckkhmZnqjQvuXaSPfLebHaaVC2jk9vVRlmY/exec",
@@ -2762,16 +2897,25 @@
             body: formData
           }
         )
+
         .then(
-          response =>
-            response.text()
+          response => {
+
+            if (!response.ok) {
+
+              throw new Error(
+                "تعذر إرسال الطلب"
+              );
+
+            }
+
+            return response.text();
+
+          }
         )
+
         .then(
           () => {
-
-            alert(
-              "تم إرسال طلبك بنجاح، وسنتواصل معك قريبًا."
-            );
 
             companyForm.reset();
 
@@ -2781,22 +2925,39 @@
             submitButton.disabled =
               false;
 
+
+            /* رسالة النجاح داخل مربع النموذج */
+
+            showCompanyMessage(
+              "success",
+              "تم إرسال طلبك بنجاح",
+              "شكرًا لتواصلك مع إضاءة، وسنتواصل معك قريبًا.",
+              "✓"
+            );
+
           }
         )
+
         .catch(
           error => {
 
             console.error(error);
-
-            alert(
-              "حدث خطأ أثناء الإرسال، حاول مرة أخرى."
-            );
 
             submitButton.textContent =
               originalText;
 
             submitButton.disabled =
               false;
+
+
+            /* رسالة الخطأ داخل مربع النموذج */
+
+            showCompanyMessage(
+              "error",
+              "تعذر إرسال الطلب",
+              "حدث خطأ أثناء الإرسال، حاول مرة أخرى.",
+              "!"
+            );
 
           }
         );
