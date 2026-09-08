@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -50,7 +51,7 @@
     .brand-logo {
       width: 105px;
       height: 64px;
-      background-image: url("data:image/webp;base64,UklGRhQ/AABXRUJQVlA4WAoAAAAQAAAA8gEASwEAQUxQSM8lAAAB/yckSPD/eGtEpO4TkNxGciQpImPMbtb+/8GVbdbdI/o/AfyL0yZ2hXK8wYh1h2x2Q5Jx6d4m7jW4mJ3w8l7p4j7x1tV6xQ5b8e4p2f9k7w8s7f8k7l6m7n8o9p0q1r2s3t4u5v6w7x8y9z0AA==");
+      background-image: url("logo.png");
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
@@ -612,18 +613,28 @@
     .footer-content {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 30px;
       flex-wrap: wrap;
     }
 
-    .footer-logo {
-      color: #d6a84f;
-      font-size: 25px;
-      font-weight: bold;
-      margin-bottom: 8px;
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
     }
 
-    footer p {
+    .footer-brand-logo {
+      width: 82px;
+      height: 55px;
+      background-image: url("logo.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      flex-shrink: 0;
+    }
+
+    .footer-description {
       color: #666;
       font-size: 14px;
     }
@@ -648,7 +659,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
+      gap: 10px;
       flex-wrap: wrap;
       text-align: center;
       border-top: 1px solid #18191c;
@@ -659,13 +670,14 @@
     }
 
     .copyright-logo {
-      width: 52px;
-      height: 38px;
-      background-image: url("data:image/webp;base64,UklGRhQ/AABXRUJQVlA4WAoAAAAQAAAA8gEASwEAQUxQSM8lAAAB/yckSPD/eGtEpO4TkNxGciQpImPMbtb+/8GVbdbdI/o/AfyL0yZ2hXK8wYh1h2x2Q5Jx6d4m7jW4mJ3w8l7p4j7x1tV6xQ5b8e4p2f9k7w8s7f8k7l6m7n8o9p0q1r2s3t4u5v6w7x8y9z0AA==");
+      width: 45px;
+      height: 32px;
+      background-image: url("logo.png");
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
       display: inline-block;
+      flex-shrink: 0;
     }
 
     .whatsapp-icon {
@@ -766,6 +778,16 @@
 
       .footer-content {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-brand {
+        flex-direction: column;
+      }
+
+      .footer-links {
+        justify-content: center;
       }
 
       .copyright-logo {
@@ -1513,13 +1535,14 @@
 
       <div class="footer-content">
 
-        <div>
+        <div class="footer-brand">
 
-          <div class="footer-logo">
-            إضاءة
-          </div>
+          <div
+            class="footer-brand-logo"
+            aria-label="شعار إضاءة"
+          ></div>
 
-          <p>
+          <p class="footer-description">
             منصتك للتسويق والفرص الرقمية.
           </p>
 
@@ -1557,7 +1580,10 @@
 
       <div class="copyright">
 
-        <div class="copyright-logo" aria-label="شعار إضاءة"></div>
+        <div
+          class="copyright-logo"
+          aria-label="شعار إضاءة"
+        ></div>
 
         <span>
           © 2026 إضاءة - جميع الحقوق محفوظة
@@ -1666,3 +1692,4 @@
 
 </body>
 </html>
+```
