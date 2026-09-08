@@ -8,6 +8,10 @@
 
   <style>
 
+    /* =========================
+       الأساسيات
+    ========================= */
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -24,6 +28,10 @@
       color: #fff;
       line-height: 1.8;
       overflow-x: hidden;
+
+      transition:
+        background-color .45s ease,
+        color .45s ease;
     }
 
     a {
@@ -42,6 +50,181 @@
       width: 90%;
       max-width: 1180px;
       margin: auto;
+    }
+
+
+    /* =========================
+       الوضع الفاتح
+    ========================= */
+
+    body.light-mode {
+      background: #f7f7f5;
+      color: #151515;
+    }
+
+    body.light-mode header {
+      background: rgba(247,247,245,.88);
+      border-bottom-color: rgba(160,120,35,.18);
+    }
+
+    body.light-mode .nav-links a {
+      color: #555;
+    }
+
+    body.light-mode .nav-links a:hover {
+      color: #a87b20;
+    }
+
+    body.light-mode .hero {
+      background:
+        radial-gradient(
+          circle at 50% 42%,
+          rgba(214,168,79,.18) 0%,
+          rgba(214,168,79,.08) 18%,
+          transparent 45%
+        ),
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(214,168,79,.08),
+          transparent 30%
+        ),
+        #f7f7f5;
+    }
+
+    body.light-mode .hero h1 span {
+      color: #a87b20;
+      text-shadow: 0 0 35px rgba(168,123,32,.14);
+    }
+
+    body.light-mode .hero p {
+      color: #666;
+    }
+
+    body.light-mode .section-title p {
+      color: #707070;
+    }
+
+    body.light-mode .card,
+    body.light-mode .opportunity-card,
+    body.light-mode .live-stat-card,
+    body.light-mode .contact-card {
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #f2f2ef
+        );
+
+      border-color: #deddd8;
+    }
+
+    body.light-mode .card h3,
+    body.light-mode .opportunity-card h3,
+    body.light-mode .contact-card h3 {
+      color: #181818;
+    }
+
+    body.light-mode .card p,
+    body.light-mode .opportunity-card p,
+    body.light-mode .live-stat-card p,
+    body.light-mode .contact-card p {
+      color: #707070;
+    }
+
+    body.light-mode .opportunities,
+    body.light-mode .live-stats,
+    body.light-mode .join-marketer,
+    body.light-mode .contact {
+      background: #eeeeeb;
+      border-color: #deddd8;
+    }
+
+    body.light-mode .companies,
+    body.light-mode #about {
+      background: #f7f7f5;
+    }
+
+    body.light-mode .join-box {
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(214,168,79,.17),
+          transparent 55%
+        ),
+        linear-gradient(
+          135deg,
+          #fffaf0,
+          #f3f2ed
+        );
+
+      border-color: rgba(168,123,32,.28);
+    }
+
+    body.light-mode .join-box > p {
+      color: #666;
+    }
+
+    body.light-mode .join-step {
+      background: rgba(255,255,255,.72);
+      border-color: #dddcd7;
+    }
+
+    body.light-mode .join-step h3 {
+      color: #181818;
+    }
+
+    body.light-mode .join-step p {
+      color: #707070;
+    }
+
+    body.light-mode .company-box {
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #f2f2ef
+        );
+
+      border-color: #deddd8;
+    }
+
+    body.light-mode .form-group label {
+      color: #333;
+    }
+
+    body.light-mode .form-group input,
+    body.light-mode .form-group textarea,
+    body.light-mode .form-group select {
+      background: #fafaf8;
+      color: #222;
+      border-color: #d8d7d1;
+    }
+
+    body.light-mode .form-group input::placeholder,
+    body.light-mode .form-group textarea::placeholder {
+      color: #999;
+    }
+
+    body.light-mode footer {
+      background: #e9e9e5;
+      border-top-color: #d8d7d1;
+    }
+
+    body.light-mode .footer-description {
+      color: #777;
+    }
+
+    body.light-mode .footer-links a {
+      color: #666;
+    }
+
+    body.light-mode .footer-links a:hover {
+      color: #a87b20;
+    }
+
+    body.light-mode .copyright {
+      color: #777;
+      border-top-color: #d8d7d1;
     }
 
 
@@ -68,16 +251,26 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+
       background: rgba(8, 9, 11, 0.88);
-      border-bottom: 1px solid rgba(214, 168, 79, 0.12);
+
+      border-bottom:
+        1px solid rgba(214, 168, 79, 0.12);
+
       backdrop-filter: blur(18px);
+
+      transition:
+        background .45s ease,
+        border-color .45s ease;
     }
 
     .navbar {
       min-height: 78px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 30px;
     }
 
@@ -85,29 +278,129 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
       width: 120px;
       height: 70px;
+
       flex-shrink: 0;
+
+      transition:
+        transform .3s ease;
+    }
+
+    .logo:hover {
+      transform: translateY(-1px);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
       justify-content: center;
+
       gap: 25px;
+
       list-style: none;
       flex-wrap: wrap;
     }
 
+    .nav-links li {
+      position: relative;
+    }
+
     .nav-links a {
+      position: relative;
+
       color: #c8c8c8;
       font-size: 14px;
-      transition: .3s;
+
       white-space: nowrap;
+
+      padding: 7px 2px;
+
+      transition:
+        color .3s ease,
+        transform .3s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+
+      position: absolute;
+
+      right: 0;
+      bottom: 0;
+
+      width: 0;
+      height: 2px;
+
+      background: #d6a84f;
+
+      border-radius: 10px;
+
+      transition:
+        width .3s ease;
     }
 
     .nav-links a:hover {
       color: #d6a84f;
+      transform: translateY(-2px);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+
+    /* =========================
+       زر الوضع
+    ========================= */
+
+    .theme-toggle {
+      width: 43px;
+      height: 43px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(214,168,79,.28);
+
+      background:
+        rgba(214,168,79,.07);
+
+      color: #d6a84f;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+
+      font-size: 19px;
+
+      flex-shrink: 0;
+
+      transition:
+        transform .3s ease,
+        background .3s ease,
+        border-color .3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform:
+        translateY(-2px)
+        rotate(8deg);
+
+      background:
+        rgba(214,168,79,.14);
+
+      border-color:
+        rgba(214,168,79,.5);
+    }
+
+    body.light-mode .theme-toggle {
+      color: #a87b20;
+      background: rgba(168,123,32,.08);
+      border-color: rgba(168,123,32,.25);
     }
 
 
@@ -117,10 +410,14 @@
 
     .hero {
       min-height: 680px;
+
       display: flex;
       align-items: center;
+
       text-align: center;
+
       position: relative;
+
       overflow: hidden;
 
       background:
@@ -138,27 +435,41 @@
         ),
 
         #08090b;
+
+      transition:
+        background .45s ease;
     }
 
     .hero::before {
       content: "";
+
       position: absolute;
+
       width: 600px;
       height: 600px;
-      border: 1px solid rgba(214,168,79,.08);
+
+      border:
+        1px solid rgba(214,168,79,.08);
+
       border-radius: 50%;
+
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+
+      transform:
+        translate(-50%, -50%);
 
       box-shadow:
         0 0 0 70px rgba(214,168,79,.018),
         0 0 0 140px rgba(214,168,79,.012);
+
+      pointer-events: none;
     }
 
     .hero-content {
       max-width: 850px;
       margin: auto;
+
       position: relative;
       z-index: 2;
     }
@@ -166,17 +477,28 @@
     .badge {
       display: inline-flex;
       align-items: center;
+
       gap: 8px;
 
-      border: 1px solid rgba(214,168,79,.35);
+      border:
+        1px solid rgba(214,168,79,.35);
+
       color: #d6a84f;
 
-      padding: 8px 18px;
+      padding:
+        8px 18px;
+
       border-radius: 30px;
+
       margin-bottom: 27px;
 
-      background: rgba(214,168,79,.07);
+      background:
+        rgba(214,168,79,.07);
+
       font-size: 14px;
+
+      box-shadow:
+        0 0 25px rgba(214,168,79,.04);
     }
 
     .badge::before {
@@ -185,21 +507,75 @@
 
     .hero h1 {
       font-size: 65px;
+
       line-height: 1.15;
+
       margin-bottom: 25px;
+
       letter-spacing: -1px;
     }
 
     .hero h1 span {
       color: #d6a84f;
-      text-shadow: 0 0 35px rgba(214,168,79,.18);
+
+      text-shadow:
+        0 0 35px rgba(214,168,79,.18);
     }
 
     .hero p {
       color: #a7a7a7;
+
       font-size: 19px;
+
       max-width: 700px;
-      margin: 0 auto 35px;
+
+      margin:
+        0 auto 35px;
+    }
+
+
+    /* =========================
+       لمعة خفيفة عند فتح الموقع
+    ========================= */
+
+    .hero-content::after {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: -40%;
+
+      width: 25%;
+      height: 100%;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,.06),
+          transparent
+        );
+
+      transform:
+        skewX(-18deg);
+
+      animation:
+        softShine 1.4s ease-out .2s 1 forwards;
+
+      pointer-events: none;
+    }
+
+    @keyframes softShine {
+
+      from {
+        left: -40%;
+      }
+
+      to {
+        left: 120%;
+      }
+
     }
 
 
@@ -209,22 +585,31 @@
 
     section {
       padding: 95px 0;
+
+      transition:
+        background .45s ease,
+        border-color .45s ease;
     }
 
     .section-title {
       text-align: center;
+
       margin-bottom: 52px;
     }
 
     .section-title h2 {
       font-size: 39px;
+
       margin-bottom: 12px;
     }
 
     .section-title p {
       color: #8e8e8e;
+
       font-size: 16px;
+
       max-width: 700px;
+
       margin: auto;
     }
 
@@ -235,44 +620,79 @@
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: 22px;
     }
 
     .card {
-      background: linear-gradient(145deg, #111216, #0d0e11);
-      border: 1px solid #23242a;
+      background:
+        linear-gradient(
+          145deg,
+          #111216,
+          #0d0e11
+        );
+
+      border:
+        1px solid #23242a;
+
       border-radius: 20px;
+
       padding: 30px;
-      transition: .35s;
+
+      transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease,
+        background .45s ease;
+
       position: relative;
+
       overflow: hidden;
     }
 
     .card::before {
       content: "";
+
       position: absolute;
 
       width: 100px;
       height: 100px;
 
-      background: rgba(214,168,79,.06);
+      background:
+        rgba(214,168,79,.06);
 
-      filter: blur(35px);
+      filter:
+        blur(35px);
 
       top: -50px;
       right: -50px;
 
       border-radius: 50%;
+
+      transition:
+        transform .4s ease,
+        opacity .4s ease;
     }
 
     .card:hover {
-      transform: translateY(-7px);
+      transform:
+        translateY(-7px);
 
-      border-color: rgba(214,168,79,.45);
+      border-color:
+        rgba(214,168,79,.45);
 
       box-shadow:
         0 18px 45px rgba(0,0,0,.22);
+    }
+
+    .card:hover::before {
+      transform:
+        scale(1.5);
+
+      opacity: .9;
     }
 
     .icon {
@@ -281,26 +701,40 @@
 
       border-radius: 16px;
 
-      background: rgba(214,168,79,.10);
+      background:
+        rgba(214,168,79,.10);
 
-      border: 1px solid rgba(214,168,79,.14);
+      border:
+        1px solid rgba(214,168,79,.14);
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
       font-size: 25px;
 
       margin-bottom: 20px;
+
+      transition:
+        transform .35s ease;
+    }
+
+    .card:hover .icon {
+      transform:
+        translateY(-2px)
+        scale(1.04);
     }
 
     .card h3 {
       margin-bottom: 10px;
+
       font-size: 20px;
     }
 
     .card p {
       color: #888;
+
       font-size: 15px;
     }
 
@@ -348,14 +782,22 @@
 
       padding: 30px;
 
-      transition: .35s;
+      transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease,
+        background .45s ease;
     }
 
     .opportunity-card:hover {
-      transform: translateY(-6px);
+      transform:
+        translateY(-6px);
 
       border-color:
         rgba(214,168,79,.4);
+
+      box-shadow:
+        0 18px 45px rgba(0,0,0,.18);
     }
 
     .opportunity-card h3 {
@@ -377,7 +819,8 @@
     .opportunity-tag {
       display: inline-block;
 
-      padding: 6px 13px;
+      padding:
+        6px 13px;
 
       border-radius: 20px;
 
@@ -433,15 +876,21 @@
 
       border-radius: 20px;
 
-      padding: 35px 25px;
+      padding:
+        35px 25px;
 
       text-align: center;
 
-      transition: .35s;
+      transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease,
+        background .45s ease;
     }
 
     .live-stat-card:hover {
-      transform: translateY(-6px);
+      transform:
+        translateY(-6px);
 
       border-color:
         rgba(214,168,79,.4);
@@ -505,12 +954,17 @@
 
       border-radius: 28px;
 
-      padding: 70px 30px;
+      padding:
+        70px 30px;
 
       text-align: center;
 
       box-shadow:
         0 25px 70px rgba(0,0,0,.2);
+
+      transition:
+        background .45s ease,
+        border-color .45s ease;
     }
 
     .join-box h2 {
@@ -556,15 +1010,20 @@
 
       border-radius: 18px;
 
-      padding: 25px 20px;
+      padding:
+        25px 20px;
 
       text-align: right;
 
-      transition: .35s;
+      transition:
+        transform .35s ease,
+        border-color .35s ease,
+        background .45s ease;
     }
 
     .join-step:hover {
-      transform: translateY(-5px);
+      transform:
+        translateY(-5px);
 
       border-color:
         rgba(214,168,79,.4);
@@ -594,11 +1053,15 @@
 
 
     /* =========================
-       الزر
+       الزر الأساسي
     ========================= */
 
     .primary-btn {
       display: inline-block;
+
+      position: relative;
+
+      overflow: hidden;
 
       background: #d6a84f;
 
@@ -613,10 +1076,35 @@
 
       font-weight: bold;
 
-      transition: .3s;
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+    }
 
-      box-shadow:
-        0 8px 30px rgba(214,168,79,.12);
+    .primary-btn::after {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: -80%;
+
+      width: 45%;
+      height: 100%;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,.28),
+          transparent
+        );
+
+      transform:
+        skewX(-20deg);
+
+      transition:
+        left .55s ease;
     }
 
     .primary-btn:hover {
@@ -624,7 +1112,12 @@
         translateY(-4px);
 
       box-shadow:
-        0 15px 40px rgba(214,168,79,.18);
+        0 15px 40px
+        rgba(214,168,79,.18);
+    }
+
+    .primary-btn:hover::after {
+      left: 130%;
     }
 
 
@@ -638,6 +1131,7 @@
 
     .company-wrapper {
       max-width: 850px;
+
       margin: auto;
     }
 
@@ -658,16 +1152,23 @@
 
       box-shadow:
         0 20px 60px rgba(0,0,0,.15);
+
+      transition:
+        background .45s ease,
+        border-color .45s ease;
     }
 
     .company-form {
       display: grid;
+
       gap: 20px;
     }
 
     .form-group {
       display: flex;
+
       flex-direction: column;
+
       gap: 8px;
     }
 
@@ -700,13 +1201,18 @@
 
       font-size: 14px;
 
-      transition: .3s;
+      transition:
+        border-color .3s ease,
+        box-shadow .3s ease,
+        background .45s ease,
+        color .45s ease;
     }
 
     .form-group input:focus,
     .form-group textarea:focus,
     .form-group select:focus {
-      border-color: #d6a84f;
+      border-color:
+        #d6a84f;
 
       box-shadow:
         0 0 0 3px
@@ -736,9 +1242,9 @@
 
       font-weight: bold;
 
-      transition: .3s;
-
-      margin-top: 5px;
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease;
     }
 
     .form-submit:hover {
@@ -815,7 +1321,11 @@
 
       text-align: center;
 
-      transition: .35s;
+      transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease,
+        background .45s ease;
     }
 
     .contact-card:hover {
@@ -824,6 +1334,9 @@
 
       border-color:
         rgba(214,168,79,.4);
+
+      box-shadow:
+        0 18px 45px rgba(0,0,0,.18);
     }
 
     .contact-icon {
@@ -844,6 +1357,15 @@
       height: 42px;
 
       display: block;
+
+      transition:
+        transform .3s ease;
+    }
+
+    .contact-card:hover .contact-icon svg {
+      transform:
+        translateY(-2px)
+        scale(1.05);
     }
 
     .contact-card h3 {
@@ -864,6 +1386,13 @@
       font-weight: bold;
 
       font-size: 14px;
+
+      transition:
+        color .3s ease;
+    }
+
+    .contact-link:hover {
+      color: #f0c76f;
     }
 
 
@@ -879,6 +1408,10 @@
 
       padding:
         45px 0 25px;
+
+      transition:
+        background .45s ease,
+        border-color .45s ease;
     }
 
     .footer-content {
@@ -907,11 +1440,14 @@
       background-image:
         url("logo.png");
 
-      background-repeat: no-repeat;
+      background-repeat:
+        no-repeat;
 
-      background-position: center;
+      background-position:
+        center;
 
-      background-size: contain;
+      background-size:
+        contain;
 
       flex-shrink: 0;
     }
@@ -935,7 +1471,8 @@
 
       font-size: 14px;
 
-      transition: .3s;
+      transition:
+        color .3s ease;
     }
 
     .footer-links a:hover {
@@ -965,6 +1502,10 @@
       color: #555;
 
       font-size: 13px;
+
+      transition:
+        color .45s ease,
+        border-color .45s ease;
     }
 
     .copyright-logo {
@@ -974,11 +1515,14 @@
       background-image:
         url("logo.png");
 
-      background-repeat: no-repeat;
+      background-repeat:
+        no-repeat;
 
-      background-position: center;
+      background-position:
+        center;
 
-      background-size: contain;
+      background-size:
+        contain;
 
       display: inline-block;
     }
@@ -987,12 +1531,12 @@
       display: inline-flex;
 
       align-items: center;
-
       justify-content: center;
 
       margin-right: 3px;
 
-      transition: .3s;
+      transition:
+        transform .3s ease;
     }
 
     .whatsapp-icon svg {
@@ -1001,7 +1545,8 @@
     }
 
     .whatsapp-icon:hover {
-      transform: scale(1.15);
+      transform:
+        scale(1.15);
     }
 
 
@@ -1037,6 +1582,7 @@
         grid-template-columns:
           repeat(3, 1fr);
       }
+
     }
 
 
@@ -1117,6 +1663,7 @@
         width: 48px;
         height: 35px;
       }
+
     }
 
 
@@ -1137,6 +1684,28 @@
       .hero h1 {
         font-size: 36px;
       }
+
+    }
+
+
+    /* =========================
+       تقليل الحركة لمن يفضل ذلك
+    ========================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
     }
 
   </style>
@@ -1219,6 +1788,19 @@
         </li>
 
       </ul>
+
+
+      <!-- زر تغيير الوضع -->
+
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="تغيير مظهر الموقع"
+        title="تغيير مظهر الموقع"
+      >
+        ☀️
+      </button>
 
     </div>
 
@@ -1684,7 +2266,6 @@
 
   <!-- =========================
        انضم كمسوق
-       تم دمج طريقة العمل هنا
   ========================= -->
 
   <section
@@ -2082,6 +2663,8 @@
       <div class="contact-grid">
 
 
+        <!-- واتساب -->
+
         <div class="contact-card">
 
           <div class="contact-icon">
@@ -2126,6 +2709,8 @@
 
         </div>
 
+
+        <!-- تيك توك -->
 
         <div class="contact-card">
 
@@ -2172,6 +2757,8 @@
 
         </div>
 
+
+        <!-- البريد -->
 
         <div class="contact-card">
 
@@ -2360,6 +2947,100 @@
 
 
     /* =========================
+       الوضع الفاتح / الغامق
+    ========================= */
+
+    const themeToggle =
+      document.getElementById("themeToggle");
+
+
+    function updateThemeButton() {
+
+      if (
+        document.body.classList.contains(
+          "light-mode"
+        )
+      ) {
+
+        themeToggle.textContent = "🌙";
+
+        themeToggle.setAttribute(
+          "aria-label",
+          "تفعيل الوضع الغامق"
+        );
+
+        themeToggle.setAttribute(
+          "title",
+          "تفعيل الوضع الغامق"
+        );
+
+      } else {
+
+        themeToggle.textContent = "☀️";
+
+        themeToggle.setAttribute(
+          "aria-label",
+          "تفعيل الوضع الفاتح"
+        );
+
+        themeToggle.setAttribute(
+          "title",
+          "تفعيل الوضع الفاتح"
+        );
+
+      }
+
+    }
+
+
+    const savedTheme =
+      localStorage.getItem("idaaTheme");
+
+
+    if (
+      savedTheme === "light"
+    ) {
+
+      document.body.classList.add(
+        "light-mode"
+      );
+
+    }
+
+
+    updateThemeButton();
+
+
+    themeToggle.addEventListener(
+      "click",
+      function() {
+
+        document.body.classList.toggle(
+          "light-mode"
+        );
+
+
+        const isLight =
+          document.body.classList.contains(
+            "light-mode"
+          );
+
+
+        localStorage.setItem(
+          "idaaTheme",
+          isLight
+            ? "light"
+            : "dark"
+        );
+
+
+        updateThemeButton();
+
+      }
+    );
+
+
+    /* =========================
        نموذج الشركات
     ========================= */
 
@@ -2383,31 +3064,47 @@
         const formData = {
 
           companyName:
-            document.getElementById("companyName").value,
+            document.getElementById(
+              "companyName"
+            ).value,
 
           managerName:
-            document.getElementById("managerName").value,
+            document.getElementById(
+              "managerName"
+            ).value,
 
           email:
-            document.getElementById("email").value,
+            document.getElementById(
+              "email"
+            ).value,
 
           phone:
-            document.getElementById("phone").value,
+            document.getElementById(
+              "phone"
+            ).value,
 
           field:
-            document.getElementById("field").value,
+            document.getElementById(
+              "field"
+            ).value,
 
           description:
-            document.getElementById("description").value,
+            document.getElementById(
+              "description"
+            ).value,
 
           cooperation:
-            document.getElementById("cooperation").value
+            document.getElementById(
+              "cooperation"
+            ).value
 
         };
 
 
         const submitButton =
-          companyForm.querySelector(".form-submit");
+          companyForm.querySelector(
+            ".form-submit"
+          );
 
 
         submitButton.disabled = true;
@@ -2474,18 +3171,22 @@
 
     /* =========================
        مجتمعنا - العداد
+       مدة الحركة 3 ثوانٍ
     ========================= */
 
     const statsSection =
-      document.querySelector(".live-stats");
+      document.querySelector(
+        ".live-stats"
+      );
 
     const counters =
-      document.querySelectorAll(".live-stat-number");
+      document.querySelectorAll(
+        ".live-stat-number"
+      );
 
-    let counterAnimationFrame = null;
+    let counterAnimationFrame =
+      null;
 
-
-    /* إعادة الأرقام إلى صفر */
 
     function resetCounters() {
 
@@ -2501,12 +3202,12 @@
     }
 
 
-    /* تشغيل العداد */
-
     function startCounters() {
 
 
-      if (counterAnimationFrame) {
+      if (
+        counterAnimationFrame
+      ) {
 
         cancelAnimationFrame(
           counterAnimationFrame
@@ -2518,7 +3219,7 @@
       resetCounters();
 
 
-      /* مدة العداد = 3 ثوانٍ */
+      /* 3 ثوانٍ */
 
       const duration = 3000;
 
@@ -2526,7 +3227,9 @@
         performance.now();
 
 
-      function updateCounters(currentTime) {
+      function updateCounters(
+        currentTime
+      ) {
 
 
         const progress =
@@ -2556,7 +3259,8 @@
 
             const currentValue =
               Math.floor(
-                easedProgress * target
+                easedProgress *
+                target
               );
 
 
@@ -2564,7 +3268,9 @@
               currentValue + "+";
 
 
-            if (progress >= 1) {
+            if (
+              progress >= 1
+            ) {
 
               counter.textContent =
                 target + "+";
@@ -2575,7 +3281,9 @@
         );
 
 
-        if (progress < 1) {
+        if (
+          progress < 1
+        ) {
 
           counterAnimationFrame =
             requestAnimationFrame(
@@ -2613,14 +3321,18 @@
             entries[0];
 
 
-          if (entry.isIntersecting) {
+          if (
+            entry.isIntersecting
+          ) {
 
             startCounters();
 
           } else {
 
 
-            if (counterAnimationFrame) {
+            if (
+              counterAnimationFrame
+            ) {
 
               cancelAnimationFrame(
                 counterAnimationFrame
@@ -2630,6 +3342,7 @@
                 null;
 
             }
+
 
             resetCounters();
 
@@ -2642,7 +3355,9 @@
       );
 
 
-    if (statsSection) {
+    if (
+      statsSection
+    ) {
 
       statsObserver.observe(
         statsSection
@@ -2656,10 +3371,14 @@
     ========================= */
 
     const statsNav =
-      document.getElementById("statsNav");
+      document.getElementById(
+        "statsNav"
+      );
 
 
-    if (statsNav) {
+    if (
+      statsNav
+    ) {
 
       statsNav.addEventListener(
         "click",
