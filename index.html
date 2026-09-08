@@ -1,37 +1,79 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>إضاءة | منصة التسويق والفرص</title>
 
   <meta
     name="description"
     content="إضاءة | منصة تجمع المسوقين مع الشركات والمنصات وتوفر فرصًا تسويقية حقيقية."
+  />
+
+  <meta name="theme-color" content="#08090b" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- الخط الأساسي للموقع -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
   >
 
-  <meta name="theme-color" content="#08090b">
+  <!-- خط الواجهة الرئيسية -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
+
+    /* =========================================================
+       الأساس
+    ========================================================= */
+
     :root {
       --bg: #08090b;
       --bg-soft: #0d0f12;
-      --card: #111318;
-      --card-2: #151820;
+      --card: #111317;
+      --card-2: #15181d;
+
       --text: #f5f5f5;
-      --muted: #999;
+      --muted: #9b9b9b;
+
       --gold: #d6a84f;
-      --gold-light: #f0cb78;
-      --border: rgba(214,168,79,.18);
-      --shadow: 0 20px 60px rgba(0,0,0,.28);
+      --gold-light: #e5c477;
+      --gold-dark: #a77b2f;
+
+      --border: rgba(214, 168, 79, 0.16);
+
+      --shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+
+      --radius: 20px;
+    }
+
+    body.light {
+      --bg: #f7f7f5;
+      --bg-soft: #ffffff;
+      --card: #ffffff;
+      --card-2: #f2f2ef;
+
+      --text: #151515;
+      --muted: #686868;
+
+      --border: rgba(150, 110, 35, 0.18);
+
+      --shadow:
+        0 20px 50px rgba(0, 0, 0, 0.08);
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html {
@@ -39,14 +81,14 @@
     }
 
     body {
-      font-family:
-        Tahoma,
-        Arial,
-        sans-serif;
+      font-family: "Cairo", sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.8;
       overflow-x: hidden;
+      transition:
+        background 0.3s ease,
+        color 0.3s ease;
     }
 
     a {
@@ -56,32 +98,44 @@
 
     button,
     input,
-    textarea,
-    select {
+    select,
+    textarea {
       font-family: inherit;
     }
 
-    /* =========================
-       SCROLL PROGRESS
-    ========================== */
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-    .scroll-progress {
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+    }
+
+
+    /* =========================================================
+       شريط التقدم
+    ========================================================= */
+
+    #scrollProgress {
       position: fixed;
       top: 0;
       right: 0;
+      width: 0%;
       height: 3px;
-      width: 0;
       background: linear-gradient(
         90deg,
-        var(--gold),
+        var(--gold-dark),
         var(--gold-light)
       );
       z-index: 9999;
     }
 
-    /* =========================
-       HEADER
-    ========================== */
+
+    /* =========================================================
+       الهيدر
+    ========================================================= */
 
     header {
       position: fixed;
@@ -89,224 +143,353 @@
       right: 0;
       left: 0;
       z-index: 1000;
-      background: rgba(8,9,11,.82);
+
+      background: rgba(8, 9, 11, 0.78);
       backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255,255,255,.04);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    body.light header {
+      background: rgba(255,255,255,0.82);
+      border-bottom-color: rgba(0,0,0,0.06);
     }
 
     .nav {
-      width: min(1180px, 92%);
-      margin: auto;
-      height: 76px;
+      min-height: 78px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
     }
 
-    .brand {
+    .logo {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 20px;
-      font-weight: 800;
+      gap: 10px;
+
+      flex-shrink: 0;
     }
 
-    .brand img {
-      width: 42px;
-      height: 42px;
+    .logo img {
+      width: 44px;
+      height: 44px;
       object-fit: contain;
+    }
+
+    .logo span {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 26px;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
-      color: #d8d8d8;
+      position: relative;
+
+      color: var(--muted);
       font-size: 14px;
-      transition: .25s ease;
+      font-weight: 600;
+
+      transition:
+        color 0.25s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+
+      position: absolute;
+      right: 0;
+      bottom: -7px;
+
+      width: 0;
+      height: 2px;
+
+      background: var(--gold);
+
+      transition: width 0.25s ease;
     }
 
     .nav-links a:hover {
       color: var(--gold-light);
     }
 
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     .theme-btn {
       width: 40px;
       height: 40px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      background: rgba(255,255,255,.03);
-      color: var(--text);
+
+      background: rgba(214,168,79,0.06);
+      color: var(--gold);
+
       cursor: pointer;
-      transition: .25s ease;
+
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease;
     }
 
     .theme-btn:hover {
-      border-color: rgba(214,168,79,.5);
-      transform: translateY(-2px);
+      transform: rotate(15deg);
+      background: rgba(214,168,79,0.12);
     }
 
-    /* =========================
-       HERO
-    ========================== */
+
+    /* =========================================================
+       الواجهة الرئيسية - التصميم الجديد
+    ========================================================= */
 
     .hero {
+      position: relative;
       min-height: 100vh;
+
       display: flex;
       align-items: center;
-      position: relative;
-      padding: 140px 0 80px;
+
+      padding-top: 120px;
+      padding-bottom: 80px;
+
       overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% 30%,
+          rgba(214,168,79,0.12),
+          transparent 35%
+        ),
+        var(--bg);
     }
 
     .hero::before {
       content: "";
+
       position: absolute;
-      width: 600px;
-      height: 600px;
+
+      width: 650px;
+      height: 650px;
+
+      top: -260px;
+      right: 50%;
+
+      transform: translateX(50%);
+
       border-radius: 50%;
-      background: rgba(214,168,79,.06);
-      filter: blur(100px);
-      top: 10%;
-      right: -200px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(214,168,79,0.09),
+          transparent 68%
+        );
+
+      pointer-events: none;
     }
 
     .hero::after {
       content: "";
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      background: rgba(214,168,79,.035);
-      filter: blur(100px);
-      bottom: -200px;
-      left: -150px;
-    }
 
-    .container {
-      width: min(1180px, 92%);
-      margin: auto;
-      position: relative;
-      z-index: 2;
+      position: absolute;
+
+      width: 1px;
+      height: 75%;
+
+      left: 50%;
+      top: 15%;
+
+      background:
+        linear-gradient(
+          to bottom,
+          transparent,
+          rgba(214,168,79,0.16),
+          transparent
+        );
+
+      opacity: 0.5;
+      pointer-events: none;
     }
 
     .hero-content {
-      max-width: 800px;
+      position: relative;
+      z-index: 2;
+
+      width: 100%;
+      max-width: 920px;
+
+      margin: auto;
+
+      text-align: center;
     }
 
-    .badge {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      color: var(--gold-light);
-      background: rgba(214,168,79,.05);
-      font-size: 13px;
+      gap: 9px;
+
+      padding: 8px 16px;
+
       margin-bottom: 24px;
+
+      border-radius: 100px;
+
+      border: 1px solid rgba(214,168,79,0.25);
+
+      background:
+        rgba(214,168,79,0.07);
+
+      color: var(--gold-light);
+
+      font-size: 13px;
+      font-weight: 700;
+
+      box-shadow:
+        0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    .hero-badge::before {
+      content: "";
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--gold);
+
+      box-shadow:
+        0 0 15px rgba(214,168,79,0.75);
     }
 
     .hero h1 {
-      font-size: clamp(42px, 7vw, 78px);
-      line-height: 1.08;
-      margin-bottom: 24px;
-      letter-spacing: -2px;
-    }
+      /*
+        خط الواجهة مختلف عن بقية الموقع
+        ليكون أقرب لهوية الشعار
+      */
+      font-family: "Tajawal", "Cairo", sans-serif;
 
-    .hero h1 span {
-      color: var(--gold);
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: 1.08;
+
+      font-weight: 900;
+
+      letter-spacing: -2px;
+
+      margin-bottom: 24px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff 10%,
+          var(--gold-light) 52%,
+          var(--gold) 90%
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+
+      text-shadow:
+        0 12px 50px rgba(214,168,79,0.08);
     }
 
     .hero p {
-      color: #aaa;
-      font-size: 18px;
-      max-width: 700px;
+      max-width: 720px;
+      margin: auto;
+
+      color: var(--muted);
+
+      font-size: clamp(16px, 2vw, 19px);
       line-height: 2;
-      margin-bottom: 34px;
+
+      font-weight: 500;
     }
 
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+    .hero-glow {
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      border-radius: 50%;
+
+      filter: blur(100px);
+
+      background:
+        rgba(214,168,79,0.07);
+
+      pointer-events: none;
     }
 
-    .primary-btn,
-    .secondary-btn {
-      border-radius: 13px;
-      padding: 13px 22px;
-      font-size: 14px;
-      cursor: pointer;
-      transition: .25s ease;
-      border: 1px solid transparent;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
+    .hero-glow.one {
+      right: -120px;
+      bottom: 80px;
     }
 
-    .primary-btn {
-      background: linear-gradient(
-        135deg,
-        var(--gold),
-        var(--gold-light)
-      );
-      color: #111;
-      font-weight: 800;
+    .hero-glow.two {
+      left: -120px;
+      top: 180px;
     }
 
-    .primary-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 35px rgba(214,168,79,.2);
-    }
 
-    .primary-btn:disabled {
-      opacity: .65;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
-    }
-
-    .secondary-btn {
-      background: rgba(255,255,255,.03);
-      border-color: rgba(255,255,255,.1);
-      color: #eee;
-    }
-
-    .secondary-btn:hover {
-      border-color: var(--border);
-      transform: translateY(-3px);
-    }
-
-    /* =========================
-       SECTIONS
-    ========================== */
+    /* =========================================================
+       الأقسام
+    ========================================================= */
 
     section {
+      position: relative;
       padding: 100px 0;
     }
 
     .section-head {
+      max-width: 700px;
+      margin: 0 auto 55px;
+
       text-align: center;
-      max-width: 720px;
-      margin: 0 auto 50px;
     }
 
-    .section-head .small-title {
-      color: var(--gold);
-      font-size: 13px;
-      font-weight: 700;
+    .section-kicker {
+      display: inline-block;
+
       margin-bottom: 10px;
+
+      color: var(--gold);
+
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
     }
 
     .section-head h2 {
       font-size: clamp(30px, 5vw, 46px);
+      line-height: 1.3;
+
       margin-bottom: 15px;
+
+      font-weight: 800;
     }
 
     .section-head p {
@@ -314,297 +497,610 @@
       font-size: 15px;
     }
 
-    /* =========================
-       ABOUT
-    ========================== */
+
+    /* =========================================================
+       عن إضاءة
+    ========================================================= */
+
+    .about {
+      background: var(--bg-soft);
+    }
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 30px;
-      align-items: stretch;
+
+      grid-template-columns:
+        1.05fr
+        0.95fr;
+
+      gap: 60px;
+
+      align-items: center;
     }
 
-    .about-card,
-    .info-card,
-    .service-card,
-    .opportunity-card,
-    .form-card {
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.035),
-          rgba(255,255,255,.015)
-        );
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
+    .about-text h3 {
+      font-size: 31px;
+      margin-bottom: 18px;
+      font-weight: 800;
     }
 
-    .about-card {
-      padding: 38px;
-    }
-
-    .about-card h3 {
-      font-size: 26px;
+    .about-text p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 2.1;
       margin-bottom: 18px;
     }
 
-    .about-card p {
-      color: #aaa;
-      line-height: 2;
-    }
-
-    .about-list {
-      margin-top: 25px;
-      display: grid;
-      gap: 14px;
-    }
-
-    .about-list div {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #ddd;
-      font-size: 14px;
-    }
-
-    .about-list span {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: rgba(214,168,79,.12);
-      color: var(--gold-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      flex-shrink: 0;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .info-card {
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-height: 170px;
-    }
-
-    .info-card strong {
-      font-size: 38px;
-      color: var(--gold-light);
-      margin-bottom: 5px;
-    }
-
-    .info-card span {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* =========================
-       SERVICES
-    ========================== */
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .service-card {
-      padding: 30px;
-      transition: .3s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-7px);
-      border-color: var(--border);
-    }
-
-    .service-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 14px;
-      background: rgba(214,168,79,.1);
-      color: var(--gold-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      margin-bottom: 20px;
-    }
-
-    .service-card h3 {
-      margin-bottom: 10px;
-      font-size: 19px;
-    }
-
-    .service-card p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.9;
-    }
-
-    /* =========================
-       OPPORTUNITIES
-    ========================== */
-
-    .opportunities-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .opportunity-card {
-      padding: 28px;
+    .about-card {
       position: relative;
+
+      min-height: 360px;
+
+      padding: 35px;
+
+      border: 1px solid var(--border);
+      border-radius: 28px;
+
+      background:
+        radial-gradient(
+          circle at 50% 40%,
+          rgba(214,168,79,0.13),
+          transparent 55%
+        ),
+        var(--card);
+
+      box-shadow: var(--shadow);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       overflow: hidden;
     }
 
-    .opportunity-card::before {
+    .about-card::before {
       content: "";
+
       position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        var(--gold),
-        transparent
-      );
+
+      width: 230px;
+      height: 230px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(214,168,79,0.14);
+
+      box-shadow:
+        0 0 80px rgba(214,168,79,0.08);
     }
 
-    .opportunity-tag {
-      display: inline-block;
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: rgba(214,168,79,.08);
-      color: var(--gold-light);
-      font-size: 11px;
-      margin-bottom: 16px;
+    .about-logo {
+      position: relative;
+      z-index: 2;
+
+      width: 150px;
+      height: 150px;
+
+      object-fit: contain;
+
+      filter:
+        drop-shadow(
+          0 20px 35px rgba(0,0,0,0.35)
+        );
     }
 
-    .opportunity-card h3 {
-      margin-bottom: 10px;
+
+    /* =========================================================
+       المميزات
+    ========================================================= */
+
+    .features {
+      background: var(--bg);
     }
 
-    .opportunity-card p {
+    .features-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 22px;
+    }
+
+    .feature-card {
+      padding: 30px;
+
+      border-radius: var(--radius);
+
+      border: 1px solid var(--border);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.025),
+          rgba(255,255,255,0.008)
+        ),
+        var(--card);
+
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-7px);
+
+      border-color:
+        rgba(214,168,79,0.34);
+
+      box-shadow:
+        0 20px 50px rgba(0,0,0,0.22);
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+
+      margin-bottom: 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 16px;
+
+      color: var(--gold);
+
+      background:
+        rgba(214,168,79,0.09);
+
+      border:
+        1px solid rgba(214,168,79,0.18);
+
+      font-size: 24px;
+    }
+
+    .feature-card h3 {
+      font-size: 19px;
+      margin-bottom: 9px;
+    }
+
+    .feature-card p {
       color: var(--muted);
       font-size: 14px;
       line-height: 1.9;
     }
 
-    /* =========================
-       COMPANY FORM
-    ========================== */
 
-    .company-section {
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(214,168,79,.045),
-          transparent 60%
-        );
+    /* =========================================================
+       الفرص
+    ========================================================= */
+
+    .opportunities {
+      background: var(--bg-soft);
     }
 
-    .form-wrapper {
+    .opportunities-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 22px;
+    }
+
+    .opportunity-card {
+      position: relative;
+
+      padding: 30px;
+
+      min-height: 230px;
+
+      border-radius: var(--radius);
+
+      border: 1px solid var(--border);
+
+      background: var(--card);
+
+      overflow: hidden;
+
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    .opportunity-card:hover {
+      transform: translateY(-6px);
+
+      border-color:
+        rgba(214,168,79,0.34);
+    }
+
+    .opportunity-number {
+      position: absolute;
+
+      top: 10px;
+      left: 18px;
+
+      font-size: 70px;
+      font-weight: 900;
+
+      color: rgba(214,168,79,0.055);
+    }
+
+    .opportunity-card h3 {
+      position: relative;
+
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .opportunity-card p {
+      position: relative;
+
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 2;
+    }
+
+
+    /* =========================================================
+       مجتمعنا والإحصائيات
+    ========================================================= */
+
+    .community {
+      background: var(--bg);
+    }
+
+    .stats {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 22px;
+
       max-width: 850px;
+
       margin: auto;
     }
 
-    .form-card {
-      padding: 40px;
+    .stat-card {
+      padding: 38px 25px;
+
+      text-align: center;
+
+      border-radius: 22px;
+
+      border: 1px solid var(--border);
+
+      background: var(--card);
+
+      box-shadow:
+        0 15px 45px rgba(0,0,0,0.14);
+    }
+
+    .stat-number {
+      color: var(--gold-light);
+
+      font-size: 52px;
+      line-height: 1;
+
+      font-weight: 800;
+
+      margin-bottom: 12px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+
+    /* =========================================================
+       انضم كمسوق
+    ========================================================= */
+
+    .marketer {
+      background: var(--bg-soft);
+    }
+
+    .marketer-box {
+      position: relative;
+
+      padding: 55px;
+
+      border-radius: 30px;
+
+      border: 1px solid var(--border);
+
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(214,168,79,0.11),
+          transparent 35%
+        ),
+        var(--card);
+
+      overflow: hidden;
+    }
+
+    .marketer-box::after {
+      content: "";
+
+      position: absolute;
+
+      width: 250px;
+      height: 250px;
+
+      left: -100px;
+      bottom: -120px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(214,168,79,0.07);
+
+      filter: blur(40px);
+    }
+
+    .marketer-content {
+      position: relative;
+      z-index: 2;
+
+      max-width: 760px;
+    }
+
+    .marketer-content h2 {
+      font-size: clamp(30px, 5vw, 44px);
+
+      margin-bottom: 16px;
+    }
+
+    .marketer-content p {
+      color: var(--muted);
+      margin-bottom: 28px;
+      font-size: 15px;
+    }
+
+    .primary-btn {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-height: 48px;
+
+      padding: 0 25px;
+
+      border: none;
+      border-radius: 13px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold-light),
+          var(--gold)
+        );
+
+      color: #17130b;
+
+      font-weight: 800;
+      font-size: 14px;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 12px 30px rgba(214,168,79,0.15);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 16px 38px rgba(214,168,79,0.23);
+    }
+
+    .primary-btn:disabled {
+      opacity: 0.65;
+      cursor: wait;
+      transform: none;
+    }
+
+
+    /* =========================================================
+       الشركات
+    ========================================================= */
+
+    .companies {
+      background: var(--bg);
+    }
+
+    .company-layout {
+      display: grid;
+
+      grid-template-columns:
+        0.8fr
+        1.2fr;
+
+      gap: 55px;
+
+      align-items: start;
+    }
+
+    .company-info h2 {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    .company-info p {
+      color: var(--muted);
+      line-height: 2;
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
+
+    .company-points {
+      display: grid;
+      gap: 12px;
+    }
+
+    .company-point {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .company-point span {
+      width: 30px;
+      height: 30px;
+
+      flex-shrink: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 9px;
+
+      color: var(--gold);
+
+      background:
+        rgba(214,168,79,0.09);
+
+      border:
+        1px solid rgba(214,168,79,0.15);
+    }
+
+    .company-form {
+      padding: 35px;
+
+      border-radius: 25px;
+
+      border: 1px solid var(--border);
+
+      background: var(--card);
+
+      box-shadow: var(--shadow);
     }
 
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 17px;
     }
 
-    .field {
+    .form-group {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 7px;
     }
 
-    .field.full {
+    .form-group.full {
       grid-column: 1 / -1;
     }
 
-    .field label {
+    .form-group label {
       font-size: 13px;
-      color: #ddd;
+      font-weight: 700;
+      color: var(--text);
     }
 
-    .field input,
-    .field select,
-    .field textarea {
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
       width: 100%;
-      background: #0b0d10;
-      border: 1px solid rgba(255,255,255,.08);
+
+      padding: 13px 15px;
+
       border-radius: 12px;
-      color: #fff;
-      padding: 13px 14px;
+
+      border: 1px solid rgba(255,255,255,0.08);
+
+      background: var(--bg-soft);
+
+      color: var(--text);
+
       outline: none;
-      transition: .25s ease;
+
+      transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus {
-      border-color: rgba(214,168,79,.55);
-      box-shadow: 0 0 0 3px rgba(214,168,79,.06);
+    body.light .form-group input,
+    body.light .form-group select,
+    body.light .form-group textarea {
+      border-color: rgba(0,0,0,0.09);
     }
 
-    .field textarea {
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color:
+        rgba(214,168,79,0.5);
+
+      box-shadow:
+        0 0 0 3px rgba(214,168,79,0.07);
+    }
+
+    .form-group textarea {
       min-height: 130px;
       resize: vertical;
     }
 
-    .field select option {
-      background: #101216;
-      color: #fff;
-    }
-
     .form-submit {
-      margin-top: 24px;
-      width: 100%;
+      margin-top: 22px;
     }
 
     .form-submit .primary-btn {
       width: 100%;
     }
 
-    /* =========================
-       FORM MESSAGE
-    ========================== */
+
+    /* =========================================================
+       رسالة النموذج
+       تظهر داخل مربع النموذج
+    ========================================================= */
 
     .form-message {
       width: 100%;
+
       margin-top: 18px;
+
       padding: 18px 20px;
+
       border-radius: 14px;
+
       text-align: center;
-      border: 1px solid rgba(214,168,79,.35);
+
+      border:
+        1px solid rgba(214,168,79,0.35);
+
       background:
         linear-gradient(
           145deg,
-          rgba(214,168,79,.10),
-          rgba(214,168,79,.035)
+          rgba(214,168,79,0.10),
+          rgba(214,168,79,0.035)
         );
+
       box-shadow:
         0 10px 30px rgba(0,0,0,.15),
         inset 0 1px 0 rgba(255,255,255,.025);
-      animation: formMessageIn .4s ease both;
+
+      animation:
+        formMessageIn .4s ease both;
     }
 
     .form-message[hidden] {
@@ -612,30 +1108,42 @@
     }
 
     .form-message.success {
-      border-color: rgba(214,168,79,.45);
+      border-color:
+        rgba(214,168,79,0.45);
     }
 
     .form-message.error {
-      border-color: rgba(214,168,79,.35);
+      border-color:
+        rgba(214,168,79,0.35);
+
       background:
         linear-gradient(
           145deg,
-          rgba(214,168,79,.07),
-          rgba(214,168,79,.025)
+          rgba(214,168,79,0.07),
+          rgba(214,168,79,0.025)
         );
     }
 
     .form-message-icon {
       width: 42px;
       height: 42px;
+
       margin: 0 auto 10px;
+
       border-radius: 50%;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(214,168,79,.15);
-      border: 1px solid rgba(214,168,79,.35);
+
+      background:
+        rgba(214,168,79,0.15);
+
+      border:
+        1px solid rgba(214,168,79,0.35);
+
       color: var(--gold);
+
       font-size: 22px;
       font-weight: 700;
     }
@@ -643,12 +1151,15 @@
     .form-message-title {
       font-size: 17px;
       font-weight: 700;
+
       margin-bottom: 5px;
     }
 
     .form-message-text {
       color: #999;
+
       font-size: 14px;
+
       line-height: 1.8;
     }
 
@@ -664,110 +1175,151 @@
       }
     }
 
-    /* =========================
-       CONTACT
-    ========================== */
+
+    /* =========================================================
+       تواصل معنا
+    ========================================================= */
+
+    .contact {
+      background: var(--bg-soft);
+    }
 
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 20px;
     }
 
     .contact-card {
-      padding: 28px;
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius: 18px;
+      padding: 30px;
+
       text-align: center;
-      transition: .25s ease;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 20px;
+
+      background: var(--card);
+
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
     }
 
     .contact-card:hover {
       transform: translateY(-5px);
-      border-color: var(--border);
+
+      border-color:
+        rgba(214,168,79,0.35);
     }
 
-    .contact-card .contact-icon {
-      width: 48px;
-      height: 48px;
-      margin: 0 auto 14px;
-      border-radius: 50%;
+    .contact-icon {
+      width: 52px;
+      height: 52px;
+
+      margin: 0 auto 15px;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(214,168,79,.1);
-      color: var(--gold-light);
+
+      border-radius: 15px;
+
+      color: var(--gold);
+
+      background:
+        rgba(214,168,79,0.08);
+
+      font-size: 22px;
     }
 
     .contact-card h3 {
-      font-size: 17px;
-      margin-bottom: 5px;
+      font-size: 18px;
+      margin-bottom: 7px;
     }
 
     .contact-card p {
       color: var(--muted);
       font-size: 13px;
+      direction: ltr;
     }
 
-    /* =========================
-       FOOTER
-    ========================== */
+
+    /* =========================================================
+       الفوتر
+    ========================================================= */
 
     footer {
       padding: 35px 0;
-      border-top: 1px solid rgba(255,255,255,.06);
-      background: #060709;
+
+      background: var(--bg);
+
+      border-top:
+        1px solid rgba(255,255,255,0.05);
+    }
+
+    body.light footer {
+      border-top-color:
+        rgba(0,0,0,0.06);
     }
 
     .footer-content {
-      width: min(1180px, 92%);
-      margin: auto;
       display: flex;
+
       align-items: center;
       justify-content: space-between;
+
       gap: 20px;
+
+      flex-wrap: wrap;
     }
 
     .copyright {
       display: flex;
       align-items: center;
       gap: 8px;
-      color: #777;
+
+      color: var(--muted);
+
       font-size: 12px;
     }
 
     .copyright img {
-      width: 25px;
-      height: 25px;
+      width: 27px;
+      height: 27px;
+
       object-fit: contain;
     }
 
     .footer-links {
       display: flex;
       gap: 18px;
-    }
 
-    .footer-links a {
-      color: #777;
+      color: var(--muted);
+
       font-size: 12px;
-      transition: .2s ease;
     }
 
     .footer-links a:hover {
-      color: var(--gold-light);
+      color: var(--gold);
     }
 
-    /* =========================
-       REVEAL
-    ========================== */
+
+    /* =========================================================
+       ظهور العناصر
+    ========================================================= */
 
     .reveal {
       opacity: 0;
       transform: translateY(25px);
+
       transition:
-        opacity .7s ease,
-        transform .7s ease;
+        opacity 0.7s ease,
+        transform 0.7s ease;
     }
 
     .reveal.visible {
@@ -775,96 +1327,83 @@
       transform: translateY(0);
     }
 
-    /* =========================
-       LIGHT MODE
-    ========================== */
 
-    body.light {
-      --bg: #f5f5f3;
-      --bg-soft: #eeeeeb;
-      --card: #ffffff;
-      --card-2: #f8f8f6;
-      --text: #171717;
-      --muted: #666;
-      --border: rgba(150,110,35,.2);
-      --shadow: 0 20px 60px rgba(0,0,0,.08);
+    /* =========================================================
+       الجوال
+    ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .about-grid,
+      .company-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .about-card {
+        min-height: 300px;
+      }
+
+      .features-grid,
+      .opportunities-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
     }
 
-    body.light header {
-      background: rgba(245,245,243,.85);
-    }
 
-    body.light .nav-links a {
-      color: #444;
-    }
+    @media (max-width: 760px) {
 
-    body.light .hero p,
-    body.light .about-card p,
-    body.light .service-card p,
-    body.light .opportunity-card p {
-      color: #666;
-    }
+      .container {
+        width: min(100% - 28px, 600px);
+      }
 
-    body.light .secondary-btn {
-      color: #222;
-      background: rgba(0,0,0,.03);
-      border-color: rgba(0,0,0,.1);
-    }
+      header {
+        position: absolute;
+      }
 
-    body.light .field input,
-    body.light .field select,
-    body.light .field textarea {
-      background: #fff;
-      color: #222;
-      border-color: rgba(0,0,0,.1);
-    }
+      .nav {
+        min-height: auto;
 
-    body.light footer {
-      background: #ededeb;
-    }
+        padding: 14px 0;
 
-    /* =========================
-       RESPONSIVE
-    ========================== */
+        align-items: flex-start;
+      }
 
-    @media (max-width: 900px) {
       .nav-links {
         display: none;
       }
 
-      .about-grid {
-        grid-template-columns: 1fr;
+      .logo span {
+        font-size: 18px;
       }
 
-      .services-grid,
-      .opportunities-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
-      .nav {
-        height: 68px;
-      }
-
-      .brand {
-        font-size: 17px;
-      }
-
-      .brand img {
-        width: 36px;
-        height: 36px;
+      .logo img {
+        width: 40px;
+        height: 40px;
       }
 
       .hero {
-        padding-top: 120px;
+        min-height: 90vh;
+
+        padding-top: 130px;
+        padding-bottom: 70px;
       }
 
       .hero h1 {
+        font-size: clamp(45px, 15vw, 72px);
         letter-spacing: -1px;
       }
 
@@ -876,24 +1415,31 @@
         padding: 75px 0;
       }
 
-      .stats-grid,
-      .services-grid,
+      .features-grid,
       .opportunities-grid,
+      .contact-grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .marketer-box {
+        padding: 35px 25px;
+      }
+
+      .company-form {
+        padding: 22px;
+      }
+
       .form-grid {
         grid-template-columns: 1fr;
       }
 
-      .field.full {
+      .form-group.full {
         grid-column: auto;
       }
 
-      .form-card,
-      .about-card {
-        padding: 25px;
-      }
-
       .footer-content {
-        flex-direction: column;
+        justify-content: center;
         text-align: center;
       }
 
@@ -901,90 +1447,111 @@
         justify-content: center;
       }
     }
+
   </style>
 </head>
 
 <body>
 
-  <div class="scroll-progress" id="scrollProgress"></div>
+  <!-- شريط التقدم -->
+  <div id="scrollProgress"></div>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+
+  <!-- =========================================================
+       الهيدر
+  ========================================================= -->
 
   <header>
-    <nav class="nav">
 
-      <a href="#home" class="brand">
-        <img src="logo.png" alt="شعار منصة إضاءة">
+    <div class="container nav">
+
+      <a href="#home" class="logo">
+
+        <img
+          src="logo.png"
+          alt="شعار إضاءة"
+        />
+
         <span>إضاءة</span>
+
       </a>
 
-      <div class="nav-links">
+
+      <nav class="nav-links">
+
+        <a href="#home">الرئيسية</a>
+
         <a href="#about">عن إضاءة</a>
-        <a href="#services">الخدمات</a>
+
+        <a href="#features">المميزات</a>
+
         <a href="#opportunities">الفرص</a>
-        <a href="#company">للشركات</a>
+
+        <a href="#community">مجتمعنا</a>
+
+        <a href="#marketer">انضم كمسوق</a>
+
+        <a href="#companies">انضم كشركة</a>
+
         <a href="#contact">تواصل معنا</a>
+
+      </nav>
+
+
+      <div class="nav-actions">
+
+        <button
+          id="themeToggle"
+          class="theme-btn"
+          aria-label="تغيير المظهر"
+          type="button"
+        >
+          ☼
+        </button>
+
       </div>
 
-      <button
-        class="theme-btn"
-        id="themeToggle"
-        type="button"
-        aria-label="تغيير المظهر"
-      >
-        ☾
-      </button>
+    </div>
 
-    </nav>
   </header>
 
-  <!-- =========================
-       HERO
-  ========================== -->
+
+
+  <!-- =========================================================
+       الواجهة الرئيسية
+       تم حذف زري انضم كمسوق وتعاون معنا منها فقط
+  ========================================================= -->
 
   <main>
 
-    <section class="hero" id="home">
+    <section
+      id="home"
+      class="hero"
+    >
+
+      <div class="hero-glow one"></div>
+      <div class="hero-glow two"></div>
+
 
       <div class="container">
 
         <div class="hero-content reveal">
 
-          <div class="badge">
-            ✦ منصة التسويق والفرص
+          <div class="hero-badge">
+            منصة تسويق وفرص
           </div>
 
+
           <h1>
-            نصنع الفرص،
-            <span>ونضيء طريق النجاح.</span>
+            خلّ تسويقك يضيء
           </h1>
+
 
           <p>
             إضاءة منصة تجمع المسوقين مع الشركات والمنصات،
-            وتوفر فرصًا تسويقية حقيقية تساعد على بناء الخبرة
-            وتحقيق دخل من خلال التسويق وصناعة المحتوى.
+            وتفتح فرصًا تسويقية حقيقية تساعدك على بناء
+            خبرتك وتحقيق دخل من مهاراتك.
           </p>
-
-          <div class="hero-buttons">
-
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLScMd_Qe3EjPV0NAj2fVD0UUbFgP5Ly0KRiSiwZf5Nhv0Nl_Bg/viewform?usp=header"
-              target="_blank"
-              class="primary-btn"
-            >
-              انضم كمسوق
-            </a>
-
-            <a
-              href="#company"
-              class="secondary-btn"
-            >
-              تعاون معنا
-            </a>
-
-          </div>
 
         </div>
 
@@ -992,490 +1559,66 @@
 
     </section>
 
-    <!-- =========================
-         ABOUT
-    ========================== -->
 
-    <section id="about">
 
-      <div class="container">
-
-        <div class="section-head reveal">
-
-          <div class="small-title">
-            عن المنصة
-          </div>
-
-          <h2>
-            ما هي إضاءة؟
-          </h2>
-
-          <p>
-            مساحة تجمع أصحاب الفرص بالمسوقين في مكان واحد.
-          </p>
-
-        </div>
-
-        <div class="about-grid">
-
-          <div class="about-card reveal">
-
-            <h3>
-              نربط المسوقين بالفرص المناسبة
-            </h3>
-
-            <p>
-              إضاءة تعمل على بناء شبكة تسويقية تجمع المسوقين
-              مع الشركات والمنصات التي تبحث عن أشخاص يساعدونها
-              في التسويق والوصول إلى جمهور أكبر.
-            </p>
-
-            <div class="about-list">
-
-              <div>
-                <span>✓</span>
-                فرص تسويقية حقيقية
-              </div>
-
-              <div>
-                <span>✓</span>
-                بناء خبرة عملية في التسويق
-              </div>
-
-              <div>
-                <span>✓</span>
-                العمل مع شركات ومنصات مختلفة
-              </div>
-
-              <div>
-                <span>✓</span>
-                إمكانية تحقيق دخل من التسويق
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="stats-grid">
-
-            <div class="info-card reveal">
-              <strong data-target="68">0</strong>
-              <span>مسوق في المجتمع</span>
-            </div>
-
-            <div class="info-card reveal">
-              <strong data-target="12">0</strong>
-              <span>فرصة وشراكة</span>
-            </div>
-
-            <div class="info-card reveal">
-              <strong>24/7</strong>
-              <span>الوصول إلى الفرص</span>
-            </div>
-
-            <div class="info-card reveal">
-              <strong>100%</strong>
-              <span>تركيز على التطور والخبرة</span>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- =========================
-         SERVICES
-    ========================== -->
-
-    <section id="services">
-
-      <div class="container">
-
-        <div class="section-head reveal">
-
-          <div class="small-title">
-            خدمات إضاءة
-          </div>
-
-          <h2>
-            ماذا نقدم؟
-          </h2>
-
-          <p>
-            نساعد الشركات والمسوقين على الوصول إلى فرص تسويقية
-            مناسبة وبطريقة منظمة.
-          </p>
-
-        </div>
-
-        <div class="services-grid">
-
-          <div class="service-card reveal">
-
-            <div class="service-icon">
-              ◈
-            </div>
-
-            <h3>
-              التسويق بالعمولة
-            </h3>
-
-            <p>
-              توفير فرص للمسوقين للترويج للمنتجات والخدمات
-              والحصول على عمولة مقابل النتائج.
-            </p>
-
-          </div>
-
-          <div class="service-card reveal">
-
-            <div class="service-icon">
-              ✦
-            </div>
-
-            <h3>
-              صناعة المحتوى
-            </h3>
-
-            <p>
-              ربط الشركات بمسوقين قادرين على صناعة محتوى
-              تسويقي مناسب للمنصات الرقمية.
-            </p>
-
-          </div>
-
-          <div class="service-card reveal">
-
-            <div class="service-icon">
-              ↗
-            </div>
-
-            <h3>
-              الحملات التسويقية
-            </h3>
-
-            <p>
-              تنظيم حملات تسويقية تساعد العلامات التجارية
-              على الوصول إلى جمهورها المستهدف.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- =========================
-         OPPORTUNITIES
-    ========================== -->
-
-    <section id="opportunities">
-
-      <div class="container">
-
-        <div class="section-head reveal">
-
-          <div class="small-title">
-            الفرص
-          </div>
-
-          <h2>
-            مجالات يمكنك العمل فيها
-          </h2>
-
-          <p>
-            اختر المجال المناسب لك وابدأ ببناء خبرتك التسويقية.
-          </p>
-
-        </div>
-
-        <div class="opportunities-grid">
-
-          <div class="opportunity-card reveal">
-
-            <span class="opportunity-tag">
-              تسويق
-            </span>
-
-            <h3>
-              التسويق بالعمولة
-            </h3>
-
-            <p>
-              شارك روابط أو أكواد المنتجات والخدمات
-              واحصل على عمولة حسب النتائج.
-            </p>
-
-          </div>
-
-          <div class="opportunity-card reveal">
-
-            <span class="opportunity-tag">
-              محتوى
-            </span>
-
-            <h3>
-              صناعة المحتوى
-            </h3>
-
-            <p>
-              ساهم في صناعة مقاطع ومحتوى تسويقي
-              للمنصات والعلامات التجارية.
-            </p>
-
-          </div>
-
-          <div class="opportunity-card reveal">
-
-            <span class="opportunity-tag">
-              حملات
-            </span>
-
-            <h3>
-              الحملات التسويقية
-            </h3>
-
-            <p>
-              شارك في الحملات التسويقية وساعد الشركات
-              على زيادة الوصول والمبيعات.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- =========================
-         COMPANY FORM
-    ========================== -->
+    <!-- =======================================================
+         عن إضاءة
+    ======================================================= -->
 
     <section
-      id="company"
-      class="company-section"
+      id="about"
+      class="about"
     >
 
       <div class="container">
 
         <div class="section-head reveal">
 
-          <div class="small-title">
-            للشركات والمنصات
-          </div>
+          <span class="section-kicker">
+            عن المنصة
+          </span>
 
           <h2>
-            هل لديك فرصة تسويقية؟
+            وش هي إضاءة؟
           </h2>
 
           <p>
-            أرسل تفاصيل شركتك وفرصة التعاون وسيتواصل معك فريق إضاءة.
+            منصة تسويقية تربط بين المسوقين والجهات الباحثة
+            عن فرص تسويقية فعّالة.
           </p>
 
         </div>
 
-        <div class="form-wrapper">
 
-          <div class="form-card reveal">
+        <div class="about-grid">
 
-            <form
-              id="companyForm"
-              autocomplete="on"
-            >
+          <div class="about-text reveal">
 
-              <div class="form-grid">
+            <h3>
+              نربط المهارة بالفرصة
+            </h3>
 
-                <div class="field">
+            <p>
+              إضاءة تهدف إلى بناء مساحة تجمع المسوقين
+              بالشركات والمنصات بطريقة بسيطة ومنظمة.
+            </p>
 
-                  <label for="companyName">
-                    اسم الشركة أو المنصة
-                  </label>
+            <p>
+              من خلال المنصة يقدر المسوق يحصل على فرص
+              تسويقية حقيقية، ويطور خبرته، ويستفيد من
+              مهاراته في التسويق وصناعة المحتوى والمبيعات.
+            </p>
 
-                  <input
-                    type="text"
-                    id="companyName"
-                    name="companyName"
-                    placeholder="مثال: شركة إضاءة"
-                    required
-                  >
+          </div>
 
-                </div>
 
-                <div class="field">
+          <div class="about-card reveal">
 
-                  <label for="contactName">
-                    اسم المسؤول
-                  </label>
-
-                  <input
-                    type="text"
-                    id="contactName"
-                    name="contactName"
-                    placeholder="الاسم الكامل"
-                    required
-                  >
-
-                </div>
-
-                <div class="field">
-
-                  <label for="phone">
-                    رقم التواصل
-                  </label>
-
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="05xxxxxxxx"
-                    inputmode="tel"
-                    required
-                  >
-
-                </div>
-
-                <div class="field">
-
-                  <label for="email">
-                    البريد الإلكتروني
-                  </label>
-
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="example@email.com"
-                    required
-                  >
-
-                </div>
-
-                <div class="field">
-
-                  <label for="companyType">
-                    مجال الشركة
-                  </label>
-
-                  <select
-                    id="companyType"
-                    name="companyType"
-                    required
-                  >
-
-                    <option value="">
-                      اختر المجال
-                    </option>
-
-                    <option value="education">
-                      تعليم ودورات
-                    </option>
-
-                    <option value="ecommerce">
-                      التجارة الإلكترونية
-                    </option>
-
-                    <option value="services">
-                      الخدمات
-                    </option>
-
-                    <option value="technology">
-                      التقنية
-                    </option>
-
-                    <option value="other">
-                      أخرى
-                    </option>
-
-                  </select>
-
-                </div>
-
-                <div class="field">
-
-                  <label for="cooperationType">
-                    نوع التعاون
-                  </label>
-
-                  <select
-                    id="cooperationType"
-                    name="cooperationType"
-                    required
-                  >
-
-                    <option value="">
-                      اختر نوع التعاون
-                    </option>
-
-                    <option value="affiliate">
-                      التسويق بالعمولة
-                    </option>
-
-                    <option value="sales">
-                      تسويق ومبيعات
-                    </option>
-
-                    <option value="content">
-                      صناعة محتوى
-                    </option>
-
-                    <option value="digital">
-                      تسويق رقمي
-                    </option>
-
-                    <option value="campaign">
-                      حملة تسويقية
-                    </option>
-
-                    <option value="other">
-                      تعاون آخر
-                    </option>
-
-                  </select>
-
-                </div>
-
-                <div class="field full">
-
-                  <label for="message">
-                    نبذة عن الشركة وفرصة التعاون
-                  </label>
-
-                  <textarea
-                    id="message"
-                    name="message"
-                    placeholder="اكتب لنا نبذة مختصرة عن شركتك وما نوع التعاون الذي تبحث عنه..."
-                    required
-                  ></textarea>
-
-                </div>
-
-              </div>
-
-              <div class="form-submit">
-
-                <button
-                  type="submit"
-                  class="primary-btn"
-                >
-                  إرسال الطلب
-                </button>
-
-                <div
-                  id="companyFormMessage"
-                  class="form-message"
-                  aria-live="polite"
-                  hidden
-                ></div>
-
-              </div>
-
-            </form>
+            <img
+              src="logo.png"
+              alt="إضاءة"
+              class="about-logo"
+            />
 
           </div>
 
@@ -1485,40 +1628,772 @@
 
     </section>
 
-    <!-- =========================
-         CONTACT
-    ========================== -->
 
-    <section id="contact">
+
+    <!-- =======================================================
+         المميزات
+    ======================================================= -->
+
+    <section
+      id="features"
+      class="features"
+    >
 
       <div class="container">
 
         <div class="section-head reveal">
 
-          <div class="small-title">
-            تواصل معنا
-          </div>
+          <span class="section-kicker">
+            لماذا إضاءة؟
+          </span>
 
           <h2>
-            نحن قريبون منك
+            كل اللي تحتاجه في مكان واحد
           </h2>
 
           <p>
-            لأي استفسار أو تعاون يمكنك التواصل معنا عبر القنوات التالية.
+            نركز على توفير تجربة واضحة وسهلة للمسوق
+            والشركة من أول خطوة إلى آخر خطوة.
           </p>
 
         </div>
 
+
+        <div class="features-grid">
+
+
+          <div class="feature-card reveal">
+
+            <div class="feature-icon">
+              ✦
+            </div>
+
+            <h3>
+              فرص حقيقية
+            </h3>
+
+            <p>
+              الوصول إلى فرص تسويقية مع جهات ومنصات
+              تبحث عن مسوقين.
+            </p>
+
+          </div>
+
+
+          <div class="feature-card reveal">
+
+            <div class="feature-icon">
+              ◈
+            </div>
+
+            <h3>
+              دخل إضافي
+            </h3>
+
+            <p>
+              الاستفادة من مهاراتك التسويقية وتحويلها
+              إلى فرص ودخل إضافي.
+            </p>
+
+          </div>
+
+
+          <div class="feature-card reveal">
+
+            <div class="feature-icon">
+              ✓
+            </div>
+
+            <h3>
+              خبرة عملية
+            </h3>
+
+            <p>
+              اكتساب خبرة عملية حقيقية تساعدك في تطوير
+              مهاراتك وبناء مسيرتك.
+            </p>
+
+          </div>
+
+
+          <div class="feature-card reveal">
+
+            <div class="feature-icon">
+              ⚡
+            </div>
+
+            <h3>
+              سهولة الاستخدام
+            </h3>
+
+            <p>
+              تجربة بسيطة وواضحة بدون تعقيد، من التسجيل
+              وحتى الحصول على الفرصة.
+            </p>
+
+          </div>
+
+
+          <div class="feature-card reveal">
+
+            <div class="feature-icon">
+              ◎
+            </div>
+
+            <h3>
+              مجتمع مسوقين
+            </h3>
+
+            <p>
+              مجتمع يجمع أشخاص مهتمين بالتسويق والفرص
+              الرقمية.
+            </p>
+
+          </div>
+
+
+          <div class="feature-card reveal">
+
+            <div class="feature-icon">
+              ◆
+            </div>
+
+            <h3>
+              شراكات
+            </h3>
+
+            <p>
+              نعمل على بناء علاقات وشراكات مع شركات
+              ومنصات مختلفة.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+         الفرص
+    ======================================================= -->
+
+    <section
+      id="opportunities"
+      class="opportunities"
+    >
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <span class="section-kicker">
+            الفرص
+          </span>
+
+          <h2>
+            فرص تناسب مهاراتك
+          </h2>
+
+          <p>
+            مجالات مختلفة تقدر تستفيد منها وتطور مهاراتك
+            من خلالها.
+          </p>
+
+        </div>
+
+
+        <div class="opportunities-grid">
+
+
+          <div class="opportunity-card reveal">
+
+            <div class="opportunity-number">
+              01
+            </div>
+
+            <h3>
+              التسويق بالعمولة
+            </h3>
+
+            <p>
+              سوّق للمنتجات والخدمات واحصل على عمولة
+              مقابل النتائج التي تحققها.
+            </p>
+
+          </div>
+
+
+          <div class="opportunity-card reveal">
+
+            <div class="opportunity-number">
+              02
+            </div>
+
+            <h3>
+              المبيعات
+            </h3>
+
+            <p>
+              فرص مرتبطة بالمبيعات وتحقيق النتائج
+              من خلال مهارات التواصل والإقناع.
+            </p>
+
+          </div>
+
+
+          <div class="opportunity-card reveal">
+
+            <div class="opportunity-number">
+              03
+            </div>
+
+            <h3>
+              صناعة المحتوى
+            </h3>
+
+            <p>
+              فرص تسويقية تعتمد على صناعة المحتوى
+              ونشر المنتجات والخدمات.
+            </p>
+
+          </div>
+
+
+          <div class="opportunity-card reveal">
+
+            <div class="opportunity-number">
+              04
+            </div>
+
+            <h3>
+              التسويق الرقمي
+            </h3>
+
+            <p>
+              المساهمة في الحملات الرقمية والوصول إلى
+              الجمهور المستهدف.
+            </p>
+
+          </div>
+
+
+          <div class="opportunity-card reveal">
+
+            <div class="opportunity-number">
+              05
+            </div>
+
+            <h3>
+              الحملات التسويقية
+            </h3>
+
+            <p>
+              المشاركة في حملات تسويقية مع شركات
+              ومنصات مختلفة.
+            </p>
+
+          </div>
+
+
+          <div class="opportunity-card reveal">
+
+            <div class="opportunity-number">
+              06
+            </div>
+
+            <h3>
+              فرص مستقبلية
+            </h3>
+
+            <p>
+              نعمل باستمرار على إضافة فرص جديدة
+              وتوسيع شبكة شركاء إضاءة.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+         مجتمعنا
+    ======================================================= -->
+
+    <section
+      id="community"
+      class="community"
+    >
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <span class="section-kicker">
+            مجتمعنا
+          </span>
+
+          <h2>
+            مجتمع إضاءة يكبر
+          </h2>
+
+          <p>
+            نسعى لبناء مجتمع نشط من المسوقين والجهات
+            الباحثة عن الكفاءات التسويقية.
+          </p>
+
+        </div>
+
+
+        <div class="stats">
+
+
+          <div class="stat-card reveal">
+
+            <div
+              class="stat-number"
+              data-target="68"
+            >
+              0
+            </div>
+
+            <div class="stat-label">
+              مسوق في المجتمع
+            </div>
+
+          </div>
+
+
+          <div class="stat-card reveal">
+
+            <div
+              class="stat-number"
+              data-target="12"
+            >
+              0
+            </div>
+
+            <div class="stat-label">
+              فرصة وشراكة
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+         انضم كمسوق
+    ======================================================= -->
+
+    <section
+      id="marketer"
+      class="marketer"
+    >
+
+      <div class="container">
+
+        <div class="marketer-box reveal">
+
+          <div class="marketer-content">
+
+            <span class="section-kicker">
+              للمسوقين
+            </span>
+
+            <h2>
+              مستعد تخلي تسويقك يضيء؟
+            </h2>
+
+            <p>
+              انضم إلى مجتمع مسوقي إضاءة وابدأ في استكشاف
+              الفرص التسويقية المتاحة وتطوير خبرتك.
+            </p>
+
+            <a
+              class="primary-btn"
+              href="https://docs.google.com/forms/d/e/1FAIpQLScMd_Qe3EjPV0NAj2fVD0UUbFgP5Ly0KRiSiwZf5Nhv0Nl_Bg/viewform?usp=header"
+              target="_blank"
+              rel="noopener"
+            >
+              التسجيل كمسوق
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+         انضم كشركة
+    ======================================================= -->
+
+    <section
+      id="companies"
+      class="companies"
+    >
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <span class="section-kicker">
+            للشركات والمنصات
+          </span>
+
+          <h2>
+            خلنا نضيء تسويقك
+          </h2>
+
+          <p>
+            إذا كنت تبحث عن مسوقين أو ترغب في تنفيذ
+            حملة تسويقية، تواصل معنا.
+          </p>
+
+        </div>
+
+
+        <div class="company-layout">
+
+
+          <div class="company-info reveal">
+
+            <h2>
+              تعاون مع إضاءة
+            </h2>
+
+            <p>
+              نساعد الشركات والمنصات على الوصول إلى
+              مسوقين مناسبين لتنفيذ الفرص والحملات
+              التسويقية.
+            </p>
+
+
+            <div class="company-points">
+
+
+              <div class="company-point">
+
+                <span>✓</span>
+
+                <div>
+                  الوصول إلى مسوقين
+                </div>
+
+              </div>
+
+
+              <div class="company-point">
+
+                <span>✓</span>
+
+                <div>
+                  تنفيذ حملات تسويقية
+                </div>
+
+              </div>
+
+
+              <div class="company-point">
+
+                <span>✓</span>
+
+                <div>
+                  التسويق بالعمولة والمبيعات
+                </div>
+
+              </div>
+
+
+              <div class="company-point">
+
+                <span>✓</span>
+
+                <div>
+                  صناعة المحتوى والتسويق الرقمي
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+
+          <form
+            id="companyForm"
+            class="company-form reveal"
+          >
+
+            <div class="form-grid">
+
+
+              <div class="form-group">
+
+                <label for="companyName">
+                  اسم الشركة
+                </label>
+
+                <input
+                  id="companyName"
+                  name="companyName"
+                  type="text"
+                  placeholder="اكتب اسم الشركة"
+                  required
+                />
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="contactName">
+                  اسم المسؤول
+                </label>
+
+                <input
+                  id="contactName"
+                  name="contactName"
+                  type="text"
+                  placeholder="اسم المسؤول"
+                  required
+                />
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="phone">
+                  رقم التواصل
+                </label>
+
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  inputmode="tel"
+                  placeholder="05xxxxxxxx"
+                  required
+                />
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="email">
+                  البريد الإلكتروني
+                </label>
+
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="example@email.com"
+                  required
+                />
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="cooperationType">
+                  نوع التعاون
+                </label>
+
+                <select
+                  id="cooperationType"
+                  name="cooperationType"
+                  required
+                >
+
+                  <option value="">
+                    اختر نوع التعاون
+                  </option>
+
+                  <option value="affiliate">
+                    التسويق بالعمولة
+                  </option>
+
+                  <option value="sales">
+                    تسويق ومبيعات
+                  </option>
+
+                  <option value="content">
+                    صناعة محتوى
+                  </option>
+
+                  <option value="digital">
+                    تسويق رقمي
+                  </option>
+
+                  <option value="campaign">
+                    حملة تسويقية
+                  </option>
+
+                  <option value="other">
+                    تعاون آخر
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="companyType">
+                  مجال الشركة
+                </label>
+
+                <select
+                  id="companyType"
+                  name="companyType"
+                  required
+                >
+
+                  <option value="">
+                    اختر مجال الشركة
+                  </option>
+
+                  <option value="education">
+                    تعليم ودورات
+                  </option>
+
+                  <option value="ecommerce">
+                    التجارة الإلكترونية
+                  </option>
+
+                  <option value="services">
+                    الخدمات
+                  </option>
+
+                  <option value="technology">
+                    التقنية
+                  </option>
+
+                  <option value="other">
+                    أخرى
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-group full">
+
+                <label for="message">
+                  نبذة عن الشركة وطلب التعاون
+                </label>
+
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="اكتب لنا نبذة مختصرة عن الشركة ونوع التعاون المطلوب..."
+                  required
+                ></textarea>
+
+              </div>
+
+
+            </div>
+
+
+            <div class="form-submit">
+
+              <button
+                type="submit"
+                class="primary-btn"
+              >
+                إرسال الطلب
+              </button>
+
+
+              <div
+                id="companyFormMessage"
+                class="form-message"
+                aria-live="polite"
+                hidden
+              ></div>
+
+            </div>
+
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+         تواصل معنا
+    ======================================================= -->
+
+    <section
+      id="contact"
+      class="contact"
+    >
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <span class="section-kicker">
+            تواصل معنا
+          </span>
+
+          <h2>
+            إضاءة أقرب لك
+          </h2>
+
+          <p>
+            إذا عندك استفسار أو اقتراح أو ترغب بالتعاون،
+            تواصل معنا.
+          </p>
+
+        </div>
+
+
         <div class="contact-grid">
+
 
           <a
             href="https://wa.me/966507743653"
             target="_blank"
+            rel="noopener"
             class="contact-card reveal"
           >
 
             <div class="contact-icon">
-              ☎
+              ◉
             </div>
 
             <h3>
@@ -1530,6 +2405,7 @@
             </p>
 
           </a>
+
 
           <a
             href="mailto:oeid22960@gmail.com"
@@ -1550,6 +2426,7 @@
 
           </a>
 
+
           <a
             href="#"
             class="contact-card reveal"
@@ -1564,10 +2441,11 @@
             </h3>
 
             <p>
-              تابع آخر أخبار إضاءة
+              تابع إضاءة
             </p>
 
           </a>
+
 
         </div>
 
@@ -1577,39 +2455,40 @@
 
   </main>
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
+
+
+  <!-- =========================================================
+       الفوتر
+  ========================================================= -->
 
   <footer>
 
-    <div class="footer-content">
+    <div class="container footer-content">
+
 
       <div class="copyright">
-
-        <span>
-          جميع الحقوق محفوظة لمنصة
-        </span>
 
         <img
           src="logo.png"
           alt="إضاءة"
-        >
+        />
 
         <span>
+          جميع الحقوق محفوظة لمنصة إضاءة
           © 2026
         </span>
 
       </div>
 
+
       <div class="footer-links">
+
+        <a href="#home">
+          الرئيسية
+        </a>
 
         <a href="#about">
           عن إضاءة
-        </a>
-
-        <a href="#company">
-          للشركات
         </a>
 
         <a href="#contact">
@@ -1618,15 +2497,22 @@
 
       </div>
 
+
     </div>
 
   </footer>
 
+
+
+  <!-- =========================================================
+       JavaScript
+  ========================================================= -->
+
   <script>
 
-    /* =========================
-       THEME
-    ========================== */
+    /* =========================================================
+       الوضع الليلي / الفاتح
+    ========================================================= */
 
     const themeToggle =
       document.getElementById("themeToggle");
@@ -1636,12 +2522,14 @@
 
     if (savedTheme === "light") {
       document.body.classList.add("light");
-      themeToggle.textContent = "☀";
+      themeToggle.textContent = "☾";
+    } else {
+      themeToggle.textContent = "☼";
     }
 
     themeToggle.addEventListener(
       "click",
-      function() {
+      function () {
 
         document.body.classList.toggle("light");
 
@@ -1654,55 +2542,57 @@
         );
 
         themeToggle.textContent =
-          isLight ? "☀" : "☾";
+          isLight ? "☾" : "☼";
 
       }
     );
 
 
-    /* =========================
-       SCROLL PROGRESS
-    ========================== */
+
+    /* =========================================================
+       شريط تقدم الصفحة
+    ========================================================= */
 
     const scrollProgress =
       document.getElementById("scrollProgress");
 
     window.addEventListener(
       "scroll",
-      function() {
+      function () {
 
         const scrollTop =
           window.scrollY;
 
-        const docHeight =
+        const documentHeight =
           document.documentElement.scrollHeight -
-          document.documentElement.clientHeight;
+          window.innerHeight;
 
-        const progress =
-          docHeight > 0
-            ? (scrollTop / docHeight) * 100
+        const percentage =
+          documentHeight > 0
+            ? (scrollTop / documentHeight) * 100
             : 0;
 
         scrollProgress.style.width =
-          progress + "%";
+          percentage + "%";
 
       }
     );
 
 
-    /* =========================
-       REVEAL ANIMATION
-    ========================== */
+
+    /* =========================================================
+       ظهور العناصر
+    ========================================================= */
 
     const revealElements =
       document.querySelectorAll(".reveal");
 
     const revealObserver =
       new IntersectionObserver(
-        function(entries) {
+        function (entries, observer) {
 
           entries.forEach(
-            function(entry) {
+            function (entry) {
 
               if (entry.isIntersecting) {
 
@@ -1710,7 +2600,7 @@
                   "visible"
                 );
 
-                revealObserver.unobserve(
+                observer.unobserve(
                   entry.target
                 );
 
@@ -1725,132 +2615,131 @@
         }
       );
 
+
     revealElements.forEach(
-      function(element) {
+      function (element) {
+
         revealObserver.observe(element);
+
       }
     );
 
 
-    /* =========================
-       COMMUNITY COUNTERS
-    ========================== */
+
+    /* =========================================================
+       الإحصائيات
+    ========================================================= */
 
     const counters =
       document.querySelectorAll(
-        "[data-target]"
+        ".stat-number"
       );
 
-    let countersStarted = false;
+    const counterObserver =
+      new IntersectionObserver(
+        function (entries, observer) {
 
-    function startCounters() {
+          entries.forEach(
+            function (entry) {
 
-      if (countersStarted) return;
+              if (!entry.isIntersecting) {
+                return;
+              }
 
-      countersStarted = true;
+              const counter =
+                entry.target;
 
-      counters.forEach(
-        function(counter) {
+              const target =
+                Number(
+                  counter.dataset.target
+                );
 
-          const target =
-            Number(
-              counter.getAttribute(
-                "data-target"
-              )
-            );
+              const duration =
+                3000;
 
-          const duration = 3000;
+              const startTime =
+                performance.now();
 
-          const startTime =
-            performance.now();
 
-          function updateCounter(
-            currentTime
-          ) {
+              function updateCounter(
+                currentTime
+              ) {
 
-            const elapsed =
-              currentTime - startTime;
+                const elapsed =
+                  currentTime - startTime;
 
-            const progress =
-              Math.min(
-                elapsed / duration,
-                1
-              );
+                const progress =
+                  Math.min(
+                    elapsed / duration,
+                    1
+                  );
 
-            const value =
-              Math.floor(
-                progress * target
-              );
+                const eased =
+                  1 -
+                  Math.pow(
+                    1 - progress,
+                    3
+                  );
 
-            counter.textContent =
-              value;
+                const current =
+                  Math.floor(
+                    target * eased
+                  );
 
-            if (progress < 1) {
+                counter.textContent =
+                  current;
+
+                if (progress < 1) {
+
+                  requestAnimationFrame(
+                    updateCounter
+                  );
+
+                } else {
+
+                  counter.textContent =
+                    target;
+
+                }
+
+              }
+
 
               requestAnimationFrame(
                 updateCounter
               );
 
-            } else {
-
-              counter.textContent =
-                target;
+              observer.unobserve(counter);
 
             }
-
-          }
-
-          requestAnimationFrame(
-            updateCounter
           );
 
+        },
+        {
+          threshold: 0.5
         }
       );
 
-    }
 
-    const statsSection =
-      document.querySelector(
-        ".stats-grid"
-      );
+    counters.forEach(
+      function (counter) {
 
-    if (statsSection) {
+        counterObserver.observe(counter);
 
-      const statsObserver =
-        new IntersectionObserver(
-          function(entries) {
-
-            if (
-              entries[0].isIntersecting
-            ) {
-
-              startCounters();
-
-              statsObserver.disconnect();
-
-            }
-
-          },
-          {
-            threshold: 0.25
-          }
-        );
-
-      statsObserver.observe(
-        statsSection
-      );
-
-    }
+      }
+    );
 
 
-    /* =========================
-       COMPANY FORM
-    ========================== */
+
+    /* =========================================================
+       نموذج الشركات
+    ========================================================= */
 
     const companyForm =
       document.getElementById(
         "companyForm"
       );
+
 
     const companyFormMessage =
       document.getElementById(
@@ -1868,6 +2757,7 @@
       companyFormMessage.className =
         "form-message " + type;
 
+
       companyFormMessage.innerHTML = `
         <div class="form-message-icon">
           ${icon}
@@ -1882,15 +2772,17 @@
         </div>
       `;
 
+
       companyFormMessage.hidden =
         false;
 
     }
 
 
+
     companyForm.addEventListener(
       "submit",
-      function(event) {
+      function (event) {
 
         event.preventDefault();
 
@@ -1921,9 +2813,7 @@
 
 
         const formData =
-          new FormData(
-            companyForm
-          );
+          new FormData(companyForm);
 
 
         fetch(
@@ -1935,14 +2825,12 @@
         )
 
         .then(
-          function(response) {
+          function (response) {
 
             if (!response.ok) {
-
               throw new Error(
                 "تعذر إرسال الطلب"
               );
-
             }
 
             return response.text();
@@ -1951,7 +2839,7 @@
         )
 
         .then(
-          function() {
+          function () {
 
             companyForm.reset();
 
@@ -1975,7 +2863,7 @@
         )
 
         .catch(
-          function(error) {
+          function (error) {
 
             console.error(error);
 
