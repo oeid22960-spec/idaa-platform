@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>إضاءة | منصة التسويق والفرص</title>
 
   <style>
@@ -23,9 +22,7 @@
       color: #fff;
       line-height: 1.8;
       overflow-x: hidden;
-      transition:
-        background-color .45s ease,
-        color .45s ease;
+      transition: background-color .45s ease, color .45s ease;
     }
 
     a {
@@ -52,16 +49,17 @@
 
     body.light-mode {
       background: #f7f7f5;
-      color: #151515;
+      color: #171717;
     }
 
     body.light-mode header {
       background: rgba(247,247,245,.92);
-      border-bottom-color: rgba(160,120,35,.18);
+      border-bottom-color: rgba(168,123,32,.25);
+      box-shadow: 0 4px 25px rgba(168,123,32,.06);
     }
 
     body.light-mode .nav-links a {
-      color: #555;
+      color: #444;
     }
 
     body.light-mode .nav-links a:hover {
@@ -90,7 +88,6 @@
 
     body.light-mode .hero h1 span {
       color: #a87b20;
-      text-shadow: 0 0 35px rgba(168,123,32,.14);
     }
 
     body.light-mode .hero p {
@@ -105,14 +102,21 @@
     body.light-mode .opportunity-card,
     body.light-mode .live-stat-card,
     body.light-mode .contact-card {
-      background:
-        linear-gradient(
-          145deg,
-          #ffffff,
-          #f2f2ef
-        );
+      background: linear-gradient(145deg, #ffffff, #f2f2ef);
+      border-color: rgba(168,123,32,.22);
+      box-shadow: 0 8px 30px rgba(168,123,32,.045);
+    }
 
-      border-color: #deddd8;
+    /* الحواف الذهبية عند تمرير الماوس */
+
+    body.light-mode .card:hover,
+    body.light-mode .opportunity-card:hover,
+    body.light-mode .live-stat-card:hover,
+    body.light-mode .contact-card:hover {
+      border-color: rgba(168,123,32,.65);
+      box-shadow:
+        0 15px 40px rgba(168,123,32,.10),
+        0 0 0 1px rgba(168,123,32,.12);
     }
 
     body.light-mode .card h3,
@@ -133,7 +137,7 @@
     body.light-mode .join-marketer,
     body.light-mode .contact {
       background: #eeeeeb;
-      border-color: #deddd8;
+      border-color: rgba(168,123,32,.18);
     }
 
     body.light-mode .companies,
@@ -154,7 +158,10 @@
           #f3f2ed
         );
 
-      border-color: rgba(168,123,32,.28);
+      border-color: rgba(168,123,32,.35);
+
+      box-shadow:
+        0 20px 55px rgba(168,123,32,.08);
     }
 
     body.light-mode .join-box > p {
@@ -163,7 +170,12 @@
 
     body.light-mode .join-step {
       background: rgba(255,255,255,.72);
-      border-color: #dddcd7;
+      border-color: rgba(168,123,32,.20);
+    }
+
+    body.light-mode .join-step:hover {
+      border-color: rgba(168,123,32,.6);
+      box-shadow: 0 10px 30px rgba(168,123,32,.08);
     }
 
     body.light-mode .join-step h3 {
@@ -175,14 +187,9 @@
     }
 
     body.light-mode .company-box {
-      background:
-        linear-gradient(
-          145deg,
-          #ffffff,
-          #f2f2ef
-        );
-
-      border-color: #deddd8;
+      background: linear-gradient(145deg, #ffffff, #f2f2ef);
+      border-color: rgba(168,123,32,.28);
+      box-shadow: 0 15px 45px rgba(168,123,32,.06);
     }
 
     body.light-mode .form-group label {
@@ -197,14 +204,16 @@
       border-color: #d8d7d1;
     }
 
-    body.light-mode .form-group input::placeholder,
-    body.light-mode .form-group textarea::placeholder {
-      color: #999;
+    body.light-mode .form-group input:focus,
+    body.light-mode .form-group textarea:focus,
+    body.light-mode .form-group select:focus {
+      border-color: #b98b2c;
+      box-shadow: 0 0 0 3px rgba(168,123,32,.10);
     }
 
     body.light-mode footer {
       background: #e9e9e5;
-      border-top-color: #d8d7d1;
+      border-top-color: rgba(168,123,32,.22);
     }
 
     body.light-mode .footer-description {
@@ -221,11 +230,12 @@
 
     body.light-mode .copyright {
       color: #777;
-      border-top-color: #d8d7d1;
+      border-top-color: rgba(168,123,32,.18);
     }
 
     /* =========================
        الشعار
+       بدون خلفية سوداء
     ========================= */
 
     .brand-logo {
@@ -238,23 +248,28 @@
       background-size: contain;
 
       flex-shrink: 0;
+
+      transition:
+        filter .4s ease,
+        transform .3s ease;
     }
 
-    /* إصلاح ظهور الأجزاء البيضاء من الشعار في الوضع الفاتح */
+    /*
+      في الوضع الفاتح:
+      نعطي الشعار توهجًا ذهبيًا خفيفًا
+      بدون إضافة خلفية.
+    */
 
     body.light-mode .brand-logo {
-      background-color: #1a1a1a;
-      border-radius: 12px;
+      filter:
+        drop-shadow(0 0 2px rgba(168,123,32,.55))
+        drop-shadow(0 2px 7px rgba(168,123,32,.12));
     }
 
-    body.light-mode .footer-brand-logo {
-      background-color: #1a1a1a;
-      border-radius: 10px;
-    }
-
-    body.light-mode .copyright-logo {
-      background-color: #1a1a1a;
-      border-radius: 7px;
+    body.light-mode .brand-logo:hover {
+      filter:
+        drop-shadow(0 0 3px rgba(168,123,32,.7))
+        drop-shadow(0 3px 10px rgba(168,123,32,.16));
     }
 
     /* =========================
@@ -266,16 +281,17 @@
       top: 0;
       z-index: 1000;
 
-      background: rgba(8, 9, 11, 0.88);
+      background: rgba(8,9,11,.88);
 
       border-bottom:
-        1px solid rgba(214, 168, 79, 0.12);
+        1px solid rgba(214,168,79,.12);
 
       backdrop-filter: blur(18px);
 
       transition:
         background .45s ease,
-        border-color .45s ease;
+        border-color .45s ease,
+        box-shadow .45s ease;
     }
 
     .navbar {
@@ -298,8 +314,7 @@
 
       flex-shrink: 0;
 
-      transition:
-        transform .3s ease;
+      transition: transform .3s ease;
     }
 
     .logo:hover {
@@ -351,8 +366,7 @@
 
       border-radius: 10px;
 
-      transition:
-        width .3s ease;
+      transition: width .3s ease;
     }
 
     .nav-links a:hover {
@@ -395,7 +409,8 @@
       transition:
         transform .3s ease,
         background .3s ease,
-        border-color .3s ease;
+        border-color .3s ease,
+        box-shadow .3s ease;
     }
 
     .theme-toggle:hover {
@@ -411,10 +426,10 @@
     }
 
     body.light-mode .theme-toggle {
-      color: #a87b20;
       background: #fff;
-      border-color: rgba(168,123,32,.3);
-      box-shadow: 0 4px 15px rgba(0,0,0,.06);
+      color: #a87b20;
+      border-color: rgba(168,123,32,.38);
+      box-shadow: 0 4px 15px rgba(168,123,32,.08);
     }
 
     /* =========================
@@ -449,8 +464,7 @@
 
         #08090b;
 
-      transition:
-        background .45s ease;
+      transition: background .45s ease;
     }
 
     .hero::before {
@@ -547,7 +561,7 @@
     }
 
     /* =========================
-       لمعة خفيفة عند فتح الموقع
+       لمعة خفيفة
     ========================= */
 
     .hero-content::after {
@@ -725,7 +739,8 @@
       margin-bottom: 20px;
 
       transition:
-        transform .35s ease;
+        transform .35s ease,
+        border-color .35s ease;
     }
 
     .card:hover .icon {
@@ -1001,10 +1016,6 @@
         0 auto 35px;
     }
 
-    /* =========================
-       خطوات المسوق
-    ========================= */
-
     .join-steps {
       display: grid;
 
@@ -1070,7 +1081,7 @@
     }
 
     /* =========================
-       الزر الأساسي
+       الزر
     ========================= */
 
     .primary-btn {
@@ -1332,6 +1343,18 @@
 
       border:
         1px solid rgba(214,168,79,.14);
+
+      transition:
+        transform .3s ease,
+        border-color .3s ease;
+    }
+
+    .contact-card:hover .contact-icon {
+      transform:
+        translateY(-2px);
+
+      border-color:
+        rgba(214,168,79,.4);
     }
 
     .contact-icon svg {
@@ -1535,7 +1558,7 @@
     }
 
     /* =========================
-       استجابة الجوال
+       الجوال
     ========================= */
 
     @media (max-width: 900px) {
@@ -2243,9 +2266,7 @@
             تفاصيل التعاون.
           </p>
 
-          <form
-            id="companyForm"
-          >
+          <form id="companyForm">
 
             <div class="form-grid">
 
@@ -2708,42 +2729,56 @@
       localStorage.getItem("idaaTheme");
 
     if (savedTheme === "light") {
+
       document.body.classList.add("light-mode");
+
       themeToggle.textContent = "🌙";
+
     } else {
+
       themeToggle.textContent = "☀️";
+
     }
 
-    themeToggle.addEventListener("click", function () {
+    themeToggle.addEventListener(
+      "click",
+      function() {
 
-      document.body.classList.toggle("light-mode");
+        document.body.classList.toggle(
+          "light-mode"
+        );
 
-      const isLight =
-        document.body.classList.contains("light-mode");
+        const isLight =
+          document.body.classList.contains(
+            "light-mode"
+          );
 
-      localStorage.setItem(
-        "idaaTheme",
-        isLight ? "light" : "dark"
-      );
+        localStorage.setItem(
+          "idaaTheme",
+          isLight ? "light" : "dark"
+        );
 
-      themeToggle.textContent =
-        isLight ? "🌙" : "☀️";
+        themeToggle.textContent =
+          isLight ? "🌙" : "☀️";
 
-    });
+      }
+    );
 
 
     /* =========================
        عدادات مجتمع إضاءة
-       تعيد التشغيل عند دخول القسم
     ========================= */
 
     const statsSection =
       document.getElementById("stats");
 
     const counters =
-      document.querySelectorAll(".live-stat-number");
+      document.querySelectorAll(
+        ".live-stat-number"
+      );
 
     let statsAnimating = false;
+
 
     function resetCounters() {
 
@@ -2754,6 +2789,7 @@
       });
 
     }
+
 
     function animateCounter(counter) {
 
@@ -2766,22 +2802,32 @@
       const startTime =
         performance.now();
 
+
       function update(currentTime) {
 
         const elapsed =
           currentTime - startTime;
 
         const progress =
-          Math.min(elapsed / duration, 1);
+          Math.min(
+            elapsed / duration,
+            1
+          );
 
         const eased =
-          1 - Math.pow(1 - progress, 3);
+          1 - Math.pow(
+            1 - progress,
+            3
+          );
 
         const currentValue =
-          Math.floor(target * eased);
+          Math.floor(
+            target * eased
+          );
 
         counter.textContent =
           currentValue + "+";
+
 
         if (progress < 1) {
 
@@ -2800,6 +2846,7 @@
 
     }
 
+
     function startCounters() {
 
       if (statsAnimating) return;
@@ -2808,43 +2855,58 @@
 
       resetCounters();
 
-      counters.forEach((counter, index) => {
 
-        setTimeout(() => {
+      counters.forEach(
+        (counter, index) => {
 
-          animateCounter(counter);
+          setTimeout(
+            () => {
 
-        }, index * 150);
+              animateCounter(counter);
 
-      });
+            },
+            index * 150
+          );
 
-      setTimeout(() => {
+        }
+      );
 
-        statsAnimating = false;
 
-      }, 3300);
+      setTimeout(
+        () => {
+
+          statsAnimating = false;
+
+        },
+        3300
+      );
 
     }
+
 
     const statsObserver =
       new IntersectionObserver(
         function(entries) {
 
-          entries.forEach(entry => {
+          entries.forEach(
+            entry => {
 
-            if (entry.isIntersecting) {
+              if (
+                entry.isIntersecting
+              ) {
 
-              startCounters();
+                startCounters();
 
-            } else {
+              } else {
 
-              resetCounters();
+                resetCounters();
 
-              statsAnimating = false;
+                statsAnimating = false;
+
+              }
 
             }
-
-          });
+          );
 
         },
         {
@@ -2852,12 +2914,14 @@
         }
       );
 
-    statsObserver.observe(statsSection);
+
+    statsObserver.observe(
+      statsSection
+    );
 
 
     /* =========================
-       تشغيل العدادات عند الضغط
-       على مجتمعنا
+       عند الضغط على مجتمعنا
     ========================= */
 
     const communityLink =
@@ -2865,19 +2929,25 @@
         'a[href="#stats"]'
       );
 
+
     if (communityLink) {
 
       communityLink.addEventListener(
         "click",
         function() {
 
-          setTimeout(() => {
+          setTimeout(
+            () => {
 
-            resetCounters();
-            statsAnimating = false;
-            startCounters();
+              resetCounters();
 
-          }, 500);
+              statsAnimating = false;
+
+              startCounters();
+
+            },
+            500
+          );
 
         }
       );
@@ -2890,7 +2960,10 @@
     ========================= */
 
     const companyForm =
-      document.getElementById("companyForm");
+      document.getElementById(
+        "companyForm"
+      );
+
 
     companyForm.addEventListener(
       "submit",
@@ -2898,13 +2971,16 @@
 
         event.preventDefault();
 
+
         const submitButton =
           companyForm.querySelector(
             "button[type='submit']"
           );
 
+
         const originalText =
           submitButton.textContent;
+
 
         submitButton.textContent =
           "جاري الإرسال...";
@@ -2912,8 +2988,12 @@
         submitButton.disabled =
           true;
 
+
         const formData =
-          new FormData(companyForm);
+          new FormData(
+            companyForm
+          );
+
 
         fetch(
           "https://script.google.com/macros/s/AKfycbwPPDymDZFUtdnbVwXGDWl_5ZH-w28MckkhmZnqjQvuXaSPfLebHaaVC2jk9vVRlmY/exec",
@@ -2922,54 +3002,44 @@
             body: formData
           }
         )
-        .then(response => response.text())
-        .then(() => {
+        .then(
+          response =>
+            response.text()
+        )
+        .then(
+          () => {
 
-          alert(
-            "تم إرسال طلبك بنجاح، وسنتواصل معك قريبًا."
-          );
+            alert(
+              "تم إرسال طلبك بنجاح، وسنتواصل معك قريبًا."
+            );
 
-          companyForm.reset();
+            companyForm.reset();
 
-          submitButton.textContent =
-            originalText;
+            submitButton.textContent =
+              originalText;
 
-          submitButton.disabled =
-            false;
+            submitButton.disabled =
+              false;
 
-        })
-        .catch(error => {
+          }
+        )
+        .catch(
+          error => {
 
-          console.error(error);
+            console.error(error);
 
-          alert(
-            "حدث خطأ أثناء الإرسال، حاول مرة أخرى."
-          );
+            alert(
+              "حدث خطأ أثناء الإرسال، حاول مرة أخرى."
+            );
 
-          submitButton.textContent =
-            originalText;
+            submitButton.textContent =
+              originalText;
 
-          submitButton.disabled =
-            false;
+            submitButton.disabled =
+              false;
 
-        });
-
-      }
-    );
-
-
-    /* =========================
-       إغلاق تأثير اللمعة
-    ========================= */
-
-    window.addEventListener(
-      "load",
-      function() {
-
-        const shine =
-          document.querySelector(
-            ".hero-content::after"
-          );
+          }
+        );
 
       }
     );
