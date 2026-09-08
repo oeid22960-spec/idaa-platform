@@ -7,6 +7,7 @@
   <title>إضاءة | منصة التسويق والفرص</title>
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -43,6 +44,7 @@
       margin: auto;
     }
 
+
     /* =========================
        الشعار
     ========================= */
@@ -56,6 +58,7 @@
       background-size: contain;
       flex-shrink: 0;
     }
+
 
     /* =========================
        الهيدر
@@ -107,6 +110,7 @@
       color: #d6a84f;
     }
 
+
     /* =========================
        الرئيسية
     ========================= */
@@ -118,6 +122,7 @@
       text-align: center;
       position: relative;
       overflow: hidden;
+
       background:
         radial-gradient(
           circle at 50% 42%,
@@ -125,11 +130,13 @@
           rgba(214,168,79,.07) 18%,
           transparent 45%
         ),
+
         radial-gradient(
           circle at 20% 20%,
           rgba(214,168,79,.07),
           transparent 30%
         ),
+
         #08090b;
     }
 
@@ -143,6 +150,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+
       box-shadow:
         0 0 0 70px rgba(214,168,79,.018),
         0 0 0 140px rgba(214,168,79,.012);
@@ -159,11 +167,14 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+
       border: 1px solid rgba(214,168,79,.35);
       color: #d6a84f;
+
       padding: 8px 18px;
       border-radius: 30px;
       margin-bottom: 27px;
+
       background: rgba(214,168,79,.07);
       font-size: 14px;
     }
@@ -191,6 +202,7 @@
       margin: 0 auto 35px;
     }
 
+
     /* =========================
        الأقسام
     ========================= */
@@ -216,6 +228,7 @@
       margin: auto;
     }
 
+
     /* =========================
        الكروت
     ========================= */
@@ -239,31 +252,45 @@
     .card::before {
       content: "";
       position: absolute;
+
       width: 100px;
       height: 100px;
+
       background: rgba(214,168,79,.06);
+
       filter: blur(35px);
+
       top: -50px;
       right: -50px;
+
       border-radius: 50%;
     }
 
     .card:hover {
       transform: translateY(-7px);
+
       border-color: rgba(214,168,79,.45);
-      box-shadow: 0 18px 45px rgba(0,0,0,.22);
+
+      box-shadow:
+        0 18px 45px rgba(0,0,0,.22);
     }
 
     .icon {
       width: 55px;
       height: 55px;
+
       border-radius: 16px;
+
       background: rgba(214,168,79,.10);
+
       border: 1px solid rgba(214,168,79,.14);
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       font-size: 25px;
+
       margin-bottom: 20px;
     }
 
@@ -277,6 +304,7 @@
       font-size: 15px;
     }
 
+
     /* =========================
        عن إضاءة
     ========================= */
@@ -285,54 +313,85 @@
       background: #08090b;
     }
 
+
     /* =========================
        المميزات
     ========================= */
 
     .opportunities {
       background: #0d0e11;
-      border-top: 1px solid #18191d;
-      border-bottom: 1px solid #18191d;
+
+      border-top:
+        1px solid #18191d;
+
+      border-bottom:
+        1px solid #18191d;
     }
+
 
     /* =========================
        الفرص
     ========================= */
 
     .opportunity-card {
-      background: linear-gradient(145deg, #111216, #0d0e11);
-      border: 1px solid #23242a;
+      background:
+        linear-gradient(
+          145deg,
+          #111216,
+          #0d0e11
+        );
+
+      border:
+        1px solid #23242a;
+
       border-radius: 20px;
+
       padding: 30px;
+
       transition: .35s;
     }
 
     .opportunity-card:hover {
       transform: translateY(-6px);
-      border-color: rgba(214,168,79,.4);
+
+      border-color:
+        rgba(214,168,79,.4);
     }
 
     .opportunity-card h3 {
       color: #fff;
+
       font-size: 21px;
+
       margin-bottom: 12px;
     }
 
     .opportunity-card p {
       color: #888;
+
       margin-bottom: 20px;
+
       font-size: 15px;
     }
 
     .opportunity-tag {
       display: inline-block;
+
       padding: 6px 13px;
+
       border-radius: 20px;
-      border: 1px solid rgba(214,168,79,.3);
+
+      border:
+        1px solid rgba(214,168,79,.3);
+
       color: #d6a84f;
-      background: rgba(214,168,79,.05);
+
+      background:
+        rgba(214,168,79,.05);
+
       font-size: 12px;
     }
+
 
     /* =========================
        مجتمع إضاءة
@@ -340,61 +399,80 @@
 
     .live-stats {
       background: #0d0e11;
-      border-top: 1px solid #18191d;
-      border-bottom: 1px solid #18191d;
+
+      border-top:
+        1px solid #18191d;
+
+      border-bottom:
+        1px solid #18191d;
     }
 
     .live-stats-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
       gap: 22px;
+
       max-width: 850px;
+
       margin: auto;
     }
 
     .live-stat-card {
-      background: linear-gradient(145deg, #111216, #0d0e11);
-      border: 1px solid #23242a;
+      background:
+        linear-gradient(
+          145deg,
+          #111216,
+          #0d0e11
+        );
+
+      border:
+        1px solid #23242a;
+
       border-radius: 20px;
+
       padding: 35px 25px;
+
       text-align: center;
+
       transition: .35s;
     }
 
     .live-stat-card:hover {
       transform: translateY(-6px);
-      border-color: rgba(214,168,79,.4);
-      box-shadow: 0 18px 45px rgba(0,0,0,.22);
+
+      border-color:
+        rgba(214,168,79,.4);
+
+      box-shadow:
+        0 18px 45px rgba(0,0,0,.22);
     }
 
     .live-stat-number {
       color: #d6a84f;
+
       font-size: 52px;
+
       line-height: 1.1;
+
       font-weight: 800;
+
       margin-bottom: 8px;
-      text-shadow: 0 0 30px rgba(214,168,79,.12);
+
+      text-shadow:
+        0 0 30px rgba(214,168,79,.12);
+
+      min-height: 57px;
     }
 
     .live-stat-card p {
       color: #888;
+
       font-size: 16px;
     }
 
-    /* =========================
-       طريقة العمل
-    ========================= */
-
-    .steps {
-      background: #08090b;
-    }
-
-    .step-number {
-      color: #d6a84f;
-      font-size: 38px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
 
     /* =========================
        انضم كمسوق
@@ -402,51 +480,153 @@
 
     .join-marketer {
       background: #0d0e11;
-      border-top: 1px solid #18191d;
+
+      border-top:
+        1px solid #18191d;
     }
 
     .join-box {
       background:
+
         radial-gradient(
           circle at 50% 0%,
           rgba(214,168,79,.15),
           transparent 55%
         ),
-        linear-gradient(135deg, #17140d, #101114);
-      border: 1px solid rgba(214,168,79,.28);
+
+        linear-gradient(
+          135deg,
+          #17140d,
+          #101114
+        );
+
+      border:
+        1px solid rgba(214,168,79,.28);
+
       border-radius: 28px;
+
       padding: 70px 30px;
+
       text-align: center;
-      box-shadow: 0 25px 70px rgba(0,0,0,.2);
+
+      box-shadow:
+        0 25px 70px rgba(0,0,0,.2);
     }
 
     .join-box h2 {
       font-size: 42px;
+
       margin-bottom: 15px;
     }
 
-    .join-box p {
+    .join-box > p {
       color: #999;
+
       max-width: 700px;
-      margin: 0 auto 30px;
+
+      margin:
+        0 auto 35px;
     }
+
+
+    /* =========================
+       خطوات المسوق
+    ========================= */
+
+    .join-steps {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+
+      max-width: 950px;
+
+      margin:
+        0 auto 35px;
+    }
+
+    .join-step {
+      background:
+        rgba(8,9,11,.55);
+
+      border:
+        1px solid #292a2f;
+
+      border-radius: 18px;
+
+      padding: 25px 20px;
+
+      text-align: right;
+
+      transition: .35s;
+    }
+
+    .join-step:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        rgba(214,168,79,.4);
+    }
+
+    .join-step-number {
+      color: #d6a84f;
+
+      font-size: 30px;
+
+      font-weight: 800;
+
+      margin-bottom: 8px;
+    }
+
+    .join-step h3 {
+      font-size: 18px;
+
+      margin-bottom: 7px;
+    }
+
+    .join-step p {
+      color: #888;
+
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       الزر
+    ========================= */
 
     .primary-btn {
       display: inline-block;
+
       background: #d6a84f;
+
       color: #111;
-      padding: 14px 30px;
+
+      padding:
+        14px 30px;
+
       border-radius: 12px;
+
       font-size: 16px;
+
       font-weight: bold;
+
       transition: .3s;
-      box-shadow: 0 8px 30px rgba(214,168,79,.12);
+
+      box-shadow:
+        0 8px 30px rgba(214,168,79,.12);
     }
 
     .primary-btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 40px rgba(214,168,79,.18);
+      transform:
+        translateY(-4px);
+
+      box-shadow:
+        0 15px 40px rgba(214,168,79,.18);
     }
+
 
     /* =========================
        الشركات
@@ -462,11 +642,22 @@
     }
 
     .company-box {
-      background: linear-gradient(145deg, #111216, #0c0d10);
-      border: 1px solid #25262b;
+      background:
+        linear-gradient(
+          145deg,
+          #111216,
+          #0c0d10
+        );
+
+      border:
+        1px solid #25262b;
+
       border-radius: 25px;
+
       padding: 45px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.15);
+
+      box-shadow:
+        0 20px 60px rgba(0,0,0,.15);
     }
 
     .company-form {
@@ -482,7 +673,9 @@
 
     .form-group label {
       color: #ddd;
+
       font-weight: bold;
+
       font-size: 14px;
     }
 
@@ -490,13 +683,23 @@
     .form-group textarea,
     .form-group select {
       width: 100%;
+
       background: #090a0c;
-      border: 1px solid #292a30;
+
+      border:
+        1px solid #292a30;
+
       color: #fff;
+
       border-radius: 11px;
-      padding: 14px 15px;
+
+      padding:
+        14px 15px;
+
       outline: none;
+
       font-size: 14px;
+
       transition: .3s;
     }
 
@@ -504,48 +707,74 @@
     .form-group textarea:focus,
     .form-group select:focus {
       border-color: #d6a84f;
-      box-shadow: 0 0 0 3px rgba(214,168,79,.07);
+
+      box-shadow:
+        0 0 0 3px
+        rgba(214,168,79,.07);
     }
 
     .form-group textarea {
       min-height: 135px;
+
       resize: vertical;
     }
 
     .form-submit {
       border: none;
+
       cursor: pointer;
+
       background: #d6a84f;
+
       color: #111;
+
       padding: 15px;
+
       border-radius: 12px;
+
       font-size: 16px;
+
       font-weight: bold;
+
       transition: .3s;
+
       margin-top: 5px;
     }
 
     .form-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(214,168,79,.15);
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 12px 30px
+        rgba(214,168,79,.15);
     }
 
     .success-message {
       display: none;
+
       text-align: center;
-      background: rgba(214,168,79,.07);
-      border: 1px solid rgba(214,168,79,.3);
+
+      background:
+        rgba(214,168,79,.07);
+
+      border:
+        1px solid rgba(214,168,79,.3);
+
       border-radius: 15px;
+
       padding: 30px;
     }
 
     .success-message .success-icon {
       font-size: 40px;
+
       margin-bottom: 10px;
     }
 
     .success-message h3 {
       color: #d6a84f;
+
       margin-bottom: 8px;
     }
 
@@ -553,40 +782,59 @@
       color: #999;
     }
 
+
     /* =========================
        التواصل
     ========================= */
 
     .contact {
       background: #0d0e11;
-      border-top: 1px solid #18191d;
+
+      border-top:
+        1px solid #18191d;
     }
 
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: 22px;
     }
 
     .contact-card {
       background: #111216;
-      border: 1px solid #23242a;
+
+      border:
+        1px solid #23242a;
+
       border-radius: 20px;
+
       padding: 30px;
+
       text-align: center;
+
       transition: .35s;
     }
 
     .contact-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(214,168,79,.4);
+      transform:
+        translateY(-6px);
+
+      border-color:
+        rgba(214,168,79,.4);
     }
 
     .contact-icon {
       width: 48px;
       height: 48px;
-      margin: 0 auto 15px;
+
+      margin:
+        0 auto 15px;
+
       display: flex;
+
       align-items: center;
       justify-content: center;
     }
@@ -594,6 +842,7 @@
     .contact-icon svg {
       width: 42px;
       height: 42px;
+
       display: block;
     }
 
@@ -603,15 +852,20 @@
 
     .contact-card p {
       color: #888;
+
       margin-bottom: 15px;
+
       font-size: 14px;
     }
 
     .contact-link {
       color: #d6a84f;
+
       font-weight: bold;
+
       font-size: 14px;
     }
+
 
     /* =========================
        الفوتر
@@ -619,47 +873,68 @@
 
     footer {
       background: #060708;
-      border-top: 1px solid #1a1b1f;
-      padding: 45px 0 25px;
+
+      border-top:
+        1px solid #1a1b1f;
+
+      padding:
+        45px 0 25px;
     }
 
     .footer-content {
       display: flex;
-      justify-content: space-between;
+
+      justify-content:
+        space-between;
+
       gap: 30px;
+
       flex-wrap: wrap;
     }
 
     .footer-brand {
       display: flex;
+
       align-items: center;
+
       gap: 15px;
     }
 
     .footer-brand-logo {
       width: 82px;
       height: 55px;
-      background-image: url("logo.png");
+
+      background-image:
+        url("logo.png");
+
       background-repeat: no-repeat;
+
       background-position: center;
+
       background-size: contain;
+
       flex-shrink: 0;
     }
 
     .footer-description {
       color: #666;
+
       font-size: 14px;
     }
 
     .footer-links {
       display: flex;
+
       gap: 20px;
+
       flex-wrap: wrap;
     }
 
     .footer-links a {
       color: #777;
+
       font-size: 14px;
+
       transition: .3s;
     }
 
@@ -669,33 +944,54 @@
 
     .copyright {
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       gap: 9px;
+
       flex-wrap: wrap;
+
       text-align: center;
-      border-top: 1px solid #18191c;
+
+      border-top:
+        1px solid #18191c;
+
       margin-top: 30px;
+
       padding-top: 20px;
+
       color: #555;
+
       font-size: 13px;
     }
 
     .copyright-logo {
       width: 45px;
       height: 32px;
-      background-image: url("logo.png");
+
+      background-image:
+        url("logo.png");
+
       background-repeat: no-repeat;
+
       background-position: center;
+
       background-size: contain;
+
       display: inline-block;
     }
 
     .whatsapp-icon {
       display: inline-flex;
+
       align-items: center;
+
       justify-content: center;
+
       margin-right: 3px;
+
       transition: .3s;
     }
 
@@ -708,6 +1004,7 @@
       transform: scale(1.15);
     }
 
+
     /* =========================
        الجوال
     ========================= */
@@ -716,21 +1013,32 @@
 
       .navbar {
         flex-wrap: wrap;
+
         padding: 15px 0;
       }
 
       .nav-links {
         order: 3;
+
         width: 100%;
+
         gap: 14px;
+
         justify-content: center;
       }
 
       .cards,
       .contact-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .join-steps {
+        grid-template-columns:
+          repeat(3, 1fr);
       }
     }
+
 
     @media (max-width: 700px) {
 
@@ -781,6 +1089,14 @@
         font-size: 45px;
       }
 
+      .join-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .join-step {
+        text-align: center;
+      }
+
       .section-title h2 {
         font-size: 31px;
       }
@@ -803,6 +1119,7 @@
       }
     }
 
+
     @media (max-width: 450px) {
 
       .container {
@@ -821,41 +1138,98 @@
         font-size: 36px;
       }
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- الهيدر -->
+
+  <!-- =========================
+       الهيدر
+  ========================= -->
 
   <header>
+
     <div class="container navbar">
 
-      <a href="#home" class="logo" aria-label="العودة للرئيسية">
+      <a
+        href="#home"
+        class="logo"
+        aria-label="العودة للرئيسية"
+      >
+
         <div class="brand-logo"></div>
+
       </a>
+
 
       <ul class="nav-links">
 
-        <li><a href="#home">الرئيسية</a></li>
-        <li><a href="#about">عن إضاءة</a></li>
-        <li><a href="#benefits">المميزات</a></li>
-        <li><a href="#opportunities">الفرص</a></li>
-        <li><a href="#stats">مجتمعنا</a></li>
-        <li><a href="#steps">كيف تعمل؟</a></li>
-        <li><a href="#join">انضم كمسوق</a></li>
-        <li><a href="#companies">انضم كشركة</a></li>
-        <li><a href="#contact">تواصل معنا</a></li>
+        <li>
+          <a href="#home">
+            الرئيسية
+          </a>
+        </li>
+
+        <li>
+          <a href="#about">
+            عن إضاءة
+          </a>
+        </li>
+
+        <li>
+          <a href="#benefits">
+            المميزات
+          </a>
+        </li>
+
+        <li>
+          <a href="#opportunities">
+            الفرص
+          </a>
+        </li>
+
+        <li>
+          <a href="#stats" id="statsNav">
+            مجتمعنا
+          </a>
+        </li>
+
+        <li>
+          <a href="#join">
+            انضم كمسوق
+          </a>
+        </li>
+
+        <li>
+          <a href="#companies">
+            انضم كشركة
+          </a>
+        </li>
+
+        <li>
+          <a href="#contact">
+            تواصل معنا
+          </a>
+        </li>
 
       </ul>
 
     </div>
+
   </header>
 
 
-  <!-- الرئيسية -->
+  <!-- =========================
+       الرئيسية
+  ========================= -->
 
-  <section class="hero" id="home">
+  <section
+    class="hero"
+    id="home"
+  >
 
     <div class="container hero-content">
 
@@ -864,13 +1238,22 @@
       </div>
 
       <h1>
+
         خلّ تسويقك
-        <span>يضيء</span>
+
+        <span>
+          يضيء
+        </span>
+
       </h1>
 
       <p>
-        منصة إضاءة تربط المسوقين بالمنصات والعلامات التجارية،
-        وتوفر فرصًا حقيقية في مجال التسويق وصناعة المحتوى.
+
+        منصة إضاءة تربط المسوقين
+        بالمنصات والعلامات التجارية،
+        وتوفر فرصًا حقيقية في مجال
+        التسويق وصناعة المحتوى.
+
       </p>
 
     </div>
@@ -878,7 +1261,9 @@
   </section>
 
 
-  <!-- عن إضاءة -->
+  <!-- =========================
+       عن إضاءة
+  ========================= -->
 
   <section id="about">
 
@@ -886,41 +1271,85 @@
 
       <div class="section-title">
 
-        <h2>ما هي إضاءة؟</h2>
+        <h2>
+          ما هي إضاءة؟
+        </h2>
 
         <p>
-          منصة تساعد المسوقين على الوصول إلى فرص تسويقية متنوعة
-          بطريقة واضحة ومنظمة، كما تساعد الشركات والمنصات على الوصول
-          إلى المسوقين المناسبين لمنتجاتهم وخدماتهم.
+
+          منصة تساعد المسوقين على الوصول
+          إلى فرص تسويقية متنوعة بطريقة واضحة
+          ومنظمة، كما تساعد الشركات والمنصات
+          على الوصول إلى المسوقين المناسبين
+          لمنتجاتهم وخدماتهم.
+
         </p>
 
       </div>
 
+
       <div class="cards">
 
-        <div class="card">
-          <div class="icon">🎯</div>
-          <h3>فرص تسويقية</h3>
-          <p>
-            نوفر للمسوقين فرصًا للتعاون مع منصات وعلامات تجارية متنوعة.
-          </p>
-        </div>
 
         <div class="card">
-          <div class="icon">💰</div>
-          <h3>عمولات</h3>
+
+          <div class="icon">
+            🎯
+          </div>
+
+          <h3>
+            فرص تسويقية
+          </h3>
+
           <p>
-            احصل على عمولة مقابل المبيعات التي تتم من خلال كودك التسويقي.
+
+            نوفر للمسوقين فرصًا للتعاون
+            مع منصات وعلامات تجارية متنوعة.
+
           </p>
+
         </div>
 
+
         <div class="card">
-          <div class="icon">📈</div>
-          <h3>تطوير الخبرة</h3>
+
+          <div class="icon">
+            💰
+          </div>
+
+          <h3>
+            عمولات
+          </h3>
+
           <p>
-            طوّر مهاراتك في التسويق وصناعة المحتوى وبناء العلاقات مع العملاء.
+
+            احصل على عمولة مقابل المبيعات
+            التي تتم من خلال كودك التسويقي.
+
           </p>
+
         </div>
+
+
+        <div class="card">
+
+          <div class="icon">
+            📈
+          </div>
+
+          <h3>
+            تطوير الخبرة
+          </h3>
+
+          <p>
+
+            طوّر مهاراتك في التسويق وصناعة
+            المحتوى وبناء العلاقات مع العملاء.
+
+          </p>
+
+        </div>
+
 
       </div>
 
@@ -929,15 +1358,22 @@
   </section>
 
 
-  <!-- المميزات -->
+  <!-- =========================
+       المميزات
+  ========================= -->
 
-  <section id="benefits" class="opportunities">
+  <section
+    id="benefits"
+    class="opportunities"
+  >
 
     <div class="container">
 
       <div class="section-title">
 
-        <h2>مميزات إضاءة</h2>
+        <h2>
+          مميزات إضاءة
+        </h2>
 
         <p>
           كل ما تحتاجه لبدء رحلتك في مجال التسويق.
@@ -945,55 +1381,129 @@
 
       </div>
 
+
       <div class="cards">
 
-        <div class="card">
-          <div class="icon">💵</div>
-          <h3>مقابل مادي</h3>
-          <p>
-            فرص للحصول على عمولات ومكافآت بناءً على نتائجك التسويقية.
-          </p>
-        </div>
 
         <div class="card">
-          <div class="icon">🏆</div>
-          <h3>خبرة موثقة</h3>
+
+          <div class="icon">
+            💵
+          </div>
+
+          <h3>
+            مقابل مادي
+          </h3>
+
           <p>
-            اكتسب خبرة عملية في مجال التسويق والعمل مع المنصات المختلفة.
+
+            فرص للحصول على عمولات
+            ومكافآت بناءً على نتائجك التسويقية.
+
           </p>
+
         </div>
 
-        <div class="card">
-          <div class="icon">🤝</div>
-          <h3>التعاون مع المنصات</h3>
-          <p>
-            استفد من فرص التعاون مع جهات ومنصات مختلفة من خلال إضاءة.
-          </p>
-        </div>
 
         <div class="card">
-          <div class="icon">📱</div>
-          <h3>التسويق الرقمي</h3>
+
+          <div class="icon">
+            🏆
+          </div>
+
+          <h3>
+            خبرة موثقة
+          </h3>
+
           <p>
-            استخدم وسائل التواصل الاجتماعي للوصول إلى العملاء والترويج للمنتجات والخدمات.
+
+            اكتسب خبرة عملية في مجال التسويق
+            والعمل مع المنصات المختلفة.
+
           </p>
+
         </div>
 
-        <div class="card">
-          <div class="icon">📊</div>
-          <h3>متابعة الأداء</h3>
-          <p>
-            تابع نتائجك ومبيعاتك وطوّر أداءك التسويقي باستمرار.
-          </p>
-        </div>
 
         <div class="card">
-          <div class="icon">⚡</div>
-          <h3>بداية سهلة</h3>
+
+          <div class="icon">
+            🤝
+          </div>
+
+          <h3>
+            التعاون مع المنصات
+          </h3>
+
           <p>
-            ابدأ بخطوات بسيطة وانطلق في عالم التسويق الرقمي.
+
+            استفد من فرص التعاون مع جهات
+            ومنصات مختلفة من خلال إضاءة.
+
           </p>
+
         </div>
+
+
+        <div class="card">
+
+          <div class="icon">
+            📱
+          </div>
+
+          <h3>
+            التسويق الرقمي
+          </h3>
+
+          <p>
+
+            استخدم وسائل التواصل الاجتماعي
+            للوصول إلى العملاء والترويج للمنتجات والخدمات.
+
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="icon">
+            📊
+          </div>
+
+          <h3>
+            متابعة الأداء
+          </h3>
+
+          <p>
+
+            تابع نتائجك ومبيعاتك وطوّر
+            أداءك التسويقي باستمرار.
+
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="icon">
+            ⚡
+          </div>
+
+          <h3>
+            بداية سهلة
+          </h3>
+
+          <p>
+
+            ابدأ بخطوات بسيطة وانطلق
+            في عالم التسويق الرقمي.
+
+          </p>
+
+        </div>
+
 
       </div>
 
@@ -1002,7 +1512,9 @@
   </section>
 
 
-  <!-- الفرص -->
+  <!-- =========================
+       الفرص
+  ========================= -->
 
   <section id="opportunities">
 
@@ -1010,23 +1522,35 @@
 
       <div class="section-title">
 
-        <h2>الفرص المتاحة</h2>
+        <h2>
+          الفرص المتاحة
+        </h2>
 
         <p>
-          تعرّف على أنواع الفرص التي يمكن أن تتوفر عبر إضاءة.
+
+          تعرّف على أنواع الفرص التي
+          يمكن أن تتوفر عبر إضاءة.
+
         </p>
 
       </div>
 
+
       <div class="cards">
+
 
         <div class="opportunity-card">
 
-          <h3>📣 التسويق بالعمولة</h3>
+          <h3>
+            📣 التسويق بالعمولة
+          </h3>
 
           <p>
-            سوّق للمنتجات والخدمات باستخدام كودك أو رابطك التسويقي،
+
+            سوّق للمنتجات والخدمات باستخدام
+            كودك أو رابطك التسويقي،
             واحصل على عمولة بناءً على النتائج.
+
           </p>
 
           <span class="opportunity-tag">
@@ -1035,13 +1559,19 @@
 
         </div>
 
+
         <div class="opportunity-card">
 
-          <h3>🎬 صناعة المحتوى</h3>
+          <h3>
+            🎬 صناعة المحتوى
+          </h3>
 
           <p>
-            فرص لصناعة محتوى تسويقي للمنصات والعلامات التجارية
-            ونشره عبر وسائل التواصل الاجتماعي.
+
+            فرص لصناعة محتوى تسويقي للمنصات
+            والعلامات التجارية ونشره عبر وسائل
+            التواصل الاجتماعي.
+
           </p>
 
           <span class="opportunity-tag">
@@ -1050,13 +1580,19 @@
 
         </div>
 
+
         <div class="opportunity-card">
 
-          <h3>🤝 شراكات تسويقية</h3>
+          <h3>
+            🤝 شراكات تسويقية
+          </h3>
 
           <p>
-            ربط الشركات والمنصات بالمسوقين المناسبين
-            لبناء حملات وشراكات تسويقية فعّالة.
+
+            ربط الشركات والمنصات بالمسوقين
+            المناسبين لبناء حملات وشراكات
+            تسويقية فعّالة.
+
           </p>
 
           <span class="opportunity-tag">
@@ -1065,6 +1601,7 @@
 
         </div>
 
+
       </div>
 
     </div>
@@ -1072,23 +1609,36 @@
   </section>
 
 
-  <!-- مجتمع إضاءة -->
+  <!-- =========================
+       مجتمع إضاءة
+  ========================= -->
 
-  <section class="live-stats" id="stats">
+  <section
+    class="live-stats"
+    id="stats"
+  >
 
     <div class="container">
 
+
       <div class="section-title">
 
-        <h2>مجتمع إضاءة</h2>
+        <h2>
+          مجتمع إضاءة
+        </h2>
 
         <p>
-          مجتمع يتوسع باستمرار من المسوقين والشركات والمنصات.
+
+          مجتمع يتوسع باستمرار من المسوقين
+          والشركات والمنصات.
+
         </p>
 
       </div>
 
+
       <div class="live-stats-grid">
+
 
         <div class="live-stat-card">
 
@@ -1121,78 +1671,6 @@
 
         </div>
 
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- كيف تعمل -->
-
-  <section id="steps" class="steps">
-
-    <div class="container">
-
-      <div class="section-title">
-
-        <h2>كيف تبدأ كمسوق؟</h2>
-
-        <p>
-          ثلاث خطوات بسيطة وتبدأ رحلتك مع إضاءة.
-        </p>
-
-      </div>
-
-      <div class="cards">
-
-        <div class="card">
-
-          <div class="step-number">
-            1
-          </div>
-
-          <h3>
-            سجّل معنا
-          </h3>
-
-          <p>
-            عبّئ نموذج التسجيل وأرسل بياناتك للانضمام إلى فريق المسوقين.
-          </p>
-
-        </div>
-
-        <div class="card">
-
-          <div class="step-number">
-            2
-          </div>
-
-          <h3>
-            ابدأ التسويق
-          </h3>
-
-          <p>
-            استخدم كودك التسويقي وابدأ بالترويج للمنتجات والخدمات.
-          </p>
-
-        </div>
-
-        <div class="card">
-
-          <div class="step-number">
-            3
-          </div>
-
-          <h3>
-            حقّق النتائج
-          </h3>
-
-          <p>
-            كلما حققت نتائج أفضل، زادت فرصك في الحصول على العمولات والمكافآت.
-          </p>
-
-        </div>
 
       </div>
 
@@ -1201,22 +1679,102 @@
   </section>
 
 
-  <!-- انضم كمسوق -->
+  <!-- =========================
+       انضم كمسوق
+       تم دمج طريقة العمل هنا
+  ========================= -->
 
-  <section class="join-marketer" id="join">
+  <section
+    class="join-marketer"
+    id="join"
+  >
 
     <div class="container">
 
       <div class="join-box">
 
+
         <h2>
           انضم كمسوق
         </h2>
 
+
         <p>
-          انضم إلى فريق مسوقي إضاءة وابدأ رحلتك في مجال التسويق الرقمي،
+
+          انضم إلى فريق مسوقي إضاءة
+          وابدأ رحلتك في مجال التسويق الرقمي،
           واستفد من الفرص المتاحة.
+
         </p>
+
+
+        <!-- خطوات المسوق -->
+
+        <div class="join-steps">
+
+
+          <div class="join-step">
+
+            <div class="join-step-number">
+              1
+            </div>
+
+            <h3>
+              سجّل معنا
+            </h3>
+
+            <p>
+
+              عبّئ نموذج التسجيل وأرسل
+              بياناتك للانضمام إلى فريق المسوقين.
+
+            </p>
+
+          </div>
+
+
+          <div class="join-step">
+
+            <div class="join-step-number">
+              2
+            </div>
+
+            <h3>
+              ابدأ التسويق
+            </h3>
+
+            <p>
+
+              استخدم كودك التسويقي وابدأ
+              بالترويج للمنتجات والخدمات.
+
+            </p>
+
+          </div>
+
+
+          <div class="join-step">
+
+            <div class="join-step-number">
+              3
+            </div>
+
+            <h3>
+              حقّق النتائج
+            </h3>
+
+            <p>
+
+              كلما حققت نتائج أفضل، زادت فرصك
+              في الحصول على العمولات والمكافآت.
+
+            </p>
+
+          </div>
+
+
+        </div>
+
 
         <a
           href="https://docs.google.com/forms/d/e/1FAIpQLScMd_Qe3EjPV0NAj2fVD0UUbFgP5Ly0KRiSiwZf5Nhv0Nl_Bg/viewform?usp=header"
@@ -1227,6 +1785,7 @@
           التسجيل كمسوق
         </a>
 
+
       </div>
 
     </div>
@@ -1234,11 +1793,17 @@
   </section>
 
 
-  <!-- انضم كشركة -->
+  <!-- =========================
+       انضم كشركة
+  ========================= -->
 
-  <section class="companies" id="companies">
+  <section
+    class="companies"
+    id="companies"
+  >
 
     <div class="container">
+
 
       <div class="section-title">
 
@@ -1247,20 +1812,26 @@
         </h2>
 
         <p>
+
           هل لديك شركة أو منصة وتبحث عن مسوقين؟
           سجّل بياناتك، وسيتواصل معك فريق إضاءة.
+
         </p>
 
       </div>
 
+
       <div class="company-wrapper">
 
+
         <div class="company-box">
+
 
           <form
             class="company-form"
             id="companyForm"
           >
+
 
             <div class="form-group">
 
@@ -1278,6 +1849,7 @@
 
             </div>
 
+
             <div class="form-group">
 
               <label for="managerName">
@@ -1293,6 +1865,7 @@
               >
 
             </div>
+
 
             <div class="form-group">
 
@@ -1310,6 +1883,7 @@
 
             </div>
 
+
             <div class="form-group">
 
               <label for="phone">
@@ -1325,6 +1899,7 @@
               >
 
             </div>
+
 
             <div class="form-group">
 
@@ -1370,6 +1945,7 @@
 
             </div>
 
+
             <div class="form-group">
 
               <label for="description">
@@ -1384,6 +1960,7 @@
               ></textarea>
 
             </div>
+
 
             <div class="form-group">
 
@@ -1429,6 +2006,7 @@
 
             </div>
 
+
             <button
               type="submit"
               class="form-submit"
@@ -1436,7 +2014,9 @@
               إرسال طلب الانضمام
             </button>
 
+
           </form>
+
 
           <div
             class="success-message"
@@ -1452,11 +2032,14 @@
             </h3>
 
             <p>
+
               شكرًا لاهتمامك بالانضمام إلى إضاءة.
               سيقوم فريقنا بمراجعة بياناتك والتواصل معك قريبًا.
+
             </p>
 
           </div>
+
 
         </div>
 
@@ -1467,11 +2050,17 @@
   </section>
 
 
-  <!-- التواصل -->
+  <!-- =========================
+       التواصل
+  ========================= -->
 
-  <section class="contact" id="contact">
+  <section
+    class="contact"
+    id="contact"
+  >
 
     <div class="container">
+
 
       <div class="section-title">
 
@@ -1480,18 +2069,28 @@
         </h2>
 
         <p>
-          إذا كان لديك استفسار أو ترغب في التعاون مع إضاءة، يسعدنا التواصل معك.
+
+          إذا كان لديك استفسار أو ترغب في التعاون
+          مع إضاءة، يسعدنا التواصل معك.
+
         </p>
 
       </div>
 
+
       <div class="contact-grid">
+
+
+        <!-- واتساب -->
 
         <div class="contact-card">
 
           <div class="contact-icon">
 
-            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              viewBox="0 0 48 48"
+              xmlns="http://www.w3.org/2000/svg"
+            >
 
               <circle
                 cx="24"
@@ -1528,6 +2127,8 @@
 
         </div>
 
+
+        <!-- تيك توك -->
 
         <div class="contact-card">
 
@@ -1574,6 +2175,8 @@
 
         </div>
 
+
+        <!-- البريد -->
 
         <div class="contact-card">
 
@@ -1639,6 +2242,7 @@
 
         </div>
 
+
       </div>
 
     </div>
@@ -1646,13 +2250,17 @@
   </section>
 
 
-  <!-- الفوتر -->
+  <!-- =========================
+       الفوتر
+  ========================= -->
 
   <footer>
 
     <div class="container">
 
+
       <div class="footer-content">
+
 
         <a
           href="#home"
@@ -1667,6 +2275,7 @@
           </p>
 
         </a>
+
 
         <div class="footer-links">
 
@@ -1692,9 +2301,12 @@
 
         </div>
 
+
       </div>
 
+
       <div class="copyright">
+
 
         <a
           href="#home"
@@ -1702,9 +2314,11 @@
           aria-label="العودة للرئيسية"
         ></a>
 
+
         <span>
           © 2026 إضاءة - جميع الحقوق محفوظة
         </span>
+
 
         <a
           href="https://wa.me/966507743653"
@@ -1735,6 +2349,7 @@
 
         </a>
 
+
       </div>
 
     </div>
@@ -1742,9 +2357,12 @@
   </footer>
 
 
-  <!-- JavaScript -->
+  <!-- =========================
+       JavaScript
+  ========================= -->
 
   <script>
+
 
     /* =========================
        نموذج الشركات
@@ -1759,11 +2377,13 @@
     const GOOGLE_SHEETS_URL =
       "https://script.google.com/macros/s/AKfycbwPPDymDZFUtdnbVwXGDWl_5ZH-w28MckkhmZnqjQvuXaSPfLebHaaVC2jk9vVRlmY/exec";
 
+
     companyForm.addEventListener(
       "submit",
       async function(event) {
 
         event.preventDefault();
+
 
         const formData = {
 
@@ -1790,13 +2410,17 @@
 
         };
 
+
         const submitButton =
           companyForm.querySelector(".form-submit");
 
+
         submitButton.disabled = true;
+
 
         submitButton.textContent =
           "جاري إرسال الطلب...";
+
 
         try {
 
@@ -1804,30 +2428,44 @@
             GOOGLE_SHEETS_URL,
             {
               method: "POST",
+
               mode: "no-cors",
+
               headers: {
                 "Content-Type":
                   "text/plain;charset=utf-8"
               },
-              body: JSON.stringify(formData)
+
+              body:
+                JSON.stringify(formData)
             }
           );
 
-          companyForm.style.display = "none";
 
-          successMessage.style.display = "block";
+          companyForm.style.display =
+            "none";
+
+
+          successMessage.style.display =
+            "block";
+
 
           successMessage.scrollIntoView({
             behavior: "smooth",
             block: "center"
           });
 
+
         } catch (error) {
 
-          submitButton.disabled = false;
+
+          submitButton.disabled =
+            false;
+
 
           submitButton.textContent =
             "إرسال طلب الانضمام";
+
 
           alert(
             "حدث خطأ أثناء إرسال الطلب، حاول مرة أخرى."
@@ -1840,80 +2478,175 @@
 
 
     /* =========================
-       عداد مجتمع إضاءة
+       مجتمعنا - العداد
     ========================= */
+
+    const statsSection =
+      document.querySelector(".live-stats");
 
     const counters =
       document.querySelectorAll(".live-stat-number");
 
-    const startCounters = () => {
+    let counterAnimationFrame = null;
 
-      counters.forEach((counter) => {
 
-        const target =
-          Number(counter.dataset.target);
+    /* إعادة الأرقام إلى صفر */
 
-        const duration = 900;
+    function resetCounters() {
 
-        const startTime =
-          performance.now();
+      counters.forEach(
+        (counter) => {
 
-        const updateCounter =
-          (currentTime) => {
+          counter.textContent =
+            "0+";
 
-            const progress =
-              Math.min(
-                (currentTime - startTime) / duration,
-                1
+        }
+      );
+
+    }
+
+
+    /* تشغيل العداد */
+
+    function startCounters() {
+
+
+      /* إلغاء أي حركة قديمة */
+
+      if (counterAnimationFrame) {
+
+        cancelAnimationFrame(
+          counterAnimationFrame
+        );
+
+      }
+
+
+      resetCounters();
+
+
+      const duration = 900;
+
+      const startTime =
+        performance.now();
+
+
+      function updateCounters(currentTime) {
+
+
+        const progress =
+          Math.min(
+            (currentTime - startTime) /
+              duration,
+            1
+          );
+
+
+        const easedProgress =
+          1 -
+          Math.pow(
+            1 - progress,
+            3
+          );
+
+
+        counters.forEach(
+          (counter) => {
+
+            const target =
+              Number(
+                counter.dataset.target
               );
 
-            const easedProgress =
-              1 - Math.pow(1 - progress, 3);
 
             const currentValue =
               Math.floor(
                 easedProgress * target
               );
 
+
             counter.textContent =
               currentValue + "+";
 
-            if (progress < 1) {
 
-              requestAnimationFrame(
-                updateCounter
-              );
-
-            } else {
+            if (progress >= 1) {
 
               counter.textContent =
                 target + "+";
 
             }
 
-          };
-
-        requestAnimationFrame(
-          updateCounter
+          }
         );
 
-      });
 
-    };
+        if (progress < 1) {
+
+          counterAnimationFrame =
+            requestAnimationFrame(
+              updateCounters
+            );
+
+        } else {
+
+          counterAnimationFrame =
+            null;
+
+        }
+
+      }
 
 
-    const statsSection =
-      document.querySelector(".live-stats");
+      counterAnimationFrame =
+        requestAnimationFrame(
+          updateCounters
+        );
+
+    }
+
+
+    /* =========================
+       مراقبة ظهور مجتمعنا
+    ========================= */
 
     const statsObserver =
       new IntersectionObserver(
-        (entries, observer) => {
+        (entries) => {
 
-          if (entries[0].isIntersecting) {
+
+          const entry =
+            entries[0];
+
+
+          if (entry.isIntersecting) {
+
+            /*
+              عند دخول القسم:
+              يبدأ العداد من 0
+            */
 
             startCounters();
 
-            observer.disconnect();
+          } else {
+
+            /*
+              عند الخروج من القسم:
+              يرجع العداد إلى 0
+              استعدادًا للمرة القادمة
+            */
+
+            if (counterAnimationFrame) {
+
+              cancelAnimationFrame(
+                counterAnimationFrame
+              );
+
+              counterAnimationFrame =
+                null;
+
+            }
+
+            resetCounters();
 
           }
 
@@ -1932,7 +2665,44 @@
 
     }
 
+
+    /* =========================
+       زر مجتمعنا في الهيدر
+    ========================= */
+
+    const statsNav =
+      document.getElementById("statsNav");
+
+
+    if (statsNav) {
+
+      statsNav.addEventListener(
+        "click",
+        function() {
+
+
+          /*
+            ننتظر قليلًا حتى يبدأ
+            النزول إلى القسم، ثم نعيد
+            تشغيل العداد من البداية.
+          */
+
+          setTimeout(
+            function() {
+
+              startCounters();
+
+            },
+            450
+          );
+
+        }
+      );
+
+    }
+
   </script>
+
 
 </body>
 </html>
